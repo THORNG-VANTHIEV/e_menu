@@ -1,0 +1,55 @@
+@page {
+  margin: 14mm;
+}
+
+body {
+  background: #fff !important;
+  color: #111 !important;
+  font-size: 11pt;
+}
+
+body > *:not(dialog) {
+  display: none !important;
+}
+
+dialog {
+  position: static !important;
+  display: none !important;
+  width: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#order-dialog[open] {
+  display: block !important;
+}
+
+#order-dialog .dialog-header,
+#order-dialog .dialog-footer,
+#order-dialog .not-sent-notice {
+  display: none !important;
+}
+
+#order-dialog .dialog-shell,
+#order-dialog .dialog-body {
+  display: block !important;
+  max-height: none !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+.order-summary {
+  color: #111 !important;
+}
+
+.summary-meta {
+  background: #f2f2f2 !important;
+}
+
+.summary-item,
+.cart-totals__grand {
+  border-color: #aaa !important;
+}

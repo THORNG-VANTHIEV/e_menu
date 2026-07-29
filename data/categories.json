@@ -1,0 +1,56 @@
+[
+  {
+    "id": "rice",
+    "slug": "rice",
+    "name": {"km": "បាយ", "en": "Rice"},
+    "icon": "bi-bowl-hot",
+    "image": "./assets/images/categories/rice.webp",
+    "sortOrder": 10,
+    "active": true
+  },
+  {
+    "id": "khmer-classics",
+    "slug": "khmer-classics",
+    "name": {"km": "ម្ហូបខ្មែរ", "en": "Khmer classics"},
+    "icon": "bi-fire",
+    "image": "./assets/images/menu/fish-amok.webp",
+    "sortOrder": 20,
+    "active": true
+  },
+  {
+    "id": "noodles",
+    "slug": "noodles",
+    "name": {"km": "គុយទាវ", "en": "Noodles"},
+    "icon": "bi-cup-hot",
+    "image": "./assets/images/categories/noodles.webp",
+    "sortOrder": 30,
+    "active": true
+  },
+  {
+    "id": "starters",
+    "slug": "starters",
+    "name": {"km": "សម្រន់", "en": "Small plates"},
+    "icon": "bi-flower1",
+    "image": "./assets/images/categories/starters.webp",
+    "sortOrder": 40,
+    "active": true
+  },
+  {
+    "id": "drinks",
+    "slug": "drinks",
+    "name": {"km": "ភេសជ្ជៈ", "en": "Drinks"},
+    "icon": "bi-cup-straw",
+    "image": "./assets/images/categories/drinks.webp",
+    "sortOrder": 50,
+    "active": true
+  },
+  {
+    "id": "desserts",
+    "slug": "desserts",
+    "name": {"km": "បង្អែម", "en": "Desserts"},
+    "icon": "bi-stars",
+    "image": "./assets/images/categories/desserts.webp",
+    "sortOrder": 60,
+    "active": true
+  }
+]

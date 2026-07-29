@@ -1,0 +1,19 @@
+[
+  {
+    "id": "five-percent-local",
+    "active": true,
+    "title": {
+      "km": "សន្សំ ៥% លើអាហាររបស់អ្នក",
+      "en": "Save 5% on your meal"
+    },
+    "description": {
+      "km": "ការបញ្ចុះតម្លៃត្រូវបានគណនាស្វ័យប្រវត្តិ នៅពេលកន្ត្រកមានតម្លៃចាប់ពី $10។",
+      "en": "The discount is calculated automatically when your cart reaches $10."
+    },
+    "label": {
+      "km": "អាហារថ្ងៃនេះ",
+      "en": "Today's treat"
+    },
+    "sortOrder": 10
+  }
+]

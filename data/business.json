@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mlou-kitchen",
+  "name": {
+    "km": "ផ្ទះបាយម្លូ",
+    "en": "M'lou Kitchen"
+  },
+  "tagline": {
+    "km": "ម្ហូបខ្មែរកក់ក្តៅ ចម្អិនថ្មីរាល់ថ្ងៃ",
+    "en": "Warm Cambodian food, cooked fresh every day"
+  },
+  "about": {
+    "km": "យើងចម្អិនម្ហូបខ្មែរដែលអ្នកស្គាល់ និងចូលចិត្ត ដោយប្រើគ្រឿងផ្សំក្នុងស្រុក និងរូបមន្តគ្រួសារ។ អង្គុយសម្រាក ញ៉ាំយឺតៗ ហើយទទួលអារម្មណ៍ដូចនៅផ្ទះ។",
+    "en": "We cook the Cambodian food you know and love with local ingredients and family recipes. Settle in, eat slowly and feel at home."
+  },
+  "logo": "./assets/images/business/logo.png",
+  "cover": "./assets/images/business/cover.webp",
+  "contact": {
+    "phone": "+85512345678",
+    "telegramUrl": "https://t.me/mloukitchen",
+    "messengerUrl": "",
+    "mapUrl": "https://maps.google.com/?q=Wat+Bo+Road+Siem+Reap"
+  },
+  "address": {
+    "km": "ផ្លូវវត្តបូព៌ ក្រុងសៀមរាប ប្រទេសកម្ពុជា",
+    "en": "Wat Bo Road, Siem Reap, Cambodia"
+  },
+  "openingHours": [
+    {"day": "monday", "closed": false, "open": "07:00", "close": "21:00"},
+    {"day": "tuesday", "closed": false, "open": "07:00", "close": "21:00"},
+    {"day": "wednesday", "closed": false, "open": "07:00", "close": "21:00"},
+    {"day": "thursday", "closed": false, "open": "07:00", "close": "21:00"},
+    {"day": "friday", "closed": false, "open": "07:00", "close": "22:00"},
+    {"day": "saturday", "closed": false, "open": "07:00", "close": "22:00"},
+    {"day": "sunday", "closed": false, "open": "07:00", "close": "21:00"}
+  ],
+  "currency": {
+    "default": "USD",
+    "displayMode": "dual",
+    "usdToKhr": 4100,
+    "khrRounding": 100
+  },
+  "features": {
+    "cart": true,
+    "favorites": true,
+    "darkMode": true,
+    "installPrompt": true
+  },
+  "order": {
+    "maxQuantityPerRow": 20,
+    "requireTableNumber": false,
+    "discountPercent": 5,
+    "discountMinimumUsd": 10
+  }
+}

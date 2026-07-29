@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Menu image unavailable</title>
+  <desc id="desc">A simple covered serving dish and leaf illustration.</desc>
+  <rect width="800" height="600" fill="#eee8dc"/>
+  <circle cx="400" cy="300" r="170" fill="#dfe8dd"/>
+  <path d="M294 347h212c-11 62-48 93-106 93s-95-31-106-93Z" fill="#174c3c"/>
+  <path d="M278 326c17-83 65-125 122-125s105 42 122 125H278Z" fill="#f6b84a"/>
+  <circle cx="400" cy="184" r="23" fill="#174c3c"/>
+  <path d="M260 427c75-28 115-92 122-192-86 44-127 108-122 192Z" fill="#5b8d68"/>
+</svg>

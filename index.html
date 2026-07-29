@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="km" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174c3c">
+  <meta name="description" content="Explore M'lou Kitchen's Cambodian food and drinks in Khmer or English. Save favorites and prepare an order summary, even offline.">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="M'lou Kitchen — Cambodian E-Menu">
+  <meta property="og:description" content="Fresh Cambodian comfort food, drinks and desserts. Browse in Khmer or English.">
+  <meta property="og:image" content="./assets/images/business/og-cover.webp">
+  <title>M'lou Kitchen — E-Menu</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/images/icons/icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="./assets/images/icons/icon-192.png">
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="./assets/css/variables.css">
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <link rel="stylesheet" href="./assets/css/layout.css">
+  <link rel="stylesheet" href="./assets/css/components.css">
+  <link rel="stylesheet" href="./assets/css/utilities.css">
+  <link rel="stylesheet" href="./assets/css/print.css" media="print">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "M'lou Kitchen",
+      "servesCuisine": "Cambodian",
+      "priceRange": "$$",
+      "image": "./assets/images/business/og-cover.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Wat Bo Road",
+        "addressLocality": "Siem Reap",
+        "addressCountry": "KH"
+      }
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content" data-i18n="skipToContent">រំលងទៅមាតិកា</a>
+
+  <div id="offline-banner" class="status-banner status-banner--offline" role="status" hidden>
+    <i class="bi bi-wifi-off" aria-hidden="true"></i>
+    <span data-i18n="offlineMessage">អ្នកកំពុងប្រើទិន្នន័យដែលបានរក្សាទុក</span>
+  </div>
+
+  <div id="update-banner" class="status-banner status-banner--update" role="status" hidden>
+    <span><i class="bi bi-arrow-repeat" aria-hidden="true"></i> <span data-i18n="updateReady">មានមីនុយកំណែថ្មី</span></span>
+    <button id="update-app-button" class="btn btn-sm btn-light" type="button" data-i18n="refresh">ធ្វើបច្ចុប្បន្នភាព</button>
+  </div>
+
+  <header class="app-header">
+    <div class="app-container app-header__inner">
+      <a class="brand" href="#home" aria-label="M'lou Kitchen home">
+        <img id="header-logo" class="brand__logo" src="./assets/images/business/logo.png" width="44" height="44" alt="">
+        <span class="brand__copy">
+          <strong id="header-business-name">M'lou Kitchen</strong>
+          <small id="network-label" data-i18n="online">អនឡាញ</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#home" data-i18n="home">ទំព័រដើម</a>
+        <a href="#menu" data-i18n="menu">មីនុយ</a>
+        <a href="#about" data-i18n="about">អំពីហាង</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="language-button" class="icon-button language-button" type="button" aria-label="Switch language" title="Switch language">
+          <span aria-hidden="true">EN</span>
+        </button>
+        <button id="theme-button" class="icon-button" type="button" aria-label="Change theme" title="Change theme">
+          <i class="bi bi-moon-stars" aria-hidden="true"></i>
+        </button>
+        <button id="settings-button" class="icon-button desktop-only" type="button" aria-label="Open settings" title="Settings">
+          <i class="bi bi-sliders" aria-hidden="true"></i>
+        </button>
+        <button class="icon-button cart-trigger" type="button" data-open-cart aria-label="Open cart" title="Cart">
+          <i class="bi bi-bag" aria-hidden="true"></i>
+          <span class="count-badge" data-cart-count hidden>0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <img id="hero-image" class="hero__image" src="./assets/images/business/cover.webp" width="1600" height="1067" alt="" fetchpriority="high">
+      <div class="hero__scrim"></div>
+      <div class="app-container hero__content">
+        <p class="eyebrow" data-i18n="welcome">សូមស្វាគមន៍មកកាន់</p>
+        <h1 id="hero-title">ផ្ទះបាយម្លូ</h1>
+        <p id="hero-tagline" class="hero__tagline">ម្ហូបខ្មែរកក់ក្តៅ ចម្អិនថ្មីរាល់ថ្ងៃ</p>
+        <div class="hero__meta">
+          <span id="business-status" class="open-status"><span class="open-status__dot"></span><span>បើក</span></span>
+          <span id="today-hours"><i class="bi bi-clock" aria-hidden="true"></i> 07:00 – 21:00</span>
+        </div>
+        <a class="btn btn-warning hero__cta" href="#menu">
+          <span data-i18n="browseMenu">មើលមីនុយ</span>
+          <i class="bi bi-arrow-down" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+
+    <section id="promotion-section" class="app-container promotion-section" aria-label="Promotions" hidden>
+      <div id="promotion-list" class="promotion-list"></div>
+    </section>
+
+    <section id="menu" class="menu-section" aria-labelledby="menu-heading">
+      <div class="menu-toolbar">
+        <div class="app-container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow text-primary" data-i18n="ourMenu">មីនុយរបស់យើង</p>
+              <h2 id="menu-heading" data-i18n="findFavorite">ស្វែងរករសជាតិដែលអ្នកចូលចិត្ត</h2>
+            </div>
+            <p id="result-count" class="result-count" aria-live="polite"></p>
+          </div>
+
+          <div class="search-row">
+            <label class="search-box" for="search-input">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <span class="visually-hidden" data-i18n="searchLabel">ស្វែងរកមុខម្ហូប</span>
+              <input id="search-input" type="search" autocomplete="off" data-i18n-placeholder="searchPlaceholder" placeholder="ស្វែងរកមុខម្ហូប...">
+              <button id="clear-search-button" class="search-box__clear" type="button" aria-label="Clear search" title="Clear search" hidden>
+                <i class="bi bi-x-circle-fill" aria-hidden="true"></i>
+              </button>
+            </label>
+            <button id="filter-button" class="btn btn-outline-secondary filter-button" type="button">
+              <i class="bi bi-tune" aria-hidden="true"></i>
+              <span data-i18n="filters">តម្រង</span>
+              <span id="filter-count" class="filter-count" hidden>0</span>
+            </button>
+            <label class="sort-control">
+              <span class="visually-hidden" data-i18n="sortBy">តម្រៀបតាម</span>
+              <select id="sort-select" class="form-select" aria-label="Sort menu">
+                <option value="default" data-i18n="sortDefault">ណែនាំ</option>
+                <option value="price-asc" data-i18n="priceLow">តម្លៃទាបបំផុត</option>
+                <option value="price-desc" data-i18n="priceHigh">តម្លៃខ្ពស់បំផុត</option>
+                <option value="name" data-i18n="nameAZ">ឈ្មោះ ក–អ</option>
+              </select>
+            </label>
+          </div>
+
+          <div id="category-chips" class="category-chips" role="list" aria-label="Menu categories"></div>
+        </div>
+      </div>
+
+      <div class="app-container menu-content">
+        <div id="active-filters" class="active-filters" aria-label="Active filters" hidden>
+          <div id="active-filter-list"></div>
+          <button id="clear-filters-button" class="btn btn-link btn-sm" type="button" data-i18n="clearAll">សម្អាតទាំងអស់</button>
+        </div>
+
+        <div id="menu-loading" class="menu-grid" aria-label="Loading menu">
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+        </div>
+
+        <div id="menu-grid" class="menu-grid" aria-live="polite" hidden></div>
+
+        <div id="empty-state" class="state-card" hidden>
+          <span class="state-card__icon"><i class="bi bi-search" aria-hidden="true"></i></span>
+          <h3 data-i18n="noResultsTitle">រកមិនឃើញមុខម្ហូប</h3>
+          <p data-i18n="noResultsBody">សាកល្បងពាក្យផ្សេង ឬសម្អាតតម្រង។</p>
+          <button class="btn btn-primary" type="button" data-reset-filters data-i18n="resetFilters">កំណត់តម្រងឡើងវិញ</button>
+        </div>
+
+        <div id="error-state" class="state-card state-card--error" hidden>
+          <span class="state-card__icon"><i class="bi bi-exclamation-triangle" aria-hidden="true"></i></span>
+          <h3 data-i18n="loadErrorTitle">មិនអាចបើកមីនុយបាន</h3>
+          <p id="error-message" data-i18n="loadErrorBody">សូមពិនិត្យអ៊ីនធឺណិត ហើយសាកល្បងម្តងទៀត។</p>
+          <button id="retry-button" class="btn btn-primary" type="button" data-i18n="retry">សាកល្បងម្តងទៀត</button>
+        </div>
+
+        <button id="load-more-button" class="btn btn-outline-primary load-more" type="button" hidden data-i18n="loadMore">បង្ហាញបន្ថែម</button>
+      </div>
+    </section>
+
+    <section id="about" class="about-section" aria-labelledby="about-heading">
+      <div class="app-container about-grid">
+        <div>
+          <p class="eyebrow text-primary" data-i18n="visitUs">មកលេងយើង</p>
+          <h2 id="about-heading" data-i18n="madeWithCare">ម្ហូបខ្មែរ ធ្វើដោយយកចិត្តទុកដាក់</h2>
+          <p id="about-copy" class="about-copy"></p>
+          <div id="contact-actions" class="contact-actions"></div>
+        </div>
+        <div class="hours-card">
+          <div class="hours-card__heading">
+            <span class="hours-card__icon"><i class="bi bi-clock" aria-hidden="true"></i></span>
+            <div>
+              <h3 data-i18n="openingHours">ម៉ោងបើក</h3>
+              <p id="business-address"></p>
+            </div>
+          </div>
+          <dl id="hours-list" class="hours-list"></dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="app-container footer-inner">
+      <div class="footer-brand">
+        <img src="./assets/images/business/logo.png" width="48" height="48" alt="">
+        <div><strong id="footer-business-name">M'lou Kitchen</strong><small data-i18n="footerTagline">រសជាតិក្នុងស្រុក ការស្វាគមន៍ដោយចិត្ត</small></div>
+      </div>
+      <p><span data-i18n="localOnlyPrivacy">កន្ត្រក និងចំណាំត្រូវបានរក្សាទុកតែលើឧបករណ៍នេះ។</span><br><span>© <span id="current-year"></span> M'lou Kitchen</span></p>
+    </div>
+  </footer>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#home" class="mobile-nav__item active" data-nav="home"><i class="bi bi-house" aria-hidden="true"></i><span data-i18n="home">ទំព័រដើម</span></a>
+    <a href="#menu" class="mobile-nav__item" data-nav="menu"><i class="bi bi-grid" aria-hidden="true"></i><span data-i18n="menu">មីនុយ</span></a>
+    <button type="button" class="mobile-nav__item" data-show-favorites><i class="bi bi-heart" aria-hidden="true"></i><span data-i18n="favorites">ចូលចិត្ត</span></button>
+    <button type="button" class="mobile-nav__item" data-open-cart><span class="mobile-nav__icon-wrap"><i class="bi bi-bag" aria-hidden="true"></i><span class="count-badge" data-cart-count hidden>0</span></span><span data-i18n="cart">កន្ត្រក</span></button>
+  </nav>
+
+  <dialog id="filter-dialog" class="app-dialog app-dialog--small" aria-labelledby="filter-title">
+    <form method="dialog" class="dialog-shell">
+      <header class="dialog-header">
+        <div><p class="eyebrow text-primary" data-i18n="refineMenu">សម្រួលមីនុយ</p><h2 id="filter-title" data-i18n="filters">តម្រង</h2></div>
+        <button class="icon-button" value="cancel" aria-label="Close filters" title="Close"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+      </header>
+      <div class="dialog-body">
+        <fieldset class="filter-group">
+          <legend data-i18n="availability">ស្ថានភាព</legend>
+          <label class="check-row"><input id="available-filter" type="checkbox"><span><strong data-i18n="availableNow">មានលក់ឥឡូវ</strong><small data-i18n="hideUnavailable">លាក់មុខម្ហូបដែលអស់</small></span></label>
+          <label class="check-row"><input id="recommended-filter" type="checkbox"><span><strong data-i18n="recommended">ណែនាំ</strong><small data-i18n="chefPicks">ជម្រើសរបស់ចុងភៅ</small></span></label>
+        </fieldset>
+        <fieldset class="filter-group">
+          <legend data-i18n="dietary">ប្រភេទអាហារ</legend>
+          <label class="check-row check-row--compact"><input type="checkbox" name="dietary" value="vegetarian"><span data-i18n="vegetarian">បួស</span></label>
+          <label class="check-row check-row--compact"><input type="checkbox" name="dietary" value="halal"><span data-i18n="halal">ហាឡាល់</span></label>
+        </fieldset>
+        <fieldset class="filter-group">
+          <legend data-i18n="spicyLevel">កម្រិតហឹរ</legend>
+          <div class="spicy-options">
+            <label><input type="checkbox" name="spicy" value="0"><span data-i18n="notSpicy">មិនហឹរ</span></label>
+            <label><input type="checkbox" name="spicy" value="1"><span>🌶</span></label>
+            <label><input type="checkbox" name="spicy" value="2"><span>🌶🌶</span></label>
+            <label><input type="checkbox" name="spicy" value="3"><span>🌶🌶🌶</span></label>
+          </div>
+        </fieldset>
+      </div>
+      <footer class="dialog-footer">
+        <button id="dialog-clear-filters" class="btn btn-outline-secondary" type="button" data-i18n="clearAll">សម្អាតទាំងអស់</button>
+        <button id="apply-filters-button" class="btn btn-primary" value="apply" data-i18n="showResults">បង្ហាញលទ្ធផល</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog id="detail-dialog" class="app-dialog app-dialog--detail" aria-labelledby="detail-title">
+    <div id="detail-content" class="dialog-shell"></div>
+  </dialog>
+
+  <dialog id="cart-dialog" class="app-dialog app-dialog--cart" aria-labelledby="cart-title">
+    <div class="dialog-shell">
+      <header class="dialog-header">
+        <div><p class="eyebrow text-primary" data-i18n="yourSelection">ជម្រើសរបស់អ្នក</p><h2 id="cart-title" data-i18n="yourCart">កន្ត្រករបស់អ្នក</h2></div>
+        <button class="icon-button" type="button" data-close-dialog aria-label="Close cart" title="Close"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+      </header>
+      <div id="cart-content" class="dialog-body cart-body"></div>
+      <footer id="cart-footer" class="dialog-footer cart-footer" hidden></footer>
+    </div>
+  </dialog>
+
+  <dialog id="order-dialog" class="app-dialog app-dialog--summary" aria-labelledby="order-title">
+    <div class="dialog-shell">
+      <header class="dialog-header">
+        <div><p class="eyebrow text-primary" data-i18n="readyToShow">រួចរាល់សម្រាប់បង្ហាញ</p><h2 id="order-title" data-i18n="orderSummary">សេចក្តីសង្ខេបការកម្ម៉ង់</h2></div>
+        <button class="icon-button" type="button" data-close-dialog aria-label="Close summary" title="Close"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+      </header>
+      <div class="dialog-body">
+        <div id="order-summary-print" class="order-summary"></div>
+        <div class="not-sent-notice"><i class="bi bi-info-circle" aria-hidden="true"></i><span data-i18n="notSentNotice">ការកម្ម៉ង់នេះមិនទាន់បានផ្ញើទៅហាងទេ។ សូមបង្ហាញសេចក្តីសង្ខេបនេះដល់បុគ្គលិក។</span></div>
+      </div>
+      <footer class="dialog-footer order-actions">
+        <button id="copy-summary-button" class="btn btn-primary" type="button"><i class="bi bi-copy" aria-hidden="true"></i><span data-i18n="copy">ចម្លង</span></button>
+        <button id="share-summary-button" class="btn btn-outline-primary" type="button" hidden><i class="bi bi-share" aria-hidden="true"></i><span data-i18n="share">ចែករំលែក</span></button>
+        <button id="print-summary-button" class="btn btn-outline-secondary" type="button"><i class="bi bi-printer" aria-hidden="true"></i><span data-i18n="print">បោះពុម្ព</span></button>
+      </footer>
+    </div>
+  </dialog>
+
+  <dialog id="settings-dialog" class="app-dialog app-dialog--small" aria-labelledby="settings-title">
+    <div class="dialog-shell">
+      <header class="dialog-header">
+        <div><p class="eyebrow text-primary" data-i18n="preferences">ចំណូលចិត្ត</p><h2 id="settings-title" data-i18n="settings">ការកំណត់</h2></div>
+        <button class="icon-button" type="button" data-close-dialog aria-label="Close settings" title="Close"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+      </header>
+      <div class="dialog-body settings-list">
+        <fieldset>
+          <legend data-i18n="language">ភាសា</legend>
+          <div class="segmented-control">
+            <label><input type="radio" name="language" value="km"><span>ខ្មែរ</span></label>
+            <label><input type="radio" name="language" value="en"><span>English</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="currency">រូបិយប័ណ្ណ</legend>
+          <div class="segmented-control segmented-control--three">
+            <label><input type="radio" name="currency" value="USD"><span>USD</span></label>
+            <label><input type="radio" name="currency" value="KHR"><span>KHR</span></label>
+            <label><input type="radio" name="currency" value="dual"><span data-i18n="both">ទាំងពីរ</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="appearance">រូបរាង</legend>
+          <div class="theme-options">
+            <label><input type="radio" name="theme" value="light"><span><i class="bi bi-sun" aria-hidden="true"></i><span data-i18n="light">ភ្លឺ</span></span></label>
+            <label><input type="radio" name="theme" value="dark"><span><i class="bi bi-moon-stars" aria-hidden="true"></i><span data-i18n="dark">ងងឹត</span></span></label>
+            <label><input type="radio" name="theme" value="system"><span><i class="bi bi-display" aria-hidden="true"></i><span data-i18n="system">តាមប្រព័ន្ធ</span></span></label>
+          </div>
+        </fieldset>
+        <div class="qr-card">
+          <div id="menu-qr-code" class="qr-card__code" aria-hidden="true"></div>
+          <div><strong data-i18n="scanToShare">ស្កេនដើម្បីចែករំលែកមីនុយ</strong><small data-i18n="qrUpdatesOnDeploy">QR នេះប្រើអាសយដ្ឋានបច្ចុប្បន្ន ហើយត្រឹមត្រូវដោយស្វ័យប្រវត្តិនៅពេលដាក់ផ្សាយ។</small></div>
+        </div>
+        <button id="install-button" class="settings-action" type="button" hidden><span><i class="bi bi-download" aria-hidden="true"></i><span data-i18n="installApp">ដំឡើងកម្មវិធី</span></span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+        <button id="clear-favorites-settings" class="settings-action" type="button"><span><i class="bi bi-heart" aria-hidden="true"></i><span data-i18n="clearFavorites">សម្អាតចំណូលចិត្ត</span></span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+        <button id="clear-cart-settings" class="settings-action settings-action--danger" type="button"><span><i class="bi bi-trash3" aria-hidden="true"></i><span data-i18n="clearCart">សម្អាតកន្ត្រក</span></span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="confirm-dialog" class="app-dialog app-dialog--confirm" aria-labelledby="confirm-title">
+    <form method="dialog" class="dialog-shell">
+      <div class="dialog-body confirm-body">
+        <span class="state-card__icon state-card__icon--warning"><i class="bi bi-exclamation-lg" aria-hidden="true"></i></span>
+        <h2 id="confirm-title" data-i18n="areYouSure">តើអ្នកប្រាកដទេ?</h2>
+        <p id="confirm-message"></p>
+      </div>
+      <footer class="dialog-footer">
+        <button class="btn btn-outline-secondary" value="cancel" data-i18n="cancel">បោះបង់</button>
+        <button id="confirm-action-button" class="btn btn-danger" value="confirm" data-i18n="confirm">បញ្ជាក់</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <div id="live-region" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+  <noscript>
+    <div class="noscript-message">
+      <h2>M'lou Kitchen</h2>
+      <p>This menu needs JavaScript to load its local menu data. Please enable JavaScript and reload.</p>
+    </div>
+  </noscript>
+
+  <script src="./assets/vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+  <script src="./assets/vendor/qrcode/qrcode.min.js" defer></script>
+  <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>
