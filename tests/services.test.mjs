@@ -9,6 +9,7 @@ import {
   unitPriceCents
 } from "../assets/js/features/cart/cart-service.js";
 import {centsToKhr, formatPrice, roundTo, toCents} from "../assets/js/shared/currency.js";
+import {DEFAULT_THEME, getThemeToggleTarget} from "../assets/js/features/settings/settings-service.js";
 
 const item = {
   id: "beef-lok-lak",
@@ -94,4 +95,13 @@ test("quantity is clamped and discounts use integer cents", () => {
   assert.equal(totals.subtotalCents, 13000);
   assert.equal(totals.discountCents, 650);
   assert.equal(totals.totalCents, 12350);
+});
+
+test("header theme shortcut changes dark to light and light to dark in one action", () => {
+  assert.equal(getThemeToggleTarget("dark"), "light");
+  assert.equal(getThemeToggleTarget("light"), "dark");
+});
+
+test("dark is the first-visit default theme", () => {
+  assert.equal(DEFAULT_THEME, "dark");
 });

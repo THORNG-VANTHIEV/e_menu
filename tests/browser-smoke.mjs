@@ -110,6 +110,9 @@ await send("Emulation.setDeviceMetricsOverride", {
   deviceScaleFactor: 1,
   mobile: true
 });
+await send("Emulation.setEmulatedMedia", {
+  features: [{name: "prefers-color-scheme", value: "dark"}]
+});
 await navigate(appUrl);
 await evaluate(`Promise.all([
   navigator.serviceWorker.getRegistrations().then((registrations) => Promise.all(registrations.map((registration) => registration.unregister()))),
@@ -130,7 +133,9 @@ const initial = await evaluate(`({
   errorHidden: document.querySelector("#error-state").hidden,
   loadingHidden: document.querySelector("#menu-loading").hidden,
   overflow: document.documentElement.scrollWidth - window.innerWidth,
-  qrReady: Boolean(document.querySelector("#menu-qr-code canvas, #menu-qr-code img"))
+  qrReady: Boolean(document.querySelector("#menu-qr-code canvas, #menu-qr-code img")),
+  theme: document.documentElement.dataset.theme,
+  themePreference: document.querySelector('input[name="theme"]:checked')?.value
 })`);
 assert.equal(initial.cards, 8, "all sample dishes should render");
 assert.equal(initial.lang, "km", "Khmer should be the first-visit language");
@@ -138,9 +143,27 @@ assert.equal(initial.errorHidden, true, "the data error state should stay hidden
 assert.equal(initial.loadingHidden, true, "the loading state should complete");
 assert.ok(initial.overflow <= 0, `390px layout overflowed by ${initial.overflow}px`);
 assert.equal(initial.qrReady, true, "the deployment-aware menu QR code should render");
+assert.equal(initial.theme, "dark", "dark should be rendered on the first visit");
+assert.equal(initial.themePreference, "dark", "Settings should select dark on the first visit");
 if (process.env.CAPTURE_SCREENSHOTS === "1") {
   await captureScreenshot("/private/tmp/e-menu-cdp-390.png");
 }
+
+await evaluate(`document.querySelector("#theme-button").click()`);
+await delay(100);
+const firstTheme = await evaluate(`({
+  rendered: document.documentElement.dataset.theme,
+  stored: localStorage.getItem("emenu:v1:theme")
+})`);
+assert.equal(firstTheme.rendered, "light", "one click from rendered dark mode should switch to light");
+assert.equal(firstTheme.stored, "light", "the explicit light preference should be stored");
+await evaluate(`document.querySelector("#theme-button").click()`);
+await delay(100);
+assert.equal(
+  await evaluate(`document.documentElement.dataset.theme`),
+  "dark",
+  "one click from light mode should switch back to dark"
+);
 
 await evaluate(`document.querySelector("[data-open-item]").click()`);
 await delay(100);

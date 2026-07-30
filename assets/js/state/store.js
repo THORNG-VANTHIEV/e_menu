@@ -7,7 +7,7 @@ export function createStore(initialState = {}) {
     menuItems: [],
     promotions: [],
     filters: {...DEFAULT_FILTERS},
-    settings: {language: "km", currency: "dual", theme: "system"},
+    settings: {language: "km", currency: "dual", theme: "dark"},
     favorites: [],
     cart: {schemaVersion: 1, rows: [], table: "", note: ""},
     network: {online: navigator.onLine},

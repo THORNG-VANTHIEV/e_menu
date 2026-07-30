@@ -28,7 +28,13 @@ import {
 } from "./features/cart/cart-service.js";
 import {buildOrderSummary, renderCart} from "./features/cart/cart-view.js";
 import {clearFavorites, loadFavorites, toggleFavorite} from "./features/favorites/favorites-service.js";
-import {applyTheme, loadSettings, persistSetting} from "./features/settings/settings-service.js";
+import {
+  applyTheme,
+  getThemeToggleTarget,
+  loadSettings,
+  persistSetting,
+  resolveTheme
+} from "./features/settings/settings-service.js";
 import {activateWaitingWorker, registerServiceWorker, setupInstallPrompt} from "./pwa/pwa-manager.js";
 
 const dom = {
@@ -187,7 +193,11 @@ function renderBusiness(state) {
   const languageButton = document.querySelector("#language-button");
   languageButton.querySelector("span").textContent = settings.language === "km" ? "EN" : "ខ្មែរ";
   const resolvedTheme = applyTheme(settings.theme);
-  document.querySelector("#theme-button i").className = `bi ${resolvedTheme === "dark" ? "bi-sun" : "bi-moon-stars"}`;
+  const themeButton = document.querySelector("#theme-button");
+  const targetTheme = getThemeToggleTarget(resolvedTheme);
+  themeButton.querySelector("i").className = `bi ${targetTheme === "light" ? "bi-sun" : "bi-moon-stars"}`;
+  themeButton.setAttribute("aria-label", i18n.t(targetTheme === "light" ? "switchToLight" : "switchToDark"));
+  themeButton.setAttribute("title", i18n.t(targetTheme === "light" ? "switchToLight" : "switchToDark"));
 }
 
 function renderPromotions(state) {
@@ -702,9 +712,8 @@ function attachEvents() {
     updateState((state) => ({...state, settings: {...state.settings, language}}), "language");
   });
   document.querySelector("#theme-button").addEventListener("click", () => {
-    const current = store.getState().settings.theme;
-    const order = ["light", "dark", "system"];
-    const theme = order[(order.indexOf(current) + 1) % order.length];
+    const currentPreference = store.getState().settings.theme;
+    const theme = getThemeToggleTarget(resolveTheme(currentPreference));
     persistSetting("theme", theme);
     updateState((state) => ({...state, settings: {...state.settings, theme}}), "theme");
   });

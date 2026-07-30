@@ -1,10 +1,12 @@
 import {STORAGE_KEYS} from "../../config.js";
 import {readString, writeString} from "../../shared/storage.js";
 
+export const DEFAULT_THEME = "dark";
+
 export function loadSettings(business) {
   return {
     language: readString(STORAGE_KEYS.language, ["km", "en"], "km"),
-    theme: readString(STORAGE_KEYS.theme, ["light", "dark", "system"], "system"),
+    theme: readString(STORAGE_KEYS.theme, ["light", "dark", "system"], DEFAULT_THEME),
     currency: readString(
       STORAGE_KEYS.currency,
       ["USD", "KHR", "dual"],
@@ -16,6 +18,14 @@ export function loadSettings(business) {
 export function resolveTheme(preference) {
   if (preference !== "system") return preference;
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+/**
+ * Return the explicit opposite of the theme currently visible to the user.
+ * The header icon is a two-state shortcut; "system" remains available in Settings.
+ */
+export function getThemeToggleTarget(resolvedTheme) {
+  return resolvedTheme === "dark" ? "light" : "dark";
 }
 
 export function applyTheme(preference) {

@@ -141,7 +141,9 @@
     "noAllergens": "មិនបានរាយការណ៍",
     "promotion": "ប្រូម៉ូសិន",
     "scanToShare": "ស្កេនដើម្បីចែករំលែកមីនុយ",
-    "qrUpdatesOnDeploy": "QR នេះប្រើអាសយដ្ឋានបច្ចុប្បន្ន ហើយត្រឹមត្រូវដោយស្វ័យប្រវត្តិនៅពេលដាក់ផ្សាយ។"
+    "qrUpdatesOnDeploy": "QR នេះប្រើអាសយដ្ឋានបច្ចុប្បន្ន ហើយត្រឹមត្រូវដោយស្វ័យប្រវត្តិនៅពេលដាក់ផ្សាយ។",
+    "switchToLight": "ប្តូរទៅរូបរាងភ្លឺ",
+    "switchToDark": "ប្តូរទៅរូបរាងងងឹត"
   },
   "en": {
     "skipToContent": "Skip to content",
@@ -285,6 +287,8 @@
     "noAllergens": "None reported",
     "promotion": "Promotion",
     "scanToShare": "Scan to share this menu",
-    "qrUpdatesOnDeploy": "This QR uses the current address and becomes deployment-ready automatically."
+    "qrUpdatesOnDeploy": "This QR uses the current address and becomes deployment-ready automatically.",
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme"
   }
 }
