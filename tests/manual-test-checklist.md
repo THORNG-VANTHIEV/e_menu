@@ -51,5 +51,6 @@ Run the site through `npm run serve`; do not open `index.html` with `file://`.
 - Confirm the hero background advances automatically every 10 seconds.
 - Swipe left and right on touch screens to change the cover.
 - Hold and drag left and right with a mouse to change the cover.
+- Swipe repeatedly before the transition finishes and confirm the hero never becomes blank.
 - Confirm the business name, tagline, status, hours, and menu button remain fixed.
 - Confirm the navigation dots select the expected cover.

@@ -100,8 +100,15 @@ export function createHeroSlider({
     autoTimer = window.setTimeout(() => advance(1), intervalMs);
   }
 
+  function normalizeBeforeAdvance() {
+    if (trackPosition > 0 && trackPosition < total + 1) return;
+    trackPosition = currentIndex + 1;
+    renderTrack(false);
+  }
+
   function advance(direction) {
     if (total < 2) return;
+    normalizeBeforeAdvance();
     currentIndex = wrapIndex(currentIndex + direction, total);
     trackPosition += direction;
     renderTrack(true);

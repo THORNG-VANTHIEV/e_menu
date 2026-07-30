@@ -186,6 +186,42 @@ assert.equal(
 );
 await swipeHero(90, 340, 42, "mouse");
 assert.equal(await evaluate(`document.querySelector("#home").dataset.heroIndex`), "0", "mouse-dragging right should show the previous cover");
+
+async function rapidlySwipeHero(fromX, toX, count, firstPointerId) {
+  await evaluate(`(() => {
+    const hero = document.querySelector("#home");
+    for (let index = 0; index < ${count}; index += 1) {
+      const pointerOptions = {
+        bubbles: true,
+        cancelable: true,
+        pointerId: ${firstPointerId} + index,
+        pointerType: "touch",
+        isPrimary: true,
+        button: 0
+      };
+      hero.dispatchEvent(new PointerEvent("pointerdown", {...pointerOptions, clientX: ${fromX}}));
+      hero.dispatchEvent(new PointerEvent("pointermove", {...pointerOptions, clientX: ${toX}}));
+      hero.dispatchEvent(new PointerEvent("pointerup", {...pointerOptions, clientX: ${toX}}));
+    }
+  })()`);
+  await delay(750);
+  return evaluate(`({
+    index: document.querySelector("#home").dataset.heroIndex,
+    visibleSlides: [...document.querySelector("#hero-track").children].filter((slide) => {
+      const rect = slide.getBoundingClientRect();
+      return rect.right > 0 && rect.left < window.innerWidth;
+    }).length,
+    transform: document.querySelector("#hero-track").style.transform
+  })`);
+}
+
+const rapidLeft = await rapidlySwipeHero(340, 70, 7, 100);
+assert.equal(rapidLeft.index, "1", "seven rapid left swipes should wrap to the second cover");
+assert.ok(rapidLeft.visibleSlides > 0, `rapid left swipes left the hero blank at ${rapidLeft.transform}`);
+const rapidRight = await rapidlySwipeHero(70, 340, 8, 200);
+assert.equal(rapidRight.index, "2", "eight rapid right swipes should wrap to the third cover");
+assert.ok(rapidRight.visibleSlides > 0, `rapid right swipes left the hero blank at ${rapidRight.transform}`);
+
 await evaluate(`document.querySelector('[data-hero-dot="0"]').click()`);
 await delay(10_200);
 assert.equal(
