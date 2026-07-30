@@ -28,6 +28,7 @@ import {
 } from "./features/cart/cart-service.js";
 import {buildOrderSummary, renderCart} from "./features/cart/cart-view.js";
 import {clearFavorites, loadFavorites, toggleFavorite} from "./features/favorites/favorites-service.js";
+import {createHeroSlider} from "./features/hero/hero-slider.js";
 import {
   applyTheme,
   getThemeToggleTarget,
@@ -73,7 +74,11 @@ const dom = {
   promotionSection: document.querySelector("#promotion-section"),
   promotionList: document.querySelector("#promotion-list"),
   contactActions: document.querySelector("#contact-actions"),
-  hoursList: document.querySelector("#hours-list")
+  hoursList: document.querySelector("#hours-list"),
+  hero: document.querySelector("#home"),
+  heroSlider: document.querySelector("#hero-slider"),
+  heroTrack: document.querySelector("#hero-track"),
+  heroPagination: document.querySelector("#hero-pagination")
 };
 
 const dayKeys = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
@@ -83,6 +88,8 @@ let currentDetailId = "";
 let detailQuantity = 1;
 let currentSummaryText = "";
 let pendingConfirmAction = null;
+let heroSliderController = null;
+let heroSlideSignature = "";
 
 function showToast(message, iconName = "bi-check-circle") {
   const toast = element("div", {className: "app-toast"});
@@ -117,6 +124,28 @@ function getOpenStatus(business, date = new Date()) {
   };
 }
 
+function syncHeroSlider(business) {
+  const images = Array.isArray(business.heroSlides) && business.heroSlides.length
+    ? business.heroSlides
+    : [business.cover];
+  const signature = images.join("|");
+  if (signature !== heroSlideSignature) {
+    heroSliderController?.destroy();
+    heroSliderController = createHeroSlider({
+      root: dom.hero,
+      slider: dom.heroSlider,
+      track: dom.heroTrack,
+      pagination: dom.heroPagination,
+      images,
+      intervalMs: business.heroSlideIntervalMs,
+      getSlideshowLabel: () => i18n.t("heroSlideshow"),
+      getSlideLabel: (number) => i18n.t("showSlide", {number})
+    });
+    heroSlideSignature = signature;
+  }
+  heroSliderController?.refreshLabels();
+}
+
 function renderBusiness(state) {
   const {business, settings, network} = state;
   const name = i18n.localize(business.name);
@@ -129,7 +158,7 @@ function renderBusiness(state) {
   document.querySelector("#about-copy").textContent = i18n.localize(business.about);
   document.querySelector("#business-address").textContent = i18n.localize(business.address);
   document.querySelector("#header-logo").src = business.logo;
-  document.querySelector("#hero-image").src = business.cover;
+  syncHeroSlider(business);
 
   const {open, record} = getOpenStatus(business);
   const status = document.querySelector("#business-status");

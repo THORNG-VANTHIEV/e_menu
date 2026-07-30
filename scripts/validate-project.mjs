@@ -36,7 +36,8 @@ for (const item of menuItems) {
   }
 }
 
-for (const path of [business.logo, business.cover, ...manifest.icons.map((icon) => icon.src)]) {
+const heroSlides = Array.isArray(business.heroSlides) ? business.heroSlides : [business.cover];
+for (const path of [...new Set([business.logo, business.cover, ...heroSlides, ...manifest.icons.map((icon) => icon.src)])]) {
   if (!existsSync(resolve(root, path.replace(/^\.\//, "")))) errors.push(`Missing asset: ${path}`);
 }
 

@@ -111,7 +111,10 @@ await send("Emulation.setDeviceMetricsOverride", {
   mobile: true
 });
 await send("Emulation.setEmulatedMedia", {
-  features: [{name: "prefers-color-scheme", value: "dark"}]
+  features: [
+    {name: "prefers-color-scheme", value: "dark"},
+    {name: "prefers-reduced-motion", value: "no-preference"}
+  ]
 });
 await navigate(appUrl);
 await evaluate(`Promise.all([
@@ -135,7 +138,11 @@ const initial = await evaluate(`({
   overflow: document.documentElement.scrollWidth - window.innerWidth,
   qrReady: Boolean(document.querySelector("#menu-qr-code canvas, #menu-qr-code img")),
   theme: document.documentElement.dataset.theme,
-  themePreference: document.querySelector('input[name="theme"]:checked')?.value
+  themePreference: document.querySelector('input[name="theme"]:checked')?.value,
+  heroSlides: document.querySelectorAll("[data-hero-slide]").length,
+  heroInterval: document.querySelector("#hero-slider").dataset.intervalMs,
+  heroIndex: document.querySelector("#home").dataset.heroIndex,
+  heroTitle: document.querySelector("#hero-title").textContent
 })`);
 assert.equal(initial.cards, 8, "all sample dishes should render");
 assert.equal(initial.lang, "km", "Khmer should be the first-visit language");
@@ -145,9 +152,49 @@ assert.ok(initial.overflow <= 0, `390px layout overflowed by ${initial.overflow}
 assert.equal(initial.qrReady, true, "the deployment-aware menu QR code should render");
 assert.equal(initial.theme, "dark", "dark should be rendered on the first visit");
 assert.equal(initial.themePreference, "dark", "Settings should select dark on the first visit");
+assert.equal(initial.heroSlides, 3, "the hero should render all three configured covers");
+assert.equal(initial.heroInterval, "10000", "the hero should use a ten-second interval");
+assert.equal(initial.heroIndex, "0", "the first cover should be active initially");
 if (process.env.CAPTURE_SCREENSHOTS === "1") {
   await captureScreenshot("/private/tmp/e-menu-cdp-390.png");
 }
+
+async function swipeHero(fromX, toX, pointerId, pointerType = "touch") {
+  await evaluate(`(() => {
+    const hero = document.querySelector("#home");
+    const pointerOptions = {
+      bubbles: true,
+      cancelable: true,
+      pointerId: ${pointerId},
+      pointerType: ${JSON.stringify(pointerType)},
+      isPrimary: true,
+      button: 0
+    };
+    hero.dispatchEvent(new PointerEvent("pointerdown", {...pointerOptions, clientX: ${fromX}}));
+    hero.dispatchEvent(new PointerEvent("pointermove", {...pointerOptions, clientX: ${toX}}));
+    hero.dispatchEvent(new PointerEvent("pointerup", {...pointerOptions, clientX: ${toX}}));
+  })()`);
+  await delay(750);
+}
+
+await swipeHero(340, 90, 41);
+assert.equal(await evaluate(`document.querySelector("#home").dataset.heroIndex`), "1", "swiping left should show the next cover");
+assert.equal(
+  await evaluate(`document.querySelector("#hero-title").textContent`),
+  initial.heroTitle,
+  "the business name should remain fixed while the background changes"
+);
+await swipeHero(90, 340, 42, "mouse");
+assert.equal(await evaluate(`document.querySelector("#home").dataset.heroIndex`), "0", "mouse-dragging right should show the previous cover");
+await evaluate(`document.querySelector('[data-hero-dot="0"]').click()`);
+await delay(10_200);
+assert.equal(
+  await evaluate(`document.querySelector("#home").dataset.heroIndex`),
+  "1",
+  "the hero should advance automatically after ten seconds"
+);
+await evaluate(`document.querySelector('[data-hero-dot="0"]').click()`);
+await delay(750);
 
 await evaluate(`document.querySelector("#theme-button").click()`);
 await delay(100);

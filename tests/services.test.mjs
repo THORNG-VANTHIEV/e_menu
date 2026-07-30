@@ -10,6 +10,7 @@ import {
 } from "../assets/js/features/cart/cart-service.js";
 import {centsToKhr, formatPrice, roundTo, toCents} from "../assets/js/shared/currency.js";
 import {DEFAULT_THEME, getThemeToggleTarget} from "../assets/js/features/settings/settings-service.js";
+import {HERO_SLIDE_INTERVAL_MS} from "../assets/js/features/hero/hero-slider.js";
 
 const item = {
   id: "beef-lok-lak",
@@ -104,4 +105,8 @@ test("header theme shortcut changes dark to light and light to dark in one actio
 
 test("dark is the first-visit default theme", () => {
   assert.equal(DEFAULT_THEME, "dark");
+});
+
+test("hero slideshow advances every ten seconds", () => {
+  assert.equal(HERO_SLIDE_INTERVAL_MS, 10_000);
 });

@@ -46,3 +46,10 @@ Run the site through `npm run serve`; do not open `index.html` with `file://`.
 - [ ] Install from a supported browser and launch in standalone mode.
 - [ ] Open Settings and scan the QR code from another device; it must open the deployed URL.
 - [ ] Run Lighthouse on the deployed HTTPS URL and record exceptions from the 90/95/95/90 targets.
+# Hero slideshow
+
+- Confirm the hero background advances automatically every 10 seconds.
+- Swipe left and right on touch screens to change the cover.
+- Hold and drag left and right with a mouse to change the cover.
+- Confirm the business name, tagline, status, hours, and menu button remain fixed.
+- Confirm the navigation dots select the expected cover.

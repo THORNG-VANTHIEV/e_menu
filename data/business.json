@@ -15,6 +15,12 @@
   },
   "logo": "./assets/images/business/logo.png",
   "cover": "./assets/images/business/cover.webp",
+  "heroSlides": [
+    "./assets/images/business/cover.webp",
+    "./assets/images/business/cover-2.webp",
+    "./assets/images/business/cover-3.webp"
+  ],
+  "heroSlideIntervalMs": 10000,
   "contact": {
     "phone": "+85512345678",
     "telegramUrl": "https://t.me/mloukitchen",

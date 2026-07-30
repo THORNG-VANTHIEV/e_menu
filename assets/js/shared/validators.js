@@ -5,12 +5,18 @@ function hasLocalizedName(value) {
 }
 
 export function validateBusiness(value) {
+  const validHeroSlides = value?.heroSlides === undefined || (
+    Array.isArray(value.heroSlides)
+    && value.heroSlides.length > 0
+    && value.heroSlides.every((image) => typeof image === "string" && image.length > 0)
+  );
   return Boolean(
     value
     && Number.isInteger(value.schemaVersion)
     && SLUG_PATTERN.test(value.id || "")
     && hasLocalizedName(value.name)
     && Array.isArray(value.openingHours)
+    && validHeroSlides
   );
 }
 
