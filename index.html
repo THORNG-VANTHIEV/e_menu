@@ -65,7 +65,7 @@
 
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#home" data-i18n="home">ទំព័រដើម</a>
-        <a href="#menu" data-i18n="menu">មីនុយ</a>
+        <a href="#menu" data-show-menu data-i18n="menu">មីនុយ</a>
         <a href="#about" data-i18n="about">អំពីហាង</a>
       </nav>
 
@@ -99,7 +99,7 @@
           <span id="business-status" class="open-status"><span class="open-status__dot"></span><span>បើក</span></span>
           <span id="today-hours"><i class="bi bi-clock" aria-hidden="true"></i> 07:00 – 21:00</span>
         </div>
-        <a class="btn btn-warning hero__cta" href="#menu">
+        <a class="btn btn-warning hero__cta" href="#menu" data-show-menu>
           <span data-i18n="browseMenu">មើលមីនុយ</span>
           <i class="bi bi-arrow-down" aria-hidden="true"></i>
         </a>
@@ -217,7 +217,7 @@
 
   <nav class="mobile-nav" aria-label="Mobile navigation">
     <a href="#home" class="mobile-nav__item active" data-nav="home"><i class="bi bi-house" aria-hidden="true"></i><span data-i18n="home">ទំព័រដើម</span></a>
-    <a href="#menu" class="mobile-nav__item" data-nav="menu"><i class="bi bi-grid" aria-hidden="true"></i><span data-i18n="menu">មីនុយ</span></a>
+    <a href="#menu" class="mobile-nav__item" data-nav="menu" data-show-menu><i class="bi bi-grid" aria-hidden="true"></i><span data-i18n="menu">មីនុយ</span></a>
     <button type="button" class="mobile-nav__item" data-show-favorites><i class="bi bi-heart" aria-hidden="true"></i><span data-i18n="favorites">ចូលចិត្ត</span></button>
     <button type="button" class="mobile-nav__item" data-open-cart><span class="mobile-nav__icon-wrap"><i class="bi bi-bag" aria-hidden="true"></i><span class="count-badge" data-cart-count hidden>0</span></span><span data-i18n="cart">កន្ត្រក</span></button>
   </nav>

@@ -293,6 +293,11 @@ function renderMenu(state) {
   clearNode(dom.activeFilterList);
   labels.forEach((label) => dom.activeFilterList.append(element("span", {className: "active-filter-pill", text: label})));
   dom.activeFilters.hidden = labels.length === 0;
+  const clearFiltersButton = document.querySelector("#clear-filters-button");
+  const clearActionKey = state.filters.favoritesOnly ? "clearFavorites" : "clearAll";
+  clearFiltersButton.dataset.i18n = clearActionKey;
+  clearFiltersButton.textContent = i18n.t(clearActionKey);
+  clearFiltersButton.hidden = state.filters.favoritesOnly && state.favorites.length === 0;
   const filterCount = getActiveFilterCount(state.filters);
   dom.filterCount.textContent = String(filterCount);
   dom.filterCount.hidden = filterCount === 0;
@@ -478,6 +483,14 @@ function askConfirmation(message, action) {
   openDialog(dom.confirmDialog);
 }
 
+function requestClearFavorites() {
+  askConfirmation(i18n.t("clearFavoritesConfirm"), () => {
+    const favorites = clearFavorites();
+    updateState((state) => ({...state, favorites}), "favorites-clear");
+    showToast(i18n.t("favoritesCleared"));
+  });
+}
+
 function persistCartFields() {
   const table = dom.cartContent.querySelector("#cart-table-input");
   const note = dom.cartContent.querySelector("#cart-note-input");
@@ -562,6 +575,16 @@ function handleDocumentClick(event) {
   if (button.matches("[data-continue-browsing]")) {
     closeDialog(dom.cartDialog);
     document.querySelector("#menu").scrollIntoView({behavior: "smooth"});
+    return;
+  }
+  if (button.matches("[data-show-menu]")) {
+    if (store.getState().filters.favoritesOnly) {
+      updateState((state) => ({
+        ...state,
+        filters: {...state.filters, favoritesOnly: false},
+        visibleCount: PAGE_SIZE
+      }), "menu-view");
+    }
     return;
   }
   if (button.dataset.openItem) {
@@ -701,7 +724,13 @@ function attachEvents() {
       input.checked = false;
     });
   });
-  document.querySelector("#clear-filters-button").addEventListener("click", resetFilters);
+  document.querySelector("#clear-filters-button").addEventListener("click", () => {
+    if (store.getState().filters.favoritesOnly) {
+      requestClearFavorites();
+      return;
+    }
+    resetFilters();
+  });
   dom.loadMore.addEventListener("click", () => {
     updateState((state) => ({...state, visibleCount: state.visibleCount + PAGE_SIZE}), "load-more");
   });
@@ -726,13 +755,7 @@ function attachEvents() {
       showToast(i18n.t("cartCleared"));
     });
   });
-  document.querySelector("#clear-favorites-settings").addEventListener("click", () => {
-    askConfirmation(i18n.t("clearFavoritesConfirm"), () => {
-      const favorites = clearFavorites();
-      updateState((state) => ({...state, favorites}), "favorites-clear");
-      showToast(i18n.t("favoritesCleared"));
-    });
-  });
+  document.querySelector("#clear-favorites-settings").addEventListener("click", requestClearFavorites);
   dom.confirmDialog.addEventListener("close", () => {
     if (dom.confirmDialog.returnValue === "confirm") pendingConfirmAction?.();
     pendingConfirmAction = null;

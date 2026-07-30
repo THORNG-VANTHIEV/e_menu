@@ -165,6 +165,49 @@ assert.equal(
   "one click from light mode should switch back to dark"
 );
 
+await evaluate(`document.querySelector("[data-favorite]").click()`);
+await delay(100);
+await evaluate(`document.querySelector("[data-show-favorites]").click()`);
+await delay(100);
+assert.equal(
+  await evaluate(`document.querySelectorAll(".menu-card").length`),
+  1,
+  "Favorites view should show the saved dish"
+);
+assert.equal(
+  await evaluate(`document.querySelector("#clear-filters-button").dataset.i18n`),
+  "clearFavorites",
+  "the Favorites action should be labelled as clearing favorites"
+);
+await evaluate(`document.querySelector("#clear-filters-button").click()`);
+await delay(50);
+assert.equal(
+  await evaluate(`document.querySelector("#confirm-dialog").open`),
+  true,
+  "clearing Favorites should ask for confirmation"
+);
+await evaluate(`document.querySelector("#confirm-action-button").click()`);
+await delay(100);
+const clearedFavorites = await evaluate(`({
+  cards: document.querySelectorAll(".menu-card").length,
+  emptyVisible: !document.querySelector("#empty-state").hidden,
+  favoritesViewActive: !document.querySelector("#active-filters").hidden,
+  clearActionHidden: document.querySelector("#clear-filters-button").hidden,
+  stored: JSON.parse(localStorage.getItem("emenu:v1:favorites") || "[]")
+})`);
+assert.equal(clearedFavorites.cards, 0, "clearing Favorites should remove every saved dish");
+assert.equal(clearedFavorites.emptyVisible, true, "the empty Favorites state should remain visible");
+assert.equal(clearedFavorites.favoritesViewActive, true, "clearing Favorites should not leave the Favorites view");
+assert.equal(clearedFavorites.clearActionHidden, true, "the clear action should hide after Favorites is empty");
+assert.deepEqual(clearedFavorites.stored, [], "cleared Favorites should be persisted");
+await evaluate(`document.querySelector('.mobile-nav [data-show-menu]').click()`);
+await delay(100);
+assert.equal(
+  await evaluate(`document.querySelectorAll(".menu-card").length`),
+  8,
+  "Menu navigation should exit Favorites mode and restore all dishes"
+);
+
 await evaluate(`document.querySelector("[data-open-item]").click()`);
 await delay(100);
 assert.equal(await evaluate(`document.querySelector("#detail-dialog").open`), true, "item detail should open");
