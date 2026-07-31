@@ -41,7 +41,7 @@
   flex: 0 0 42px;
   border-radius: 13px;
   object-fit: cover;
-  box-shadow: 0 5px 14px rgb(12 44 33 / 0.16);
+  box-shadow: 0 5px 14px rgb(77 42 29 / 0.18);
 }
 
 .brand__copy {
@@ -125,9 +125,9 @@ html[lang="km"] .brand__copy strong {
   display: grid;
   overflow: hidden;
   place-items: end start;
-  color: #fff;
+  color: #fff4eb;
   cursor: grab;
-  background: #10251d;
+  background: #24150f;
   touch-action: pan-y pinch-zoom;
 }
 
@@ -174,8 +174,8 @@ html[lang="km"] .brand__copy strong {
   z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgb(4 15 11 / 0.15), rgb(4 15 11 / 0.86)),
-    linear-gradient(90deg, rgb(4 15 11 / 0.7), transparent 78%);
+    linear-gradient(180deg, rgb(22 15 12 / 0.15), rgb(22 15 12 / 0.88)),
+    linear-gradient(90deg, rgb(77 42 29 / 0.66), transparent 78%);
 }
 
 .hero__content {
@@ -216,7 +216,7 @@ html[lang="km"] .brand__copy strong {
 }
 
 .hero__dot:focus-visible {
-  outline: 3px solid rgb(255 193 7 / 0.7);
+  outline: 3px solid color-mix(in srgb, var(--color-accent) 70%, transparent);
   outline-offset: 3px;
 }
 
@@ -243,7 +243,7 @@ html[lang="km"] #hero-title {
 .hero__tagline {
   max-width: 38rem;
   margin-bottom: 1.25rem;
-  color: rgb(255 255 255 / 0.86);
+  color: rgb(255 239 225 / 0.86);
   font-size: clamp(1rem, 0.9rem + 0.55vw, 1.25rem);
 }
 
@@ -267,7 +267,7 @@ html[lang="km"] #hero-title {
   align-items: center;
   gap: 0.55rem;
   padding-inline: 1.25rem;
-  color: #221b0b;
+  color: var(--color-on-accent);
 }
 
 .promotion-section {
@@ -362,8 +362,8 @@ html[lang="km"] #hero-title {
 
 .app-footer {
   padding: 2rem 0 calc(var(--bottom-nav-height) + env(safe-area-inset-bottom) + 1rem);
-  background: #0d2d23;
-  color: rgb(255 255 255 / 0.72);
+  background: var(--brand-espresso);
+  color: rgb(255 239 225 / 0.78);
 }
 
 .footer-inner {
@@ -380,7 +380,7 @@ html[lang="km"] #hero-title {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: #fff;
+  color: var(--brand-cream);
 }
 
 .footer-brand img {
@@ -392,7 +392,7 @@ html[lang="km"] #hero-title {
 }
 
 .footer-brand small {
-  color: rgb(255 255 255 / 0.65);
+  color: rgb(255 239 225 / 0.68);
   font-size: 0.75rem;
 }
 
@@ -408,7 +408,7 @@ html[lang="km"] #hero-title {
   padding: 0.35rem 0.35rem calc(0.35rem + env(safe-area-inset-bottom));
   border-top: 1px solid var(--color-border);
   background: color-mix(in srgb, var(--color-surface) 94%, transparent);
-  box-shadow: 0 -8px 28px rgb(18 37 29 / 0.08);
+  box-shadow: 0 -8px 28px rgb(77 42 29 / 0.1);
   -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
 }
@@ -503,8 +503,8 @@ html[lang="km"] #hero-title {
 
   .hero__scrim {
     background:
-      linear-gradient(90deg, rgb(4 15 11 / 0.88) 0%, rgb(4 15 11 / 0.48) 48%, rgb(4 15 11 / 0.08) 80%),
-      linear-gradient(0deg, rgb(4 15 11 / 0.35), transparent 40%);
+      linear-gradient(90deg, rgb(22 15 12 / 0.9) 0%, rgb(77 42 29 / 0.5) 48%, rgb(22 15 12 / 0.08) 80%),
+      linear-gradient(0deg, rgb(22 15 12 / 0.4), transparent 40%);
   }
 
   .hero__content {
@@ -521,7 +521,7 @@ html[lang="km"] #hero-title {
     padding-top: 2rem;
     padding-bottom: 0.3rem;
     border-bottom: 1px solid var(--color-border);
-    box-shadow: 0 9px 22px rgb(19 39 30 / 0.04);
+    box-shadow: 0 9px 22px rgb(77 42 29 / 0.06);
   }
 
   .section-heading {

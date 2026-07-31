@@ -1,7 +1,7 @@
 import {STORAGE_KEYS} from "../../config.js";
 import {readString, writeString} from "../../shared/storage.js";
 
-export const DEFAULT_THEME = "dark";
+export const DEFAULT_THEME = "light";
 
 export function loadSettings(business) {
   return {
@@ -33,7 +33,7 @@ export function applyTheme(preference) {
   document.documentElement.dataset.theme = resolved;
   document.querySelector('meta[name="theme-color"]')?.setAttribute(
     "content",
-    resolved === "dark" ? "#101713" : "#174c3c"
+    resolved === "dark" ? "#160f0c" : "#4d2a1d"
   );
   return resolved;
 }

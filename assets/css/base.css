@@ -195,7 +195,7 @@ h3 {
 
 ::selection {
   background: var(--color-accent);
-  color: #1e1b14;
+  color: var(--color-on-accent);
 }
 
 :focus-visible {
@@ -219,13 +219,26 @@ h3 {
   --bs-btn-border-color: var(--color-primary);
   --bs-btn-hover-bg: var(--color-primary-hover);
   --bs-btn-hover-border-color: var(--color-primary-hover);
+  --bs-btn-hover-color: var(--color-on-primary);
   --bs-btn-active-bg: var(--color-primary-hover);
   --bs-btn-active-border-color: var(--color-primary-hover);
-  --bs-btn-color: #fff;
+  --bs-btn-active-color: var(--color-on-primary);
+  --bs-btn-color: var(--color-on-primary);
+  --bs-btn-disabled-bg: var(--color-primary);
+  --bs-btn-disabled-border-color: var(--color-primary);
+  --bs-btn-disabled-color: var(--color-on-primary);
 }
 
-html[data-theme="dark"] .btn-primary {
-  --bs-btn-color: #0c2319;
+.btn-warning {
+  --bs-btn-bg: var(--color-accent);
+  --bs-btn-border-color: var(--color-accent);
+  --bs-btn-color: var(--color-on-accent);
+  --bs-btn-hover-bg: var(--color-accent-hover);
+  --bs-btn-hover-border-color: var(--color-accent-hover);
+  --bs-btn-hover-color: var(--color-on-accent);
+  --bs-btn-active-bg: var(--color-accent-hover);
+  --bs-btn-active-border-color: var(--color-accent-hover);
+  --bs-btn-active-color: var(--color-on-accent);
 }
 
 .btn-outline-primary {
@@ -233,7 +246,10 @@ html[data-theme="dark"] .btn-primary {
   --bs-btn-border-color: var(--color-primary);
   --bs-btn-hover-bg: var(--color-primary);
   --bs-btn-hover-border-color: var(--color-primary);
-  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-color: var(--color-on-primary);
+  --bs-btn-active-bg: var(--color-primary);
+  --bs-btn-active-border-color: var(--color-primary);
+  --bs-btn-active-color: var(--color-on-primary);
 }
 
 .btn-outline-secondary {
@@ -276,12 +292,12 @@ textarea:focus {
   padding: 0.7rem 1rem;
   border-radius: var(--radius-sm);
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-on-primary);
   transform: translateY(-160%);
 }
 
 .skip-link:focus {
-  color: #fff;
+  color: var(--color-on-primary);
   transform: translateY(0);
 }
 

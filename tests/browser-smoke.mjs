@@ -144,6 +144,10 @@ const initial = await evaluate(`({
   qrReady: Boolean(document.querySelector("#menu-qr-code canvas, #menu-qr-code img")),
   theme: document.documentElement.dataset.theme,
   themePreference: document.querySelector('input[name="theme"]:checked')?.value,
+  themePrimary: getComputedStyle(document.documentElement).getPropertyValue("--color-primary").trim(),
+  themeAccent: getComputedStyle(document.documentElement).getPropertyValue("--color-accent").trim(),
+  themeBackground: getComputedStyle(document.documentElement).getPropertyValue("--color-bg").trim(),
+  browserThemeColor: document.querySelector('meta[name="theme-color"]').content,
   heroSlides: document.querySelectorAll("[data-hero-slide]").length,
   heroInterval: document.querySelector("#hero-slider").dataset.intervalMs,
   heroIndex: document.querySelector("#home").dataset.heroIndex,
@@ -158,6 +162,8 @@ const initial = await evaluate(`({
   heroTitleFontSize: parseFloat(getComputedStyle(document.querySelector("#hero-title")).fontSize),
   uiFont: getComputedStyle(document.querySelector("#language-button")).fontFamily,
   heroCtaFont: getComputedStyle(document.querySelector(".hero__cta")).fontFamily,
+  heroCtaBackground: getComputedStyle(document.querySelector(".hero__cta")).backgroundColor,
+  heroCtaColor: getComputedStyle(document.querySelector(".hero__cta")).color,
   heroCtaAlignment: (() => {
     const buttonRect = document.querySelector(".hero__cta").getBoundingClientRect();
     const textRect = document.querySelector(".hero__cta span").getBoundingClientRect();
@@ -178,8 +184,12 @@ assert.equal(initial.errorHidden, true, "the data error state should stay hidden
 assert.equal(initial.loadingHidden, true, "the loading state should complete");
 assert.ok(initial.overflow <= 0, `390px layout overflowed by ${initial.overflow}px`);
 assert.equal(initial.qrReady, true, "the deployment-aware menu QR code should render");
-assert.equal(initial.theme, "dark", "dark should be rendered on the first visit");
-assert.equal(initial.themePreference, "dark", "Settings should select dark on the first visit");
+assert.equal(initial.theme, "light", "light should be rendered on the first visit");
+assert.equal(initial.themePreference, "light", "Settings should select light on the first visit");
+assert.equal(initial.themePrimary, "#4d2a1d", "light mode should use brand espresso for primary actions");
+assert.equal(initial.themeAccent, "#d8925e", "light mode should use the exact brand caramel accent");
+assert.equal(initial.themeBackground, "#fff9f4", "light mode should use the warm cream-derived background");
+assert.equal(initial.browserThemeColor, "#4d2a1d", "light mode should tint browser chrome with brand espresso");
 assert.equal(initial.heroSlides, 3, "the hero should render all three configured covers");
 assert.equal(initial.heroInterval, "10000", "the hero should use a ten-second interval");
 assert.equal(initial.heroIndex, "0", "the first cover should be active initially");
@@ -194,6 +204,8 @@ assert.ok(
 );
 assert.match(initial.uiFont, /Noto Sans Khmer/, "compact Khmer controls should retain Noto Sans Khmer");
 assert.match(initial.heroCtaFont, /Noto Sans Khmer/, "Khmer button-styled links should use the UI font");
+assert.equal(initial.heroCtaBackground, "rgb(216, 146, 94)", "the light hero CTA should use the brand accent");
+assert.equal(initial.heroCtaColor, "rgb(43, 26, 20)", "the hero CTA should use accessible espresso text");
 assert.ok(initial.heroCtaAlignment <= 0.5, "the Khmer hero CTA text should be vertically centered");
 assert.equal(initial.localFontsReady, true, "both Hanuman weights and Bassac Regular should load");
 assert.equal(initial.menuNameFontWeight, "600", "Khmer menu names should use genuine Hanuman Semibold");
@@ -289,17 +301,29 @@ await evaluate(`document.querySelector("#theme-button").click()`);
 await delay(100);
 const firstTheme = await evaluate(`({
   rendered: document.documentElement.dataset.theme,
-  stored: localStorage.getItem("emenu:v1:theme")
+  stored: localStorage.getItem("emenu:v1:theme"),
+  primary: getComputedStyle(document.documentElement).getPropertyValue("--color-primary").trim(),
+  accent: getComputedStyle(document.documentElement).getPropertyValue("--color-accent").trim(),
+  background: getComputedStyle(document.documentElement).getPropertyValue("--color-bg").trim(),
+  browserThemeColor: document.querySelector('meta[name="theme-color"]').content
 })`);
-assert.equal(firstTheme.rendered, "light", "one click from rendered dark mode should switch to light");
-assert.equal(firstTheme.stored, "light", "the explicit light preference should be stored");
+assert.equal(firstTheme.rendered, "dark", "one click from rendered light mode should switch to dark");
+assert.equal(firstTheme.stored, "dark", "the explicit dark preference should be stored");
+assert.equal(firstTheme.primary, "#d8925e", "dark mode should use brand caramel for primary actions");
+assert.equal(firstTheme.accent, "#e6ab7c", "dark mode should use the lighter caramel accent");
+assert.equal(firstTheme.background, "#160f0c", "dark mode should use the chocolate background");
+assert.equal(firstTheme.browserThemeColor, "#160f0c", "dark mode should tint browser chrome with the chocolate background");
+if (process.env.CAPTURE_SCREENSHOTS === "1") {
+  await captureScreenshot("/private/tmp/e-menu-cdp-390-brand-dark.png");
+}
 await evaluate(`document.querySelector("#theme-button").click()`);
 await delay(100);
-assert.equal(
-  await evaluate(`document.documentElement.dataset.theme`),
-  "dark",
-  "one click from light mode should switch back to dark"
-);
+const secondTheme = await evaluate(`({
+  rendered: document.documentElement.dataset.theme,
+  browserThemeColor: document.querySelector('meta[name="theme-color"]').content
+})`);
+assert.equal(secondTheme.rendered, "light", "one click from dark mode should switch back to light");
+assert.equal(secondTheme.browserThemeColor, "#4d2a1d", "switching back should restore the light browser color");
 
 await evaluate(`document.querySelector("[data-favorite]").click()`);
 await delay(100);

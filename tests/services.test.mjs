@@ -103,8 +103,8 @@ test("header theme shortcut changes dark to light and light to dark in one actio
   assert.equal(getThemeToggleTarget("light"), "dark");
 });
 
-test("dark is the first-visit default theme", () => {
-  assert.equal(DEFAULT_THEME, "dark");
+test("light is the first-visit default theme", () => {
+  assert.equal(DEFAULT_THEME, "light");
 });
 
 test("hero slideshow advances every ten seconds", () => {
