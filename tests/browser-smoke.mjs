@@ -148,8 +148,14 @@ const initial = await evaluate(`({
   heroInterval: document.querySelector("#hero-slider").dataset.intervalMs,
   heroIndex: document.querySelector("#home").dataset.heroIndex,
   heroTitle: document.querySelector("#hero-title").textContent,
+  sharedBusinessLogo: document.querySelector("#header-logo").currentSrc
+    === document.querySelector(".footer-brand img").currentSrc,
+  businessLogosReady: [document.querySelector("#header-logo"), document.querySelector(".footer-brand img")]
+    .every((image) => image.complete && image.naturalWidth === 192 && image.naturalHeight === 192),
   bodyFont: getComputedStyle(document.body).fontFamily,
   heroTitleFont: getComputedStyle(document.querySelector("#hero-title")).fontFamily,
+  heroTitleLineHeight: parseFloat(getComputedStyle(document.querySelector("#hero-title")).lineHeight),
+  heroTitleFontSize: parseFloat(getComputedStyle(document.querySelector("#hero-title")).fontSize),
   uiFont: getComputedStyle(document.querySelector("#language-button")).fontFamily,
   heroCtaFont: getComputedStyle(document.querySelector(".hero__cta")).fontFamily,
   heroCtaAlignment: (() => {
@@ -177,8 +183,15 @@ assert.equal(initial.themePreference, "dark", "Settings should select dark on th
 assert.equal(initial.heroSlides, 3, "the hero should render all three configured covers");
 assert.equal(initial.heroInterval, "10000", "the hero should use a ten-second interval");
 assert.equal(initial.heroIndex, "0", "the first cover should be active initially");
+assert.equal(initial.sharedBusinessLogo, true, "the app bar and footer should use the same business logo");
+assert.equal(initial.businessLogosReady, true, "both visible business logos should load at 192px");
 assert.match(initial.bodyFont, /Hanuman/, "Khmer content should use the local Hanuman font");
 assert.match(initial.heroTitleFont, /Khmer OS Bassac/, "the Khmer hero title should use the local Bassac font");
+assert.ok(
+  initial.heroTitleLineHeight / initial.heroTitleFontSize >= 1.15
+    && initial.heroTitleLineHeight / initial.heroTitleFontSize <= 1.2,
+  "the wrapped Khmer hero title should use compact, readable line spacing"
+);
 assert.match(initial.uiFont, /Noto Sans Khmer/, "compact Khmer controls should retain Noto Sans Khmer");
 assert.match(initial.heroCtaFont, /Noto Sans Khmer/, "Khmer button-styled links should use the UI font");
 assert.ok(initial.heroCtaAlignment <= 0.5, "the Khmer hero CTA text should be vertically centered");

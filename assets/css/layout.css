@@ -236,6 +236,10 @@ html[lang="km"] .hero h1 {
   letter-spacing: 0;
 }
 
+html[lang="km"] #hero-title {
+  line-height: 1.18;
+}
+
 .hero__tagline {
   max-width: 38rem;
   margin-bottom: 1.25rem;
