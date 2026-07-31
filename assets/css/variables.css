@@ -38,7 +38,9 @@
   --transition-base: 220ms ease;
 
   --font-sans: "Inter", "Noto Sans Khmer", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-khmer: "Noto Sans Khmer", "Khmer Sangam MN", sans-serif;
+  --font-khmer-body: "Hanuman", "Noto Sans Khmer", "Khmer Sangam MN", serif;
+  --font-khmer-display: "Khmer OS Bassac", "Hanuman", "Noto Sans Khmer", "Khmer Sangam MN", serif;
+  --font-khmer-ui: "Noto Sans Khmer", "Khmer Sangam MN", sans-serif;
   --text-body: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
   --text-title: clamp(2rem, 1.3rem + 3vw, 4.25rem);
   --header-height: 4rem;

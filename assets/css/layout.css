@@ -58,6 +58,16 @@
   white-space: nowrap;
 }
 
+html[lang="km"] .brand__copy strong {
+  line-height: 1.5;
+}
+
+@media (max-width: 767.98px) {
+  html[lang="km"] .brand__copy strong {
+    max-width: none;
+  }
+}
+
 .brand__copy small {
   display: flex;
   align-items: center;
@@ -87,6 +97,17 @@
   flex: 0 0 auto;
   align-items: center;
   gap: 0.15rem;
+}
+
+@media (max-width: 374.98px) {
+  html[lang="km"] .app-header__inner,
+  html[lang="km"] .brand {
+    gap: 0.5rem;
+  }
+
+  html[lang="km"] .header-actions .cart-trigger {
+    display: none;
+  }
 }
 
 .desktop-only {

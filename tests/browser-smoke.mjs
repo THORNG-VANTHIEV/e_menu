@@ -129,6 +129,11 @@ await navigate("about:blank");
 runtimeErrors.length = 0;
 consoleErrors.length = 0;
 await navigate(appUrl);
+await evaluate(`Promise.all([
+  document.fonts.load('16px "Hanuman"'),
+  document.fonts.load('600 16px "Hanuman"'),
+  document.fonts.load('32px "Khmer OS Bassac"')
+]).then(() => true)`, true);
 
 const initial = await evaluate(`({
   cards: document.querySelectorAll(".menu-card").length,
@@ -142,7 +147,24 @@ const initial = await evaluate(`({
   heroSlides: document.querySelectorAll("[data-hero-slide]").length,
   heroInterval: document.querySelector("#hero-slider").dataset.intervalMs,
   heroIndex: document.querySelector("#home").dataset.heroIndex,
-  heroTitle: document.querySelector("#hero-title").textContent
+  heroTitle: document.querySelector("#hero-title").textContent,
+  bodyFont: getComputedStyle(document.body).fontFamily,
+  heroTitleFont: getComputedStyle(document.querySelector("#hero-title")).fontFamily,
+  uiFont: getComputedStyle(document.querySelector("#language-button")).fontFamily,
+  heroCtaFont: getComputedStyle(document.querySelector(".hero__cta")).fontFamily,
+  heroCtaAlignment: (() => {
+    const buttonRect = document.querySelector(".hero__cta").getBoundingClientRect();
+    const textRect = document.querySelector(".hero__cta span").getBoundingClientRect();
+    return Math.abs((buttonRect.top + buttonRect.bottom - textRect.top - textRect.bottom) / 2);
+  })(),
+  localFontsReady: document.fonts.check('16px "Hanuman"')
+    && document.fonts.check('600 16px "Hanuman"')
+    && document.fonts.check('32px "Khmer OS Bassac"'),
+  menuNameFontWeight: getComputedStyle(document.querySelector(".menu-card h3")).fontWeight,
+  heroTitleFontWeight: getComputedStyle(document.querySelector("#hero-title")).fontWeight,
+  menuNameLineHeight: parseFloat(getComputedStyle(document.querySelector(".menu-card h3")).lineHeight),
+  menuNameFontSize: parseFloat(getComputedStyle(document.querySelector(".menu-card h3")).fontSize),
+  menuNameInnerOverflow: getComputedStyle(document.querySelector(".menu-card__open")).overflow
 })`);
 assert.equal(initial.cards, 8, "all sample dishes should render");
 assert.equal(initial.lang, "km", "Khmer should be the first-visit language");
@@ -155,8 +177,26 @@ assert.equal(initial.themePreference, "dark", "Settings should select dark on th
 assert.equal(initial.heroSlides, 3, "the hero should render all three configured covers");
 assert.equal(initial.heroInterval, "10000", "the hero should use a ten-second interval");
 assert.equal(initial.heroIndex, "0", "the first cover should be active initially");
+assert.match(initial.bodyFont, /Hanuman/, "Khmer content should use the local Hanuman font");
+assert.match(initial.heroTitleFont, /Khmer OS Bassac/, "the Khmer hero title should use the local Bassac font");
+assert.match(initial.uiFont, /Noto Sans Khmer/, "compact Khmer controls should retain Noto Sans Khmer");
+assert.match(initial.heroCtaFont, /Noto Sans Khmer/, "Khmer button-styled links should use the UI font");
+assert.ok(initial.heroCtaAlignment <= 0.5, "the Khmer hero CTA text should be vertically centered");
+assert.equal(initial.localFontsReady, true, "both Hanuman weights and Bassac Regular should load");
+assert.equal(initial.menuNameFontWeight, "600", "Khmer menu names should use genuine Hanuman Semibold");
+assert.equal(initial.heroTitleFontWeight, "400", "Bassac display titles should retain their genuine Regular weight");
+assert.ok(
+  initial.menuNameLineHeight / initial.menuNameFontSize >= 1.6,
+  "Khmer menu names should have enough line height for Hanuman upper marks"
+);
+assert.equal(initial.menuNameInnerOverflow, "visible", "the menu-name button should not clip Khmer glyphs");
 if (process.env.CAPTURE_SCREENSHOTS === "1") {
   await captureScreenshot("/private/tmp/e-menu-cdp-390.png");
+  await evaluate(`document.querySelector("#menu").scrollIntoView()`);
+  await delay(200);
+  await captureScreenshot("/private/tmp/e-menu-cdp-390-khmer-menu.png");
+  await evaluate(`document.querySelector("#home").scrollIntoView()`);
+  await delay(200);
 }
 
 async function swipeHero(fromX, toX, pointerId, pointerType = "touch") {
@@ -308,6 +348,11 @@ await evaluate(`document.querySelector("#cart-dialog [data-close-dialog]").click
 await evaluate(`document.querySelector("#language-button").click()`);
 await delay(150);
 assert.equal(await evaluate(`document.documentElement.lang`), "en", "language should change without reloading");
+assert.match(
+  await evaluate(`getComputedStyle(document.body).fontFamily`),
+  /Inter/,
+  "English should continue using Inter"
+);
 
 await evaluate(`(() => {
   const input = document.querySelector("#search-input");
@@ -319,6 +364,10 @@ assert.equal(await evaluate(`document.querySelectorAll(".menu-card").length`), 1
 await evaluate(`document.querySelector("#clear-search-button").click()`);
 await delay(100);
 
+await evaluate(`document.querySelector("#language-button").click()`);
+await delay(150);
+assert.equal(await evaluate(`document.documentElement.lang`), "km", "responsive checks should exercise Khmer typography");
+
 const widths = [320, 360, 576, 768, 1024, 1440];
 const responsive = [];
 for (const width of widths) {
@@ -329,15 +378,34 @@ for (const width of widths) {
     mobile: width < 768
   });
   await delay(80);
-  responsive.push(await evaluate(`({
-    width: window.innerWidth,
-    overflow: document.documentElement.scrollWidth - window.innerWidth,
-    mobileNav: getComputedStyle(document.querySelector(".mobile-nav")).display,
-    desktopNav: getComputedStyle(document.querySelector(".desktop-nav")).display
-  })`));
+  responsive.push(await evaluate(`(() => {
+    const title = document.querySelector("#header-business-name");
+    const titleStyle = getComputedStyle(title);
+    const canvas = document.createElement("canvas").getContext("2d");
+    canvas.font = titleStyle.font;
+    const titleMetrics = canvas.measureText(title.textContent);
+    return {
+      width: window.innerWidth,
+      overflow: document.documentElement.scrollWidth - window.innerWidth,
+      mobileNav: getComputedStyle(document.querySelector(".mobile-nav")).display,
+      desktopNav: getComputedStyle(document.querySelector(".desktop-nav")).display,
+      appBarTitleClientWidth: title.clientWidth,
+      appBarTitleScrollWidth: title.scrollWidth,
+      appBarTitleLineHeight: parseFloat(titleStyle.lineHeight),
+      appBarTitleInkHeight: titleMetrics.actualBoundingBoxAscent + titleMetrics.actualBoundingBoxDescent
+    };
+  })()`));
 }
 responsive.forEach((result) => {
   assert.ok(result.overflow <= 0, `${result.width}px layout overflowed by ${result.overflow}px`);
+  assert.ok(
+    result.appBarTitleLineHeight >= result.appBarTitleInkHeight,
+    `${result.width}px app-bar title line box clips Khmer marks`
+  );
+  assert.ok(
+    result.appBarTitleClientWidth >= result.appBarTitleScrollWidth,
+    `${result.width}px app-bar title is horizontally clipped`
+  );
   if (result.width < 768) assert.notEqual(result.mobileNav, "none", "mobile nav should be visible below 768px");
   if (result.width >= 768) assert.equal(result.mobileNav, "none", "mobile nav should hide at desktop width");
 });
@@ -347,6 +415,11 @@ if (process.env.CAPTURE_SCREENSHOTS === "1") {
   await captureScreenshot("/private/tmp/e-menu-cdp-1440-menu.png");
 }
 
+await evaluate(`Promise.all([
+  document.fonts.load('16px "Hanuman"'),
+  document.fonts.load('600 16px "Hanuman"'),
+  document.fonts.load('32px "Khmer OS Bassac"')
+]).then(() => true)`, true);
 await evaluate(`navigator.serviceWorker.ready.then(() => true)`, true);
 await delay(300);
 const pwa = await evaluate(`navigator.serviceWorker.getRegistration().then((registration) => ({
@@ -366,11 +439,21 @@ await navigate(appUrl);
 const offline = await evaluate(`({
   cards: document.querySelectorAll(".menu-card").length,
   errorHidden: document.querySelector("#error-state").hidden,
-  overflow: document.documentElement.scrollWidth - window.innerWidth
+  overflow: document.documentElement.scrollWidth - window.innerWidth,
+  bodyFont: getComputedStyle(document.body).fontFamily,
+  heroTitleFont: getComputedStyle(document.querySelector("#hero-title")).fontFamily,
+  menuNameFontWeight: getComputedStyle(document.querySelector(".menu-card h3")).fontWeight,
+  localFontsReady: document.fonts.check('16px "Hanuman"')
+    && document.fonts.check('600 16px "Hanuman"')
+    && document.fonts.check('32px "Khmer OS Bassac"')
 })`);
 assert.equal(offline.cards, 8, "cached dishes should render offline");
 assert.equal(offline.errorHidden, true, "offline reload should not show a data error");
 assert.ok(offline.overflow <= 0, "offline page should not overflow");
+assert.match(offline.bodyFont, /Hanuman/, "Hanuman should remain active offline");
+assert.match(offline.heroTitleFont, /Khmer OS Bassac/, "Bassac should remain active offline");
+assert.equal(offline.menuNameFontWeight, "600", "Hanuman Semibold should remain active offline");
+assert.equal(offline.localFontsReady, true, "both Hanuman weights and Bassac should load from the offline cache");
 await send("Network.emulateNetworkConditions", {
   offline: false,
   latency: 0,

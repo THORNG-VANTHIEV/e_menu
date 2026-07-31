@@ -33,6 +33,30 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Hanuman";
+  src: url("../fonts/hanuman-regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hanuman";
+  src: url("../fonts/hanuman-semibold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Khmer OS Bassac";
+  src: url("../fonts/khmer-os-bassac-regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {
@@ -58,7 +82,53 @@ body {
 }
 
 html[lang="km"] body {
-  font-family: var(--font-khmer);
+  font-family: var(--font-khmer-body);
+}
+
+html[lang="km"] button,
+html[lang="km"] input,
+html[lang="km"] textarea,
+html[lang="km"] select,
+html[lang="km"] .btn,
+html[lang="km"] .site-header,
+html[lang="km"] .desktop-nav,
+html[lang="km"] .mobile-nav,
+html[lang="km"] .eyebrow,
+html[lang="km"] .hero__meta,
+html[lang="km"] .menu-card__category,
+html[lang="km"] .item-badge,
+html[lang="km"] .price-stack,
+html[lang="km"] .result-count {
+  font-family: var(--font-khmer-ui);
+}
+
+html[lang="km"] .menu-card__open {
+  font-family: var(--font-khmer-body);
+}
+
+html[lang="km"] .menu-card h3 {
+  padding-block: 0.08em;
+  line-height: 1.65;
+}
+
+html[lang="km"] .menu-card__open {
+  overflow: visible;
+  line-height: inherit;
+}
+
+html[lang="km"] h1,
+html[lang="km"] h2,
+html[lang="km"] h3,
+html[lang="km"] strong {
+  font-weight: 600;
+}
+
+html[lang="km"] #hero-title,
+html[lang="km"] #menu-heading,
+html[lang="km"] #about-heading {
+  font-family: var(--font-khmer-display);
+  font-weight: 400;
+  line-height: 1.35;
 }
 
 body:has(dialog[open]) {

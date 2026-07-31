@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "id": "mlou-kitchen",
+  "id": "lotcha-siemreap",
   "name": {
-    "km": "ផ្ទះបាយម្លូ",
-    "en": "M'lou Kitchen"
+    "km": "លតឆាសៀមរាប ១៩៩១",
+    "en": "LOTCHA SIEMREAP 1991"
   },
   "tagline": {
-    "km": "ម្ហូបខ្មែរកក់ក្តៅ ចម្អិនថ្មីរាល់ថ្ងៃ",
-    "en": "Warm Cambodian food, cooked fresh every day"
+    "km": "មរតកសៀមរាប",
+    "en": "MORODOK SIEMREAP"
   },
   "about": {
-    "km": "យើងចម្អិនម្ហូបខ្មែរដែលអ្នកស្គាល់ និងចូលចិត្ត ដោយប្រើគ្រឿងផ្សំក្នុងស្រុក និងរូបមន្តគ្រួសារ។ អង្គុយសម្រាក ញ៉ាំយឺតៗ ហើយទទួលអារម្មណ៍ដូចនៅផ្ទះ។",
-    "en": "We cook the Cambodian food you know and love with local ingredients and family recipes. Settle in, eat slowly and feel at home."
+    "km": "លតឆាសៀមរាប មានភាពល្បីល្បាញផ្នែកលតឆាខ្មែរ ដែលមានរសជាតិឆ្ងាញ់ប្លែក ផ្សំគ្រឿងពីធម្មជាតិ លាយរសជាតិប្រពៃណី។ គ្រប់ចានលតឆា គឺស្រស់ថ្មី រក្សាគុណភាពដើម។",
+    "en": "Lotcha Siem Reap is famous for its Khmer Lotcha, featuring a unique and delicious taste made with natural ingredients and traditional flavors. Every plate of Lotcha served is fresh and maintains its original quality."
   },
   "logo": "./assets/images/business/logo.png",
   "cover": "./assets/images/business/cover.webp",

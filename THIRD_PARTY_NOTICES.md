@@ -7,5 +7,6 @@ The following assets are vendored locally for offline operation.
 - QRCode.js 1.0.0 — MIT License — https://github.com/davidshimjs/qrcodejs
 - Inter — SIL Open Font License 1.1 — https://rsms.me/inter/
 - Noto Sans Khmer — SIL Open Font License 1.1 — https://fonts.google.com/noto/specimen/Noto+Sans+Khmer
+- Hanuman — SIL Open Font License 1.1 — https://github.com/google/fonts/tree/main/ofl/hanuman
 
 The original license and copyright terms of each project apply to its vendored files. Version numbers are pinned so updates can be reviewed deliberately.
