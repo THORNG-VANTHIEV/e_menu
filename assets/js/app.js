@@ -62,6 +62,11 @@ const dom = {
   cartFooter: document.querySelector("#cart-footer"),
   orderDialog: document.querySelector("#order-dialog"),
   orderSummary: document.querySelector("#order-summary-print"),
+  orderStatus: document.querySelector("#order-status"),
+  orderStatusIcon: document.querySelector("#order-status-icon"),
+  orderStatusMessage: document.querySelector("#order-status-message"),
+  orderHandoffButton: document.querySelector("#order-handoff-button"),
+  undoOrderNotedButton: document.querySelector("#undo-order-noted-button"),
   settingsDialog: document.querySelector("#settings-dialog"),
   confirmDialog: document.querySelector("#confirm-dialog"),
   confirmMessage: document.querySelector("#confirm-message"),
@@ -86,7 +91,7 @@ let store;
 let i18n;
 let currentDetailId = "";
 let detailQuantity = 1;
-let currentSummaryText = "";
+let orderNotedAt = null;
 let pendingConfirmAction = null;
 let heroSliderController = null;
 let heroSlideSignature = "";
@@ -400,6 +405,7 @@ function renderOpenDialogs(state) {
       i18n
     });
   }
+  if (dom.orderDialog.open) renderOrderHandoffStatus();
 }
 
 function renderAll(state) {
@@ -548,35 +554,32 @@ function prepareSummary() {
     i18n,
     reference: createOrderReference()
   });
-  currentSummaryText = summary.text;
   dom.orderSummary.replaceChildren(summary.node);
-  document.querySelector("#share-summary-button").hidden = !("share" in navigator) || !navigator.onLine;
+  orderNotedAt = null;
+  renderOrderHandoffStatus();
   closeDialog(dom.cartDialog);
   openDialog(dom.orderDialog);
 }
 
-async function copySummary() {
-  try {
-    await navigator.clipboard.writeText(currentSummaryText);
-    showToast(i18n.t("copied"));
-  } catch {
-    showToast(i18n.t("copyFailed"), "bi-exclamation-circle");
-    const range = document.createRange();
-    range.selectNodeContents(dom.orderSummary);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-  }
-}
+function renderOrderHandoffStatus() {
+  const noted = orderNotedAt instanceof Date;
+  const time = noted
+    ? orderNotedAt.toLocaleTimeString(i18n.language === "km" ? "km-KH" : "en-US", {hour: "numeric", minute: "2-digit"})
+    : "";
+  const messageKey = noted ? "orderNotedNotice" : "notSentNotice";
+  const actionKey = noted ? "closeSummary" : "staffNotedAction";
 
-async function shareSummary() {
-  try {
-    await navigator.share({title: i18n.t("orderSummary"), text: currentSummaryText});
-  } catch (error) {
-    if (error.name === "AbortError") return;
-    await copySummary();
-    showToast(i18n.t("shareFailed"), "bi-exclamation-circle");
-  }
+  dom.orderStatus.classList.toggle("order-status--success", noted);
+  dom.orderStatusIcon.className = `bi ${noted ? "bi-check-circle-fill" : "bi-info-circle"}`;
+  dom.orderStatusMessage.dataset.i18n = messageKey;
+  dom.orderStatusMessage.textContent = i18n.t(messageKey, {time});
+  dom.undoOrderNotedButton.hidden = !noted;
+
+  const icon = dom.orderHandoffButton.querySelector("i");
+  const label = dom.orderHandoffButton.querySelector("span");
+  icon.className = `bi ${noted ? "bi-x-lg" : "bi-check2-circle"}`;
+  label.dataset.i18n = actionKey;
+  label.textContent = i18n.t(actionKey);
 }
 
 function handleSettingsChange(input) {
@@ -813,9 +816,19 @@ function attachEvents() {
     pendingConfirmAction = null;
   });
 
-  document.querySelector("#copy-summary-button").addEventListener("click", copySummary);
-  document.querySelector("#share-summary-button").addEventListener("click", shareSummary);
-  document.querySelector("#print-summary-button").addEventListener("click", () => window.print());
+  dom.orderHandoffButton.addEventListener("click", () => {
+    if (orderNotedAt) {
+      closeDialog(dom.orderDialog);
+      return;
+    }
+    orderNotedAt = new Date();
+    renderOrderHandoffStatus();
+  });
+  dom.undoOrderNotedButton.addEventListener("click", () => {
+    orderNotedAt = null;
+    renderOrderHandoffStatus();
+    dom.orderHandoffButton.focus();
+  });
   dom.updateButton.addEventListener("click", activateWaitingWorker);
 
   [dom.filterDialog, dom.detailDialog, dom.cartDialog, dom.orderDialog, dom.settingsDialog, dom.confirmDialog]

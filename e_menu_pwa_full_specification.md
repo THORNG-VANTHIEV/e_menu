@@ -47,7 +47,7 @@ Website ត្រូវដំណើរការជា Static Website លើ GitH
 - Favorites saved in `localStorage`
 - Cart, quantity control and price calculation
 - Table number or customer note
-- Order summary with Copy, Share and Print actions
+- Order summary with an in-person staff handoff confirmation
 - Light/Dark theme
 - Responsive mobile-first interface
 - Installable PWA
@@ -63,7 +63,7 @@ Website ត្រូវដំណើរការជា Static Website លើ GitH
 - Cart, favorites, language and theme are stored only on the current browser/device.
 - Clearing browser data removes local state.
 - Order Summary is not automatically sent to kitchen or stored centrally.
-- Phone, Telegram, Messenger, Maps and online Share actions require Internet or the related app.
+- Phone, Telegram, Messenger and Maps actions require Internet or the related app.
 - Source and public JSON data must not contain secrets, private keys, customer data or credentials.
 
 ### 2.3 Explicitly Out of Scope
@@ -145,7 +145,8 @@ The product is a Single Page Application experience without a framework. Section
    - Human-readable item list
    - Table number and note
    - Total
-   - Copy, Web Share and Print
+   - Pending notice explaining that nothing was transmitted
+   - Manual “staff has noted my order” confirmation, timestamp and Undo
 
 6. **Business Information**
    - Address, hours and contact
@@ -202,10 +203,10 @@ flowchart TD
     A["Open cart"] --> B["Review items and quantities"]
     B --> C["Enter table number and note"]
     C --> D["Generate order summary"]
-    D --> E{"Choose action"}
-    E --> F["Show to staff"]
-    E --> G["Copy / Share"]
-    E --> H["Print"]
+    D --> E["Show summary to staff"]
+    E --> F["Staff records the order manually"]
+    F --> G["Customer marks order as noted"]
+    G --> H["Show green status and time; allow Undo or Close"]
 ```
 
 ### 6.3 Offline Flow
@@ -290,9 +291,9 @@ Priority meanings:
 | FR-CART-007 | Format USD/KHR consistently without floating-point display errors | Must |
 | FR-CART-008 | Accept table number/name and general order note | Must |
 | FR-CART-009 | Generate an order reference locally using date/time plus short random suffix | Should |
-| FR-CART-010 | Copy formatted summary to clipboard | Must |
-| FR-CART-011 | Use Web Share API when supported and fall back to Copy | Should |
-| FR-CART-012 | Provide print-friendly order summary | Should |
+| FR-CART-010 | Present the summary for an in-person handoff to staff | Must |
+| FR-CART-011 | Let the customer mark that staff manually noted the order without implying transmission | Must |
+| FR-CART-012 | Show a localized success state and time, preserve the cart and provide Undo or Close | Should |
 | FR-CART-013 | Clear cart only after confirmation | Must |
 | FR-CART-014 | Clearly state that the order is not automatically sent | Must |
 
@@ -1070,8 +1071,6 @@ Target: WCAG 2.2 AA for core flows.
 | Menu JSON fails without cache | Show offline/error state and Retry |
 | Image fails | Replace with local placeholder |
 | Corrupt localStorage | Reset only the corrupt key and continue |
-| Clipboard denied | Select/show text and instruct user to copy manually |
-| Web Share unavailable | Hide Share and keep Copy |
 | Service worker fails | Website remains usable online |
 | Invalid menu record | Skip record, log warning in development |
 
@@ -1127,7 +1126,7 @@ User-facing errors must be short, localized and actionable.
 - Update quantity and totals.
 - Persist/recover cart, favorites, language and theme.
 - Generate order summary.
-- Copy, share fallback and print.
+- Confirm manual staff handoff, timestamp it, preserve the cart and support Undo.
 - Handle unavailable item/variant/add-on.
 
 ### 21.2 Responsive Test Matrix
@@ -1290,7 +1289,7 @@ Create a Git tag for stable releases.
 - Favorites
 - Variants/add-ons
 - Cart, notes and totals
-- Copy/share/print summary
+- Manual staff-handoff summary and confirmation state
 
 ### Phase 4 — PWA
 
@@ -1329,8 +1328,8 @@ Create a Git tag for stable releases.
 - [ ] Favorites remain after reload.
 - [ ] Cart rows and totals remain correct after reload.
 - [ ] Table number and notes appear in order summary.
-- [ ] Copy works; Share gracefully falls back; Print layout is readable.
-- [ ] The UI clearly says the order has not been automatically submitted.
+- [ ] The UI clearly says the order has not been automatically submitted and offers no Copy, Share or Print actions.
+- [ ] Staff handoff confirmation shows a green timed status, keeps the cart and supports Undo or Close.
 
 ### Responsive UI
 

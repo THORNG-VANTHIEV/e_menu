@@ -1143,7 +1143,7 @@ html[dir="rtl"] .menu-card__open {
   color: var(--color-text-muted);
 }
 
-.not-sent-notice {
+.order-status {
   display: flex;
   gap: 0.65rem;
   margin-top: 1rem;
@@ -1153,6 +1153,32 @@ html[dir="rtl"] .menu-card__open {
   background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface));
   color: var(--color-warning);
   font-size: 0.74rem;
+}
+
+.order-status--success {
+  border-color: color-mix(in srgb, var(--color-success) 35%, var(--color-border));
+  background: color-mix(in srgb, var(--color-success) 10%, var(--color-surface));
+  color: var(--color-success);
+}
+
+.order-status__body {
+  display: grid;
+  flex: 1;
+  gap: 0.25rem;
+}
+
+.order-status__undo {
+  width: fit-content;
+  min-height: 44px;
+  margin: -0.35rem 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .summary-note {
@@ -1165,7 +1191,7 @@ html[dir="rtl"] .menu-card__open {
 
 .order-actions {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
 }
 
 .order-actions .btn {
@@ -1173,6 +1199,7 @@ html[dir="rtl"] .menu-card__open {
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
+  width: 100%;
   font-size: 0.78rem;
 }
 

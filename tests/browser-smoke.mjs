@@ -498,7 +498,56 @@ assert.equal(
   "Cart should become the active mobile navigation item"
 );
 assert.equal(await evaluate(`document.querySelectorAll(".cart-row").length`), 1, "cart dialog should render its row");
-await evaluate(`document.querySelector("#cart-dialog [data-close-dialog]").click()`);
+await evaluate(`document.querySelector("[data-prepare-summary]").click()`);
+await delay(100);
+const pendingHandoff = await evaluate(`({
+  dialogOpen: document.querySelector("#order-dialog").open,
+  legacyActions: document.querySelectorAll("#copy-summary-button, #share-summary-button, #print-summary-button").length,
+  success: document.querySelector("#order-status").classList.contains("order-status--success"),
+  color: getComputedStyle(document.querySelector("#order-status")).color,
+  messageKey: document.querySelector("#order-status-message").dataset.i18n,
+  actionKey: document.querySelector("#order-handoff-button span").dataset.i18n,
+  undoHidden: document.querySelector("#undo-order-noted-button").hidden
+})`);
+assert.equal(pendingHandoff.dialogOpen, true, "preparing a summary should open the staff handoff view");
+assert.equal(pendingHandoff.legacyActions, 0, "Copy, Share and Print should not appear in the manual handoff flow");
+assert.equal(pendingHandoff.success, false, "the order should begin in the not-yet-noted state");
+assert.equal(pendingHandoff.messageKey, "notSentNotice", "the pending state should explain that nothing was transmitted");
+assert.equal(pendingHandoff.actionKey, "staffNotedAction", "the primary action should confirm that staff noted the order");
+assert.equal(pendingHandoff.undoHidden, true, "Undo should stay hidden before confirmation");
+
+await evaluate(`document.querySelector("#order-handoff-button").click()`);
+await delay(100);
+const completedHandoff = await evaluate(`({
+  success: document.querySelector("#order-status").classList.contains("order-status--success"),
+  color: getComputedStyle(document.querySelector("#order-status")).color,
+  messageKey: document.querySelector("#order-status-message").dataset.i18n,
+  message: document.querySelector("#order-status-message").textContent,
+  actionKey: document.querySelector("#order-handoff-button span").dataset.i18n,
+  undoHidden: document.querySelector("#undo-order-noted-button").hidden,
+  cartCount: document.querySelector("[data-cart-count]").textContent,
+  storedRows: JSON.parse(localStorage.getItem("emenu:v1:cart")).rows.length
+})`);
+assert.equal(completedHandoff.success, true, "confirmation should turn the handoff notice into a success state");
+assert.notEqual(completedHandoff.color, pendingHandoff.color, "the completed notice should use a distinct success color");
+assert.equal(completedHandoff.messageKey, "orderNotedNotice", "the completed state should show the staff-noted message");
+assert.doesNotMatch(completedHandoff.message, /\{time\}/, "the completed message should include a formatted time");
+assert.equal(completedHandoff.actionKey, "closeSummary", "the primary action should become Close after confirmation");
+assert.equal(completedHandoff.undoHidden, false, "the completed state should offer Undo");
+assert.equal(completedHandoff.cartCount, "1", "confirming staff handoff should keep the cart intact");
+assert.equal(completedHandoff.storedRows, 1, "confirming staff handoff should not clear stored selections");
+
+await evaluate(`document.querySelector("#undo-order-noted-button").click()`);
+await delay(50);
+assert.equal(
+  await evaluate(`document.querySelector("#order-status").classList.contains("order-status--success")`),
+  false,
+  "Undo should restore the pending handoff state"
+);
+await evaluate(`document.querySelector("#order-handoff-button").click()`);
+await evaluate(`document.querySelector("#order-handoff-button").click()`);
+await delay(50);
+assert.equal(await evaluate(`document.querySelector("#order-dialog").open`), false, "Close should dismiss the completed summary");
 
 await evaluate(`document.querySelector("#language-button").click()`);
 await delay(150);

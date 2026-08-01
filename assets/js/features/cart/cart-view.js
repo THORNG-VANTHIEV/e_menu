@@ -167,12 +167,6 @@ export function buildOrderSummary({cart, items, business, settings, i18n, refere
   meta.append(ref, table);
 
   const list = element("div", {className: "summary-items"});
-  const textLines = [
-    localize(business.name),
-    `${t("orderRef")}: ${reference}`,
-    `${t("table")}: ${cart.table || "—"}`,
-    "—"
-  ];
   cart.rows.forEach((row) => {
     const item = itemMap.get(row.itemId);
     if (!item) return;
@@ -184,8 +178,6 @@ export function buildOrderSummary({cart, items, business, settings, i18n, refere
     );
     if (options) line.append(element("small", {text: options}));
     list.append(line);
-    textLines.push(`${row.quantity} × ${localize(item.name)} — ${displayPrice(row.unitPriceCents * row.quantity, business, settings)}`);
-    if (options) textLines.push(`  ${options}`);
   });
 
   const totals = getCartTotals(cart, business);
@@ -199,16 +191,13 @@ export function buildOrderSummary({cart, items, business, settings, i18n, refere
     const formatted = `${cents < 0 ? "− " : ""}${displayPrice(Math.abs(cents), business, settings)}`;
     row.append(element(index === values.length - 1 ? "strong" : "span", {text: label}), element("strong", {text: formatted}));
     totalsNode.append(row);
-    textLines.push(`${label}: ${formatted}`);
   });
 
   if (cart.note) {
     const note = element("p", {className: "summary-note"});
     note.append(element("strong", {text: `${t("note")}: `}), document.createTextNode(cart.note));
     totalsNode.append(note);
-    textLines.push(`${t("note")}: ${cart.note}`);
   }
-  textLines.push("", t("notSentNotice"));
   root.append(brand, meta, list, totalsNode);
-  return {node: root, text: textLines.join("\n")};
+  return {node: root};
 }

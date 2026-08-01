@@ -1,4 +1,4 @@
-export const APP_VERSION = "1.0.23";
+export const APP_VERSION = "1.0.24";
 
 export const DATA_PATHS = Object.freeze({
   business: "./data/business.json",

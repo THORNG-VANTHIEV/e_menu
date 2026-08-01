@@ -25,8 +25,9 @@ Run the site through `npm run serve`; do not open `index.html` with `file://`.
 - [ ] The 5% discount appears only at a subtotal of at least $10.
 - [ ] Dual, USD and KHR prices have stable rounding.
 - [ ] Order summary includes reference, table, rows, notes, discount and total.
-- [ ] Copy works; Share is hidden when unsupported; Print shows only the order summary.
-- [ ] The summary clearly says the order was not sent.
+- [ ] The summary clearly says the order was not sent and provides no Copy, Share or Print actions.
+- [ ] Marking the order as noted turns the notice green, shows the time, keeps the cart intact and changes the primary action to Close.
+- [ ] Undo restores the pending staff-handoff state.
 
 ## Responsive and accessible
 

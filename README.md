@@ -9,7 +9,7 @@ An offline-first, bilingual Cambodian e-menu built as a static Progressive Web A
 - Item details with variants, add-ons, notes and live pricing
 - Device-local favorites and a versioned cart
 - USD, KHR and dual-price display with integer-safe calculations
-- Order summary with table/note, Copy, Share and print layout
+- Order summary with table/note and an in-person staff handoff confirmation
 - Light, dark and system themes
 - Responsive phone, tablet and desktop layouts
 - Install prompt, offline cache, fallback page and controlled update banner

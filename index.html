@@ -284,12 +284,16 @@
       </header>
       <div class="dialog-body">
         <div id="order-summary-print" class="order-summary"></div>
-        <div class="not-sent-notice"><i class="bi bi-info-circle" aria-hidden="true"></i><span data-i18n="notSentNotice">ការកម្ម៉ង់នេះមិនទាន់បានផ្ញើទៅហាងទេ។ សូមបង្ហាញសេចក្តីសង្ខេបនេះដល់បុគ្គលិក។</span></div>
+        <div id="order-status" class="order-status" role="status" aria-live="polite">
+          <i id="order-status-icon" class="bi bi-info-circle" aria-hidden="true"></i>
+          <div class="order-status__body">
+            <span id="order-status-message" data-i18n="notSentNotice">ការកម្ម៉ង់នេះមិនទាន់បានផ្ញើទៅហាងទេ។ សូមបង្ហាញសេចក្តីសង្ខេបនេះដល់បុគ្គលិក។</span>
+            <button id="undo-order-noted-button" class="order-status__undo" type="button" data-i18n="undo" hidden>ត្រឡប់វិញ</button>
+          </div>
+        </div>
       </div>
       <footer class="dialog-footer order-actions">
-        <button id="copy-summary-button" class="btn btn-primary" type="button"><i class="bi bi-copy" aria-hidden="true"></i><span data-i18n="copy">ចម្លង</span></button>
-        <button id="share-summary-button" class="btn btn-outline-primary" type="button" hidden><i class="bi bi-share" aria-hidden="true"></i><span data-i18n="share">ចែករំលែក</span></button>
-        <button id="print-summary-button" class="btn btn-outline-secondary" type="button"><i class="bi bi-printer" aria-hidden="true"></i><span data-i18n="print">បោះពុម្ព</span></button>
+        <button id="order-handoff-button" class="btn btn-primary" type="button"><i class="bi bi-check2-circle" aria-hidden="true"></i><span data-i18n="staffNotedAction">រួចរាល់ — បុគ្គលិកបានកត់ការកម្ម៉ង់របស់ខ្ញុំ</span></button>
       </footer>
     </div>
   </dialog>
