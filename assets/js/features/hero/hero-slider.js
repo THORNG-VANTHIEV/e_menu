@@ -1,4 +1,4 @@
-export const HERO_SLIDE_INTERVAL_MS = 10_000;
+export const HERO_SLIDE_INTERVAL_MS = 5_000;
 
 const MIN_SWIPE_DISTANCE_PX = 48;
 const SWIPE_WIDTH_RATIO = 0.12;
@@ -119,6 +119,10 @@ export function createHeroSlider({
     const targetIndex = wrapIndex(index, total);
     if (targetIndex === currentIndex) {
       scheduleAutoAdvance();
+      return;
+    }
+    if (currentIndex === total - 1 && targetIndex === 0) {
+      advance(1);
       return;
     }
     currentIndex = targetIndex;

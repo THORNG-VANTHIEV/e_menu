@@ -157,6 +157,7 @@ html[lang="km"] .brand__copy strong {
 }
 
 .hero__track.is-instant,
+.hero__slider.is-ready .hero__track.is-instant,
 .hero.is-dragging .hero__track {
   transition: none;
 }

@@ -107,6 +107,6 @@ test("light is the first-visit default theme", () => {
   assert.equal(DEFAULT_THEME, "light");
 });
 
-test("hero slideshow advances every ten seconds", () => {
-  assert.equal(HERO_SLIDE_INTERVAL_MS, 10_000);
+test("hero slideshow advances every five seconds", () => {
+  assert.equal(HERO_SLIDE_INTERVAL_MS, 5_000);
 });

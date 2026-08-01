@@ -192,6 +192,13 @@ const initial = await evaluate(`({
   heroSlides: document.querySelectorAll("[data-hero-slide]").length,
   heroInterval: document.querySelector("#hero-slider").dataset.intervalMs,
   heroIndex: document.querySelector("#home").dataset.heroIndex,
+  heroInstantTransitionDuration: (() => {
+    const track = document.querySelector("#hero-track");
+    track.classList.add("is-instant");
+    const duration = getComputedStyle(track).transitionDuration;
+    track.classList.remove("is-instant");
+    return duration;
+  })(),
   heroTitle: document.querySelector("#hero-title").textContent,
   sharedBusinessLogo: document.querySelector("#header-logo").currentSrc
     === document.querySelector(".footer-brand img").currentSrc,
@@ -237,8 +244,9 @@ assert.equal(initial.themeAccent, "#d8925e", "light mode should use the exact br
 assert.equal(initial.themeBackground, "#fff9f4", "light mode should use the warm cream-derived background");
 assert.equal(initial.browserThemeColor, "#4d2a1d", "light mode should tint browser chrome with brand espresso");
 assert.equal(initial.heroSlides, 3, "the hero should render all three configured covers");
-assert.equal(initial.heroInterval, "10000", "the hero should use a ten-second interval");
+assert.equal(initial.heroInterval, "5000", "the hero should use a five-second interval");
 assert.equal(initial.heroIndex, "0", "the first cover should be active initially");
+assert.equal(initial.heroInstantTransitionDuration, "0s", "the loop reset must disable the track transition");
 assert.equal(initial.sharedBusinessLogo, true, "the app bar and footer should use the same business logo");
 assert.equal(initial.businessLogosReady, true, "both visible business logos should load at 192px");
 assert.match(initial.bodyFont, /Hanuman/, "Khmer content should use the local Hanuman font");
@@ -334,11 +342,34 @@ assert.equal(rapidRight.index, "2", "eight rapid right swipes should wrap to the
 assert.ok(rapidRight.visibleSlides > 0, `rapid right swipes left the hero blank at ${rapidRight.transform}`);
 
 await evaluate(`document.querySelector('[data-hero-dot="0"]').click()`);
-await delay(10_200);
+await delay(100);
+const forwardWrap = await evaluate(`({
+  index: document.querySelector("#home").dataset.heroIndex,
+  transform: document.querySelector("#hero-track").style.transform
+})`);
+assert.equal(forwardWrap.index, "0", "the last cover should wrap to the first cover");
+assert.match(forwardWrap.transform, /-400%/, "the last-to-first wrap should continue forward through the cloned first cover");
+await delay(650);
+const normalizedForwardWrap = await evaluate(`(() => {
+  const track = document.querySelector("#hero-track");
+  return {
+    transform: track.style.transform,
+    computedTranslateX: new DOMMatrixReadOnly(getComputedStyle(track).transform).m41,
+    expectedTranslateX: -window.innerWidth
+  };
+})()`);
+assert.match(normalizedForwardWrap.transform, /-100%/, "the cloned first cover should normalize to the real first cover");
+assert.ok(
+  Math.abs(normalizedForwardWrap.computedTranslateX - normalizedForwardWrap.expectedTranslateX) <= 1,
+  "the clone reset should be instant instead of visibly animating backward"
+);
+
+await evaluate(`document.querySelector('[data-hero-dot="0"]').click()`);
+await delay(5_200);
 assert.equal(
   await evaluate(`document.querySelector("#home").dataset.heroIndex`),
   "1",
-  "the hero should advance automatically after ten seconds"
+  "the hero should advance automatically after five seconds"
 );
 await evaluate(`document.querySelector('[data-hero-dot="0"]').click()`);
 await delay(750);
