@@ -589,8 +589,15 @@ function handleSettingsChange(input) {
 }
 
 function handleDocumentClick(event) {
-  const button = event.target.closest("button, a");
-  if (!button) return;
+  const target = event.target instanceof Element ? event.target : null;
+  if (!target) return;
+
+  const button = target.closest("button, a");
+  if (!button) {
+    const menuCard = target.closest("[data-menu-card][data-open-item]");
+    if (menuCard) openItemDetail(menuCard.dataset.openItem);
+    return;
+  }
 
   if (button.matches("[data-open-cart]")) {
     event.preventDefault();

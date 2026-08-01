@@ -78,6 +78,32 @@ async function delay(milliseconds) {
   await new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
+async function waitFor(expression, timeout = 3000) {
+  const deadline = Date.now() + timeout;
+  while (Date.now() < deadline) {
+    if (await evaluate(expression)) return true;
+    await delay(50);
+  }
+  return false;
+}
+
+async function pressKey(key, code, keyCode) {
+  const params = {
+    key,
+    code,
+    windowsVirtualKeyCode: keyCode,
+    nativeVirtualKeyCode: keyCode
+  };
+  await send("Input.dispatchKeyEvent", {type: "rawKeyDown", ...params});
+  await send("Input.dispatchKeyEvent", {
+    type: "char",
+    ...params,
+    text: key === "Enter" ? "\r" : key,
+    unmodifiedText: key === "Enter" ? "\r" : key
+  });
+  await send("Input.dispatchKeyEvent", {type: "keyUp", ...params});
+}
+
 async function navigate(url) {
   const loaded = once("Page.loadEventFired");
   await send("Page.navigate", {url});
@@ -137,6 +163,21 @@ await evaluate(`Promise.all([
 
 const initial = await evaluate(`({
   cards: document.querySelectorAll(".menu-card").length,
+  clickableCards: document.querySelectorAll(".menu-card[data-menu-card][data-open-item]").length,
+  statusBadgeLayout: (() => {
+    const media = document.querySelector(".menu-card__media").getBoundingClientRect();
+    const badge = document.querySelector(".item-badge").getBoundingClientRect();
+    const favorite = document.querySelector(".favorite-button").getBoundingClientRect();
+    return {
+      bottomGap: media.bottom - badge.bottom,
+      leftGap: badge.left - media.left,
+      overlapsFavorite: badge.left < favorite.right
+        && badge.right > favorite.left
+        && badge.top < favorite.bottom
+        && badge.bottom > favorite.top,
+      whiteSpace: getComputedStyle(document.querySelector(".item-badge")).whiteSpace
+    };
+  })(),
   lang: document.documentElement.lang,
   errorHidden: document.querySelector("#error-state").hidden,
   loadingHidden: document.querySelector("#menu-loading").hidden,
@@ -179,6 +220,11 @@ const initial = await evaluate(`({
   menuNameInnerOverflow: getComputedStyle(document.querySelector(".menu-card__open")).overflow
 })`);
 assert.equal(initial.cards, 8, "all sample dishes should render");
+assert.equal(initial.clickableCards, 8, "every dish card should expose its item-detail action");
+assert.ok(initial.statusBadgeLayout.bottomGap >= 0 && initial.statusBadgeLayout.bottomGap <= 12, "status badges should sit at the image bottom");
+assert.ok(initial.statusBadgeLayout.leftGap >= 0 && initial.statusBadgeLayout.leftGap <= 12, "status badges should stay left-aligned");
+assert.equal(initial.statusBadgeLayout.overlapsFavorite, false, "status badges should not overlap favorite controls");
+assert.equal(initial.statusBadgeLayout.whiteSpace, "nowrap", "long status badges should remain on one line");
 assert.equal(initial.lang, "km", "Khmer should be the first-visit language");
 assert.equal(initial.errorHidden, true, "the data error state should stay hidden");
 assert.equal(initial.loadingHidden, true, "the loading state should complete");
@@ -327,6 +373,11 @@ assert.equal(secondTheme.browserThemeColor, "#4d2a1d", "switching back should re
 
 await evaluate(`document.querySelector("[data-favorite]").click()`);
 await delay(100);
+assert.equal(
+  await evaluate(`document.querySelector("#detail-dialog").open`),
+  false,
+  "favorite controls should not also open item details"
+);
 await evaluate(`document.querySelector("[data-show-favorites]").click()`);
 await delay(100);
 assert.equal(
@@ -368,15 +419,32 @@ assert.equal(
   "Menu navigation should exit Favorites mode and restore all dishes"
 );
 
-await evaluate(`document.querySelector("[data-open-item]").click()`);
+await evaluate(`document.querySelector('[data-menu-card="beef-lok-lak"] .menu-card__media img').click()`);
 await delay(100);
-assert.equal(await evaluate(`document.querySelector("#detail-dialog").open`), true, "item detail should open");
+assert.equal(await evaluate(`document.querySelector("#detail-dialog").open`), true, "clicking the card image should open item details");
 assert.ok(await evaluate(`document.querySelector("#detail-total").textContent.length`) > 0, "detail total should render");
+await evaluate(`document.querySelector("#detail-dialog [data-close-dialog]").click()`);
+
+await evaluate(`document.querySelector('[data-menu-card="beef-lok-lak"] .menu-card__open').focus()`);
+await pressKey("Enter", "Enter", 13);
+await delay(100);
+assert.equal(await evaluate(`document.querySelector("#detail-dialog").open`), true, "Enter on an item name should open details");
+await evaluate(`document.querySelector("#detail-dialog [data-close-dialog]").click()`);
+
+await evaluate(`document.querySelector('[data-menu-card="beef-lok-lak"] .menu-card__open').focus()`);
+await pressKey(" ", "Space", 32);
+await delay(100);
+assert.equal(await evaluate(`document.querySelector("#detail-dialog").open`), true, "Space on an item name should open details");
 await evaluate(`document.querySelector("#detail-dialog [data-close-dialog]").click()`);
 
 await evaluate(`document.querySelector('[data-quick-add="fish-amok"]').click()`);
 await delay(100);
 assert.equal(await evaluate(`document.querySelector("[data-cart-count]").textContent`), "1", "quick add should update the cart");
+assert.equal(
+  await evaluate(`document.querySelector("#detail-dialog").open`),
+  false,
+  "quick-add controls should not also open item details"
+);
 await evaluate(`document.querySelector("[data-open-cart]").click()`);
 await delay(100);
 assert.equal(await evaluate(`document.querySelectorAll(".cart-row").length`), 1, "cart dialog should render its row");
@@ -393,11 +461,15 @@ assert.match(
 
 await evaluate(`(() => {
   const input = document.querySelector("#search-input");
+  input.focus();
   input.value = "កាហ្វេ";
   input.dispatchEvent(new Event("input", {bubbles: true}));
 })()`);
-await delay(350);
-assert.equal(await evaluate(`document.querySelectorAll(".menu-card").length`), 1, "Khmer search should work while UI is English");
+assert.equal(
+  await waitFor(`document.querySelectorAll(".menu-card").length === 1`),
+  true,
+  "Khmer search should work while UI is English"
+);
 await evaluate(`document.querySelector("#clear-search-button").click()`);
 await delay(100);
 

@@ -14,6 +14,9 @@ Run the site through `npm run serve`; do not open `index.html` with `file://`.
 
 ## Details, favorites and cart
 
+- [ ] Clicking or tapping a card image, description, price, or other non-control area opens that item's details.
+- [ ] The favorite and quick-add buttons keep their own actions and do not also open item details.
+- [ ] Status badges stay at the image's bottom-left and never overlap the top-right favorite button.
 - [ ] Lok Lak and Kuy Teav require a size; changing variants/add-ons updates the displayed total.
 - [ ] Quantity never goes below 1 or above 20.
 - [ ] Identical item/options/note selections merge; a different note creates a new row.

@@ -32,7 +32,8 @@ function itemBadges(item, t) {
 export function createMenuCard({item, category, business, settings, i18n, isFavorite}) {
   const {t, localize} = i18n;
   const card = element("article", {
-    className: `menu-card${item.flags?.available ? "" : " is-unavailable"}`
+    className: `menu-card${item.flags?.available ? "" : " is-unavailable"}`,
+    dataset: {menuCard: item.id, openItem: item.id}
   });
   const media = element("div", {className: "menu-card__media"});
   const image = setImageFallback(element("img", {

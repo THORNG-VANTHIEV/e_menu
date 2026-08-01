@@ -235,7 +235,13 @@
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
+  cursor: pointer;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.menu-card:has(.menu-card__open:focus-visible) {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 .menu-card:hover {
@@ -269,25 +275,31 @@
 .menu-card__badges {
   position: absolute;
   z-index: 1;
-  top: 0.55rem;
+  right: 0.55rem;
+  bottom: 0.55rem;
   left: 0.55rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.3rem;
+  pointer-events: none;
 }
 
 .item-badge {
   display: inline-flex;
+  max-width: 100%;
   min-height: 24px;
   align-items: center;
   gap: 0.2rem;
   padding: 0.2rem 0.5rem;
+  overflow: hidden;
   border-radius: var(--radius-pill);
   background: rgb(255 255 255 / 0.92);
   color: #35231c;
   font-size: 0.62rem;
   font-weight: 800;
   box-shadow: 0 3px 10px rgb(77 42 29 / 0.16);
+  text-overflow: ellipsis;
+  white-space: nowrap;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
@@ -353,6 +365,10 @@
   font-weight: inherit;
   text-align: left;
   text-overflow: ellipsis;
+}
+
+.menu-card__open:focus-visible {
+  outline: 0;
 }
 
 html[dir="rtl"] .menu-card__open {
