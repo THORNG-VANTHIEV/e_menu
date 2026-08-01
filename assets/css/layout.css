@@ -485,6 +485,7 @@ html[lang="km"] #hero-title {
     text-decoration: none;
   }
 
+  .desktop-nav a.active,
   .desktop-nav a:hover {
     color: var(--color-primary);
   }

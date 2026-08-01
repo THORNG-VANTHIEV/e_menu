@@ -181,6 +181,8 @@ const initial = await evaluate(`({
   lang: document.documentElement.lang,
   errorHidden: document.querySelector("#error-state").hidden,
   loadingHidden: document.querySelector("#menu-loading").hidden,
+  activeMobileNavigation: document.querySelector(".mobile-nav__item.active")?.dataset.nav,
+  activeMobileNavigationCurrent: document.querySelector(".mobile-nav__item.active")?.getAttribute("aria-current"),
   overflow: document.documentElement.scrollWidth - window.innerWidth,
   qrReady: Boolean(document.querySelector("#menu-qr-code canvas, #menu-qr-code img")),
   theme: document.documentElement.dataset.theme,
@@ -235,6 +237,8 @@ assert.equal(initial.statusBadgeLayout.whiteSpace, "nowrap", "long status badges
 assert.equal(initial.lang, "km", "Khmer should be the first-visit language");
 assert.equal(initial.errorHidden, true, "the data error state should stay hidden");
 assert.equal(initial.loadingHidden, true, "the loading state should complete");
+assert.equal(initial.activeMobileNavigation, "home", "Home should be the initially active mobile navigation item");
+assert.equal(initial.activeMobileNavigationCurrent, "page", "the active navigation item should be exposed to assistive technology");
 assert.ok(initial.overflow <= 0, `390px layout overflowed by ${initial.overflow}px`);
 assert.equal(initial.qrReady, true, "the deployment-aware menu QR code should render");
 assert.equal(initial.theme, "light", "light should be rendered on the first visit");
@@ -412,6 +416,11 @@ assert.equal(
 await evaluate(`document.querySelector("[data-show-favorites]").click()`);
 await delay(100);
 assert.equal(
+  await evaluate(`document.querySelector(".mobile-nav__item.active")?.hasAttribute("data-show-favorites")`),
+  true,
+  "Favorites should become the only active mobile navigation item"
+);
+assert.equal(
   await evaluate(`document.querySelectorAll(".menu-card").length`),
   1,
   "Favorites view should show the saved dish"
@@ -445,6 +454,11 @@ assert.deepEqual(clearedFavorites.stored, [], "cleared Favorites should be persi
 await evaluate(`document.querySelector('.mobile-nav [data-show-menu]').click()`);
 await delay(100);
 assert.equal(
+  await evaluate(`document.querySelector(".mobile-nav__item.active")?.dataset.nav`),
+  "menu",
+  "Menu should become the active mobile navigation item"
+);
+assert.equal(
   await evaluate(`document.querySelectorAll(".menu-card").length`),
   8,
   "Menu navigation should exit Favorites mode and restore all dishes"
@@ -476,8 +490,13 @@ assert.equal(
   false,
   "quick-add controls should not also open item details"
 );
-await evaluate(`document.querySelector("[data-open-cart]").click()`);
+await evaluate(`document.querySelector(".mobile-nav [data-open-cart]").click()`);
 await delay(100);
+assert.equal(
+  await evaluate(`document.querySelector(".mobile-nav__item.active")?.hasAttribute("data-open-cart")`),
+  true,
+  "Cart should become the active mobile navigation item"
+);
 assert.equal(await evaluate(`document.querySelectorAll(".cart-row").length`), 1, "cart dialog should render its row");
 await evaluate(`document.querySelector("#cart-dialog [data-close-dialog]").click()`);
 

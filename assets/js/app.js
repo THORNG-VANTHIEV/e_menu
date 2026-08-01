@@ -588,6 +588,18 @@ function handleSettingsChange(input) {
   }), `settings-${input.name}`);
 }
 
+function setActiveNavigationItem(item) {
+  const navigation = item.closest(".mobile-nav, .desktop-nav");
+  if (!navigation) return;
+
+  navigation.querySelectorAll(".mobile-nav__item, a").forEach((candidate) => {
+    const active = candidate === item;
+    candidate.classList.toggle("active", active);
+    if (active) candidate.setAttribute("aria-current", "page");
+    else candidate.removeAttribute("aria-current");
+  });
+}
+
 function handleDocumentClick(event) {
   const target = event.target instanceof Element ? event.target : null;
   if (!target) return;
@@ -597,6 +609,10 @@ function handleDocumentClick(event) {
     const menuCard = target.closest("[data-menu-card][data-open-item]");
     if (menuCard) openItemDetail(menuCard.dataset.openItem);
     return;
+  }
+
+  if (button.matches(".mobile-nav__item, .desktop-nav a")) {
+    setActiveNavigationItem(button);
   }
 
   if (button.matches("[data-open-cart]")) {
