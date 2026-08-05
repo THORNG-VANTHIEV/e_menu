@@ -82,6 +82,19 @@ export function getCartCount(cart) {
   return cart.rows.reduce((total, row) => total + row.quantity, 0);
 }
 
+export function createCartSignature(cart) {
+  return JSON.stringify({
+    schemaVersion: cart.schemaVersion,
+    rows: cart.rows.map((row) => ({
+      key: row.key,
+      quantity: row.quantity,
+      unitPriceCents: row.unitPriceCents
+    })),
+    table: cart.table,
+    note: cart.note
+  });
+}
+
 export function getCartTotals(cart, business) {
   const subtotalCents = cart.rows.reduce(
     (total, row) => total + row.unitPriceCents * row.quantity,

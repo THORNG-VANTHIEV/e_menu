@@ -17,6 +17,7 @@ import {createMenuCard, getDetailSelection, renderItemDetail} from "./features/m
 import {
   addCartRow,
   changeCartQuantity,
+  createCartSignature,
   createOrderReference,
   emptyCart,
   getCartCount,
@@ -66,6 +67,7 @@ const dom = {
   orderStatusIcon: document.querySelector("#order-status-icon"),
   orderStatusMessage: document.querySelector("#order-status-message"),
   orderHandoffButton: document.querySelector("#order-handoff-button"),
+  orderSummaryCloseButton: document.querySelector("#order-summary-close-button"),
   undoOrderNotedButton: document.querySelector("#undo-order-noted-button"),
   settingsDialog: document.querySelector("#settings-dialog"),
   confirmDialog: document.querySelector("#confirm-dialog"),
@@ -92,6 +94,9 @@ let i18n;
 let currentDetailId = "";
 let detailQuantity = 1;
 let orderNotedAt = null;
+let notedOrderSignature = "";
+let orderSummarySignature = "";
+let orderSummaryReference = "";
 let pendingConfirmAction = null;
 let heroSliderController = null;
 let heroSlideSignature = "";
@@ -546,16 +551,24 @@ function prepareSummary() {
     tableInput?.focus();
     return;
   }
+  const cartSignature = createCartSignature(cart);
+  if (cartSignature !== orderSummarySignature) {
+    orderSummarySignature = cartSignature;
+    orderSummaryReference = createOrderReference();
+  }
+  if (cartSignature !== notedOrderSignature) {
+    orderNotedAt = null;
+    notedOrderSignature = "";
+  }
   const summary = buildOrderSummary({
     cart,
     items: state.menuItems,
     business: state.business,
     settings: state.settings,
     i18n,
-    reference: createOrderReference()
+    reference: orderSummaryReference
   });
   dom.orderSummary.replaceChildren(summary.node);
-  orderNotedAt = null;
   renderOrderHandoffStatus();
   closeDialog(dom.cartDialog);
   openDialog(dom.orderDialog);
@@ -567,19 +580,33 @@ function renderOrderHandoffStatus() {
     ? orderNotedAt.toLocaleTimeString(i18n.language === "km" ? "km-KH" : "en-US", {hour: "numeric", minute: "2-digit"})
     : "";
   const messageKey = noted ? "orderNotedNotice" : "notSentNotice";
-  const actionKey = noted ? "closeSummary" : "staffNotedAction";
+  const actionKey = noted ? "startNewOrder" : "staffNotedAction";
 
   dom.orderStatus.classList.toggle("order-status--success", noted);
   dom.orderStatusIcon.className = `bi ${noted ? "bi-check-circle-fill" : "bi-info-circle"}`;
   dom.orderStatusMessage.dataset.i18n = messageKey;
   dom.orderStatusMessage.textContent = i18n.t(messageKey, {time});
   dom.undoOrderNotedButton.hidden = !noted;
+  dom.orderSummaryCloseButton.hidden = !noted;
 
   const icon = dom.orderHandoffButton.querySelector("i");
   const label = dom.orderHandoffButton.querySelector("span");
-  icon.className = `bi ${noted ? "bi-x-lg" : "bi-check2-circle"}`;
+  icon.className = `bi ${noted ? "bi-plus-circle" : "bi-check2-circle"}`;
   label.dataset.i18n = actionKey;
   label.textContent = i18n.t(actionKey);
+}
+
+function startNewOrder() {
+  const cart = saveCart(emptyCart());
+  orderNotedAt = null;
+  notedOrderSignature = "";
+  orderSummarySignature = "";
+  orderSummaryReference = "";
+  dom.orderSummary.replaceChildren();
+  updateState((state) => ({...state, cart}), "new-order");
+  closeDialog(dom.orderDialog);
+  showToast(i18n.t("newOrderStarted"));
+  announce(i18n.t("newOrderStarted"));
 }
 
 function handleSettingsChange(input) {
@@ -818,14 +845,16 @@ function attachEvents() {
 
   dom.orderHandoffButton.addEventListener("click", () => {
     if (orderNotedAt) {
-      closeDialog(dom.orderDialog);
+      askConfirmation(i18n.t("startNewOrderConfirm"), startNewOrder);
       return;
     }
     orderNotedAt = new Date();
+    notedOrderSignature = orderSummarySignature || createCartSignature(store.getState().cart);
     renderOrderHandoffStatus();
   });
   dom.undoOrderNotedButton.addEventListener("click", () => {
     orderNotedAt = null;
+    notedOrderSignature = "";
     renderOrderHandoffStatus();
     dom.orderHandoffButton.focus();
   });

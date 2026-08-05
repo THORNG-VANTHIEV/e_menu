@@ -26,7 +26,10 @@ Run the site through `npm run serve`; do not open `index.html` with `file://`.
 - [ ] Dual, USD and KHR prices have stable rounding.
 - [ ] Order summary includes reference, table, rows, notes, discount and total.
 - [ ] The summary clearly says the order was not sent and provides no Copy, Share or Print actions.
-- [ ] Marking the order as noted turns the notice green, shows the time, keeps the cart intact and changes the primary action to Close.
+- [ ] Marking the order as noted turns the notice green, shows the time, keeps the cart intact and offers Close plus Start New Order.
+- [ ] Closing and reopening the same unchanged summary preserves its noted status and reference.
+- [ ] Changing an item, quantity, table number or note makes the next summary pending again.
+- [ ] Start New Order requires confirmation, then clears items, table number and notes while keeping favorites.
 - [ ] Undo restores the pending staff-handoff state.
 
 ## Responsive and accessible

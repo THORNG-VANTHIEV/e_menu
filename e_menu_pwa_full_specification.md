@@ -206,7 +206,10 @@ flowchart TD
     D --> E["Show summary to staff"]
     E --> F["Staff records the order manually"]
     F --> G["Customer marks order as noted"]
-    G --> H["Show green status and time; allow Undo or Close"]
+    G --> H["Show green status and time; allow Undo, Close or Start New Order"]
+    H --> I{"Start New Order confirmed?"}
+    I -->|No| H
+    I -->|Yes| J["Clear items, table and notes"]
 ```
 
 ### 6.3 Offline Flow
@@ -293,8 +296,8 @@ Priority meanings:
 | FR-CART-009 | Generate an order reference locally using date/time plus short random suffix | Should |
 | FR-CART-010 | Present the summary for an in-person handoff to staff | Must |
 | FR-CART-011 | Let the customer mark that staff manually noted the order without implying transmission | Must |
-| FR-CART-012 | Show a localized success state and time, preserve the cart and provide Undo or Close | Should |
-| FR-CART-013 | Clear cart only after confirmation | Must |
+| FR-CART-012 | Show a localized success state and time; Close preserves it for the same unchanged summary | Should |
+| FR-CART-013 | Provide Start New Order and clear items, table and notes only after explicit confirmation | Must |
 | FR-CART-014 | Clearly state that the order is not automatically sent | Must |
 
 ### 7.6 Language, Currency and Theme
@@ -1126,7 +1129,7 @@ User-facing errors must be short, localized and actionable.
 - Update quantity and totals.
 - Persist/recover cart, favorites, language and theme.
 - Generate order summary.
-- Confirm manual staff handoff, timestamp it, preserve the cart and support Undo.
+- Confirm manual staff handoff, timestamp it, preserve it across accidental Close, support Undo and confirm Start New Order before clearing.
 - Handle unavailable item/variant/add-on.
 
 ### 21.2 Responsive Test Matrix
@@ -1329,7 +1332,7 @@ Create a Git tag for stable releases.
 - [ ] Cart rows and totals remain correct after reload.
 - [ ] Table number and notes appear in order summary.
 - [ ] The UI clearly says the order has not been automatically submitted and offers no Copy, Share or Print actions.
-- [ ] Staff handoff confirmation shows a green timed status, keeps the cart and supports Undo or Close.
+- [ ] Staff handoff confirmation shows a green timed status; Close preserves the unchanged order, while confirmed Start New Order clears items, table and notes.
 
 ### Responsive UI
 

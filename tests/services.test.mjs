@@ -4,6 +4,7 @@ import {filterAndSortMenu, normalizeSearch} from "../assets/js/features/menu/men
 import {
   addCartRow,
   changeCartQuantity,
+  createCartSignature,
   emptyCart,
   getCartTotals,
   unitPriceCents
@@ -86,6 +87,15 @@ test("identical cart selections merge but different notes stay separate", () => 
   assert.equal(cart.rows[0].quantity, 3);
   cart = addCartRow(cart, item, {variantId: "regular", addOnIds: ["egg"], note: "No garlic", quantity: 1});
   assert.equal(cart.rows.length, 2);
+});
+
+test("cart signature changes with order items, table or notes", () => {
+  const cart = addCartRow(emptyCart(), item, {variantId: "regular", addOnIds: ["egg"], note: "", quantity: 1});
+  const signature = createCartSignature(cart);
+  assert.equal(createCartSignature({...cart, rows: cart.rows.map((row) => ({...row}))}), signature);
+  assert.notEqual(createCartSignature({...cart, table: "Table 6"}), signature);
+  assert.notEqual(createCartSignature({...cart, note: "No ice"}), signature);
+  assert.notEqual(createCartSignature(changeCartQuantity(cart, cart.rows[0].key, 1)), signature);
 });
 
 test("quantity is clamped and discounts use integer cents", () => {

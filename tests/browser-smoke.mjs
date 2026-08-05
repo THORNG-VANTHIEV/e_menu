@@ -507,13 +507,16 @@ const pendingHandoff = await evaluate(`({
   color: getComputedStyle(document.querySelector("#order-status")).color,
   messageKey: document.querySelector("#order-status-message").dataset.i18n,
   actionKey: document.querySelector("#order-handoff-button span").dataset.i18n,
-  undoHidden: document.querySelector("#undo-order-noted-button").hidden
+  closeHidden: document.querySelector("#order-summary-close-button").hidden,
+  undoHidden: document.querySelector("#undo-order-noted-button").hidden,
+  reference: document.querySelector(".summary-meta strong").textContent
 })`);
 assert.equal(pendingHandoff.dialogOpen, true, "preparing a summary should open the staff handoff view");
 assert.equal(pendingHandoff.legacyActions, 0, "Copy, Share and Print should not appear in the manual handoff flow");
 assert.equal(pendingHandoff.success, false, "the order should begin in the not-yet-noted state");
 assert.equal(pendingHandoff.messageKey, "notSentNotice", "the pending state should explain that nothing was transmitted");
 assert.equal(pendingHandoff.actionKey, "staffNotedAction", "the primary action should confirm that staff noted the order");
+assert.equal(pendingHandoff.closeHidden, true, "the pending state should not need a second footer close action");
 assert.equal(pendingHandoff.undoHidden, true, "Undo should stay hidden before confirmation");
 
 await evaluate(`document.querySelector("#order-handoff-button").click()`);
@@ -524,6 +527,7 @@ const completedHandoff = await evaluate(`({
   messageKey: document.querySelector("#order-status-message").dataset.i18n,
   message: document.querySelector("#order-status-message").textContent,
   actionKey: document.querySelector("#order-handoff-button span").dataset.i18n,
+  closeHidden: document.querySelector("#order-summary-close-button").hidden,
   undoHidden: document.querySelector("#undo-order-noted-button").hidden,
   cartCount: document.querySelector("[data-cart-count]").textContent,
   storedRows: JSON.parse(localStorage.getItem("emenu:v1:cart")).rows.length
@@ -532,7 +536,8 @@ assert.equal(completedHandoff.success, true, "confirmation should turn the hando
 assert.notEqual(completedHandoff.color, pendingHandoff.color, "the completed notice should use a distinct success color");
 assert.equal(completedHandoff.messageKey, "orderNotedNotice", "the completed state should show the staff-noted message");
 assert.doesNotMatch(completedHandoff.message, /\{time\}/, "the completed message should include a formatted time");
-assert.equal(completedHandoff.actionKey, "closeSummary", "the primary action should become Close after confirmation");
+assert.equal(completedHandoff.actionKey, "startNewOrder", "the primary action should offer to start a new order");
+assert.equal(completedHandoff.closeHidden, false, "the completed state should offer a separate Close action");
 assert.equal(completedHandoff.undoHidden, false, "the completed state should offer Undo");
 assert.equal(completedHandoff.cartCount, "1", "confirming staff handoff should keep the cart intact");
 assert.equal(completedHandoff.storedRows, 1, "confirming staff handoff should not clear stored selections");
@@ -545,9 +550,60 @@ assert.equal(
   "Undo should restore the pending handoff state"
 );
 await evaluate(`document.querySelector("#order-handoff-button").click()`);
-await evaluate(`document.querySelector("#order-handoff-button").click()`);
+await evaluate(`document.querySelector("#order-summary-close-button").click()`);
 await delay(50);
 assert.equal(await evaluate(`document.querySelector("#order-dialog").open`), false, "Close should dismiss the completed summary");
+const closedHandoff = await evaluate(`({
+  success: document.querySelector("#order-status").classList.contains("order-status--success"),
+  messageKey: document.querySelector("#order-status-message").dataset.i18n,
+  actionKey: document.querySelector("#order-handoff-button span").dataset.i18n,
+  undoHidden: document.querySelector("#undo-order-noted-button").hidden
+})`);
+assert.equal(closedHandoff.success, true, "closing a completed summary should preserve its success state");
+assert.equal(closedHandoff.messageKey, "orderNotedNotice", "an accidentally closed summary should remain marked");
+assert.equal(closedHandoff.actionKey, "startNewOrder", "the completed order should still offer Start New Order");
+assert.equal(closedHandoff.undoHidden, false, "Undo should remain available for the completed order");
+
+await evaluate(`document.querySelector(".mobile-nav [data-open-cart]").click()`);
+await delay(50);
+await evaluate(`document.querySelector("[data-prepare-summary]").click()`);
+await delay(50);
+const reopenedHandoff = await evaluate(`({
+  success: document.querySelector("#order-status").classList.contains("order-status--success"),
+  reference: document.querySelector(".summary-meta strong").textContent
+})`);
+assert.equal(reopenedHandoff.success, true, "reopening the same unchanged summary should preserve the staff-noted state");
+assert.equal(reopenedHandoff.reference, pendingHandoff.reference, "reopening an unchanged summary should preserve its reference");
+
+await evaluate(`document.querySelector("#order-summary-close-button").click()`);
+await evaluate(`document.querySelector(".mobile-nav [data-open-cart]").click()`);
+await delay(50);
+await evaluate(`document.querySelector('[data-cart-qty="increase"]').click()`);
+await evaluate(`document.querySelector("[data-prepare-summary]").click()`);
+await delay(50);
+assert.equal(
+  await evaluate(`document.querySelector("#order-status").classList.contains("order-status--success")`),
+  false,
+  "changing the cart should reset the next summary to pending"
+);
+
+await evaluate(`document.querySelector("#order-handoff-button").click()`);
+await evaluate(`document.querySelector("#order-handoff-button").click()`);
+await delay(50);
+assert.equal(await evaluate(`document.querySelector("#confirm-dialog").open`), true, "Start New Order should ask for confirmation");
+assert.equal(await evaluate(`document.querySelector("[data-cart-count]").textContent`), "2", "the cart should remain intact before confirmation");
+await evaluate(`document.querySelector("#confirm-action-button").click()`);
+await delay(100);
+const newOrder = await evaluate(`({
+  orderOpen: document.querySelector("#order-dialog").open,
+  cartCount: document.querySelector("[data-cart-count]").textContent,
+  cart: JSON.parse(localStorage.getItem("emenu:v1:cart"))
+})`);
+assert.equal(newOrder.orderOpen, false, "starting a new order should close the completed summary");
+assert.equal(newOrder.cartCount, "0", "starting a new order should reset the visible cart count");
+assert.deepEqual(newOrder.cart.rows, [], "starting a new order should clear stored cart rows");
+assert.equal(newOrder.cart.table, "", "starting a new order should clear the table number");
+assert.equal(newOrder.cart.note, "", "starting a new order should clear the general note");
 
 await evaluate(`document.querySelector("#language-button").click()`);
 await delay(150);
