@@ -1,7 +1,7 @@
 /* global PRECACHE_URLS */
 importScripts("./precache-manifest.js");
 
-const VERSION = "v1.0.26";
+const VERSION = "v1.0.27";
 const STATIC_CACHE = `emenu-static-${VERSION}`;
 const DATA_CACHE = `emenu-data-${VERSION}`;
 const IMAGE_CACHE = `emenu-images-${VERSION}`;
@@ -59,7 +59,13 @@ async function staleWhileRevalidate(request) {
   const cache = await caches.open(DATA_CACHE);
   const cached = await cache.match(request, {ignoreSearch: true});
   const network = fetch(request).then(async (response) => {
-    if (response.ok) await cache.put(request, response.clone());
+    if (response.ok) {
+      await cache.put(request, response.clone());
+      const clients = await self.clients.matchAll({type: "window"});
+      for (const client of clients) {
+        client.postMessage({type: "DATA_CACHE_UPDATED", url: request.url});
+      }
+    }
     return response;
   }).catch(() => null);
   return cached || (await network) || new Response(

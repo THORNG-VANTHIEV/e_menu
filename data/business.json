@@ -43,7 +43,7 @@
   "currency": {
     "default": "USD",
     "displayMode": "dual",
-    "usdToKhr": 4100,
+    "usdToKhr": 4000,
     "khrRounding": 100
   },
   "features": {

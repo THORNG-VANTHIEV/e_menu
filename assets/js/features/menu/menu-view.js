@@ -134,12 +134,19 @@ export function renderItemDetail(container, {item, business, settings, i18n}) {
     element("h2", {text: localize(item.name), attrs: {id: "detail-title"}}),
     priceStack(getItemStartingPriceCents(item), business, settings)
   );
+  const headingActions = element("div", {className: "detail-heading__actions"});
   const favorite = element("button", {
     className: "icon-button",
     attrs: {type: "button", "aria-label": t("favorites"), title: t("favorites")},
     dataset: {favorite: item.id}
   }, icon("bi-heart"));
-  heading.append(titleWrap, favorite);
+  const desktopClose = element("button", {
+    className: "icon-button detail-close-btn",
+    attrs: {type: "button", "aria-label": "Close", title: "Close"},
+    dataset: {closeDialog: ""}
+  }, icon("bi-x-lg"));
+  headingActions.append(favorite, desktopClose);
+  heading.append(titleWrap, headingActions);
   body.append(heading, element("p", {className: "detail-description", text: localize(item.description)}));
 
   const meta = element("div", {className: "detail-meta"});

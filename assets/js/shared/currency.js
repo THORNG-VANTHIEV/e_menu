@@ -9,7 +9,7 @@ export function roundTo(value, increment) {
 }
 
 export function centsToKhr(cents, currencyConfig) {
-  const rate = Number(currencyConfig?.usdToKhr) || 4100;
+  const rate = Number(currencyConfig?.usdToKhr) || 4000;
   const rounding = Number(currencyConfig?.khrRounding) || 100;
   return roundTo((cents * rate) / 100, rounding);
 }

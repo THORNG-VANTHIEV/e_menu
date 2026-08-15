@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Raw source assets (the app uses optimized assets/images/menu/*.webp)
+data_menu/
+
+# Logs
+*.log

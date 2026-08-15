@@ -265,6 +265,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
   transition: transform 400ms ease;
 }
 
@@ -763,6 +764,7 @@ html[dir="rtl"] .menu-card__open {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
 }
 
 .detail-media .icon-button {
@@ -784,6 +786,17 @@ html[dir="rtl"] .menu-card__open {
   align-items: start;
   justify-content: space-between;
   gap: 0.75rem;
+}
+
+.detail-heading__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+}
+
+.detail-close-btn {
+  display: none;
 }
 
 .detail-heading h2 {
@@ -946,6 +959,7 @@ html[dir="rtl"] .menu-card__open {
   height: 4.5rem;
   border-radius: var(--radius-md);
   object-fit: cover;
+  object-position: center center;
 }
 
 .cart-row__body {
@@ -1520,31 +1534,55 @@ html[dir="rtl"] .menu-card__open {
   }
 
   .app-dialog--detail {
-    width: min(calc(100% - 2rem), 58rem);
+    width: min(calc(100% - 2rem), 54rem);
+    height: min(88dvh, 42rem);
+    max-height: min(88dvh, 42rem);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
   }
 
   .app-dialog--detail .dialog-shell {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    grid-template-rows: 1fr auto;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
   }
 
   .detail-media {
     height: 100%;
+    min-height: 0;
+    aspect-ratio: auto;
     grid-row: 1 / 3;
-    border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+    grid-column: 1;
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .detail-media .icon-button {
+    display: none;
+  }
+
+  .detail-close-btn {
+    display: inline-flex;
   }
 
   .detail-body {
     grid-column: 2;
     grid-row: 1;
-    padding: 1.5rem;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 1.5rem 1.75rem 1rem;
   }
 
   .detail-footer {
     grid-column: 2;
     grid-row: 2;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.75rem;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface);
   }
 
   .app-dialog--cart {

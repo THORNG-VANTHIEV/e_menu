@@ -34,7 +34,7 @@ const item = {
 };
 
 const business = {
-  currency: {usdToKhr: 4100, khrRounding: 100},
+  currency: {usdToKhr: 4000, khrRounding: 100},
   order: {discountPercent: 5, discountMinimumUsd: 10}
 };
 
@@ -71,8 +71,8 @@ test("combines category, dietary, spice and availability filters", () => {
 test("uses integer cents and configured KHR rounding", () => {
   assert.equal(toCents(3.5), 350);
   assert.equal(roundTo(14357, 100), 14400);
-  assert.equal(centsToKhr(350, business.currency), 14400);
-  assert.match(formatPrice(350, business, "dual", "en").secondary, /14,400/);
+  assert.equal(centsToKhr(350, business.currency), 14000);
+  assert.match(formatPrice(350, business, "dual", "en").secondary, /14,000/);
 });
 
 test("cart price includes only selected available options", () => {

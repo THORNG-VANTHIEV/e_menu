@@ -228,8 +228,8 @@ const initial = await evaluate(`({
   menuNameFontSize: parseFloat(getComputedStyle(document.querySelector(".menu-card h3")).fontSize),
   menuNameInnerOverflow: getComputedStyle(document.querySelector(".menu-card__open")).overflow
 })`);
-assert.equal(initial.cards, 8, "all sample dishes should render");
-assert.equal(initial.clickableCards, 8, "every dish card should expose its item-detail action");
+assert.equal(initial.cards, 27, "all sample dishes should render");
+assert.equal(initial.clickableCards, 27, "every dish card should expose its item-detail action");
 assert.ok(initial.statusBadgeLayout.bottomGap >= 0 && initial.statusBadgeLayout.bottomGap <= 12, "status badges should sit at the image bottom");
 assert.ok(initial.statusBadgeLayout.leftGap >= 0 && initial.statusBadgeLayout.leftGap <= 12, "status badges should stay left-aligned");
 assert.equal(initial.statusBadgeLayout.overlapsFavorite, false, "status badges should not overlap favorite controls");
@@ -460,29 +460,29 @@ assert.equal(
 );
 assert.equal(
   await evaluate(`document.querySelectorAll(".menu-card").length`),
-  8,
+  27,
   "Menu navigation should exit Favorites mode and restore all dishes"
 );
 
-await evaluate(`document.querySelector('[data-menu-card="beef-lok-lak"] .menu-card__media img').click()`);
+await evaluate(`document.querySelector('[data-menu-card="lot-cha-special"] .menu-card__media img').click()`);
 await delay(100);
 assert.equal(await evaluate(`document.querySelector("#detail-dialog").open`), true, "clicking the card image should open item details");
 assert.ok(await evaluate(`document.querySelector("#detail-total").textContent.length`) > 0, "detail total should render");
 await evaluate(`document.querySelector("#detail-dialog [data-close-dialog]").click()`);
 
-await evaluate(`document.querySelector('[data-menu-card="beef-lok-lak"] .menu-card__open').focus()`);
+await evaluate(`document.querySelector('[data-menu-card="lot-cha-special"] .menu-card__open').focus()`);
 await pressKey("Enter", "Enter", 13);
 await delay(100);
 assert.equal(await evaluate(`document.querySelector("#detail-dialog").open`), true, "Enter on an item name should open details");
 await evaluate(`document.querySelector("#detail-dialog [data-close-dialog]").click()`);
 
-await evaluate(`document.querySelector('[data-menu-card="beef-lok-lak"] .menu-card__open').focus()`);
+await evaluate(`document.querySelector('[data-menu-card="lot-cha-special"] .menu-card__open').focus()`);
 await pressKey(" ", "Space", 32);
 await delay(100);
 assert.equal(await evaluate(`document.querySelector("#detail-dialog").open`), true, "Space on an item name should open details");
 await evaluate(`document.querySelector("#detail-dialog [data-close-dialog]").click()`);
 
-await evaluate(`document.querySelector('[data-quick-add="fish-amok"]').click()`);
+await evaluate(`document.querySelector('[data-quick-add="corner-fried-chive-cake"]').click()`);
 await delay(100);
 assert.equal(await evaluate(`document.querySelector("[data-cart-count]").textContent`), "1", "quick add should update the cart");
 assert.equal(
@@ -711,7 +711,7 @@ const offline = await evaluate(`({
     && document.fonts.check('600 16px "Hanuman"')
     && document.fonts.check('32px "Khmer OS Bassac"')
 })`);
-assert.equal(offline.cards, 8, "cached dishes should render offline");
+assert.equal(offline.cards, 27, "cached dishes should render offline");
 assert.equal(offline.errorHidden, true, "offline reload should not show a data error");
 assert.ok(offline.overflow <= 0, "offline page should not overflow");
 assert.match(offline.bodyFont, /Hanuman/, "Hanuman should remain active offline");

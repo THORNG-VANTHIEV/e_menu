@@ -48,6 +48,20 @@ export async function registerServiceWorker({onUpdateReady, onError}) {
     navigator.serviceWorker.addEventListener("controllerchange", () => {
       if (refreshRequested) window.location.reload();
     });
+
+    const triggerUpdate = () => {
+      if (navigator.onLine) {
+        registration.update().catch(() => {});
+      }
+    };
+
+    window.addEventListener("focus", triggerUpdate);
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") triggerUpdate();
+    });
+    window.addEventListener("online", triggerUpdate);
+    window.setInterval(triggerUpdate, 60000);
+
     return registration;
   } catch (error) {
     console.warn("[pwa] Service worker registration failed:", error);
@@ -57,8 +71,12 @@ export async function registerServiceWorker({onUpdateReady, onError}) {
 }
 
 export function activateWaitingWorker() {
-  if (!waitingWorker) return false;
   refreshRequested = true;
-  waitingWorker.postMessage({type: "SKIP_WAITING"});
+  if (waitingWorker) {
+    waitingWorker.postMessage({type: "SKIP_WAITING"});
+    window.setTimeout(() => window.location.reload(), 800);
+    return true;
+  }
+  window.location.reload();
   return true;
 }

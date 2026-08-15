@@ -1,5 +1,5 @@
 import {PAGE_SIZE, SEARCH_DEBOUNCE_MS, DEFAULT_FILTERS} from "./config.js";
-import {loadLocalData} from "./api/local-data-source.js";
+import {createDataSignature, fetchFreshLocalData, loadLocalData} from "./api/local-data-source.js";
 import {createStore} from "./state/store.js";
 import {createI18n} from "./shared/i18n.js";
 import {
@@ -100,6 +100,7 @@ let orderSummaryReference = "";
 let pendingConfirmAction = null;
 let heroSliderController = null;
 let heroSlideSignature = "";
+let currentDataSignature = "";
 
 function showToast(message, iconName = "bi-check-circle") {
   const toast = element("div", {className: "app-toast"});
@@ -909,11 +910,45 @@ async function bootstrap() {
     onInstalled: () => showToast(i18n.t("installed")),
     onUnavailable: () => showToast(i18n.t("installUnavailable"), "bi-info-circle")
   });
-  await registerServiceWorker({
-    onUpdateReady: () => {
-      dom.updateBanner.hidden = false;
-      announce(i18n.t("updateReady"));
+
+  currentDataSignature = createDataSignature(data);
+
+  const showUpdateNotification = () => {
+    dom.updateBanner.hidden = false;
+    announce(i18n.t("updateReady"));
+  };
+
+  const checkForDataUpdates = async () => {
+    if (!navigator.onLine) return;
+    try {
+      const fresh = await fetchFreshLocalData();
+      if (!fresh) return;
+      const freshSig = createDataSignature(fresh);
+      if (currentDataSignature && freshSig && freshSig !== currentDataSignature) {
+        showUpdateNotification();
+      }
+    } catch {
+      // Ignore network failures
     }
+  };
+
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.addEventListener("message", (event) => {
+      if (event.data?.type === "DATA_CACHE_UPDATED") {
+        checkForDataUpdates();
+      }
+    });
+  }
+
+  window.addEventListener("focus", checkForDataUpdates);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") checkForDataUpdates();
+  });
+  window.addEventListener("online", checkForDataUpdates);
+  window.setInterval(checkForDataUpdates, 45000);
+
+  await registerServiceWorker({
+    onUpdateReady: showUpdateNotification
   });
 }
 

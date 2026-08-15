@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "M'lou Kitchen E-Menu",
-  "short_name": "M'lou Menu",
-  "description": "Bilingual Cambodian menu with favorites, cart and offline access.",
+  "name": "លតឆាសៀមរាប ១៩៩១ — LOTCHA SIEMREAP 1991",
+  "short_name": "លតឆា ១៩៩១",
+  "description": "មីនុយអេឡិចត្រូនិក លតឆាសៀមរាប ១៩៩១ (Lotcha Siem Reap 1991 E-Menu)",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

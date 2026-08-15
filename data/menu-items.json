@@ -1,205 +1,710 @@
 [
   {
-    "id": "beef-lok-lak",
-    "sku": "RICE-001",
-    "categoryId": "rice",
-    "name": {"km": "ឡុកឡាក់សាច់គោ", "en": "Beef Lok Lak"},
+    "id": "corner-fried-chive-cake",
+    "sku": "CHIVE-001",
+    "categoryId": "chive-cake",
+    "name": {"km": "នំគូឆាយចៀនជ្រុង", "en": "Corner Fried Chive Cake"},
     "description": {
-      "km": "សាច់គោចៀនជាមួយខ្ទឹមបារាំង បាយផ្កាម្លិះ និងទឹកជ្រលក់ម្រេចក្រូចឆ្មារ",
-      "en": "Seared beef with onion, jasmine rice and black-pepper lime sauce"
+      "km": "នំគូឆាយរាងជ្រុង ចៀនស្រួយក្រៅ ទន់ក្នុង រសជាតិឈ្ងុយឆ្ងាញ់",
+      "en": "Crispy square fried chive cake with savory chive filling"
     },
     "ingredients": {
-      "km": "សាច់គោ បាយ ខ្ទឹមបារាំង ប៉េងប៉ោះ ត្រសក់ សាឡាត់ ម្រេច",
-      "en": "Beef, rice, onion, tomato, cucumber, lettuce, pepper"
+      "km": "ម្សៅអង្ករ ស្លឹកគូឆាយ គ្រឿងទេស",
+      "en": "Rice flour, Chinese chives, seasoning"
     },
-    "keywords": ["beef", "rice", "lok lak", "បាយ", "សាច់គោ", "ឡុកឡាក់"],
-    "image": "./assets/images/menu/beef-lok-lak.webp",
+    "keywords": ["chive cake", "fried", "snack", "នំគូឆាយ", "ចៀន", "ជ្រុង"],
+    "image": "./assets/images/menu/corner-fried-chive-cake.webp",
     "gallery": [],
-    "basePrice": {"currency": "USD", "amount": 4.5},
-    "variants": [
-      {"id": "regular", "name": {"km": "ធម្មតា", "en": "Regular"}, "priceDelta": 0, "default": true, "available": true},
-      {"id": "large", "name": {"km": "ធំ", "en": "Large"}, "priceDelta": 1.25, "default": false, "available": true}
-    ],
-    "addOns": [
-      {"id": "fried-egg", "name": {"km": "ពងទាចៀន", "en": "Fried egg"}, "price": 0.75, "available": true},
-      {"id": "extra-beef", "name": {"km": "សាច់គោបន្ថែម", "en": "Extra beef"}, "price": 1.5, "available": true}
-    ],
-    "flags": {"available": true, "recommended": true, "popular": true, "new": false, "vegetarian": false, "halal": true},
-    "spicyLevel": 1,
-    "allergens": ["soy"],
+    "basePrice": {"currency": "USD", "amount": 0.63},
+    "variants": [],
+    "addOns": [],
+    "flags": {"available": true, "recommended": true, "popular": true, "new": false, "vegetarian": true, "halal": true},
+    "spicyLevel": 0,
+    "allergens": [],
     "sortOrder": 10,
-    "updatedAt": "2026-07-29"
+    "updatedAt": "2026-08-15"
   },
   {
-    "id": "basil-chicken-fried-rice",
-    "sku": "RICE-002",
-    "categoryId": "rice",
-    "name": {"km": "បាយឆាមាន់ម្រះព្រៅ", "en": "Basil Chicken Fried Rice"},
+    "id": "round-fried-chive-cake",
+    "sku": "CHIVE-002",
+    "categoryId": "chive-cake",
+    "name": {"km": "នំគូឆាយចៀនមូល", "en": "Round Fried Chive Cake"},
     "description": {
-      "km": "បាយឆាភ្លើងក្តៅជាមួយសាច់មាន់ ម្រះព្រៅ សណ្តែកគួរ និងពងទាចៀន",
-      "en": "Wok-fried rice with chicken, holy basil, long beans and a fried egg"
+      "km": "នំគូឆាយរាងមូល ចៀនស្រួយឈ្ងុយឆ្ងាញ់ ជាមួយទឹកត្រីផ្អែមហឹរ",
+      "en": "Crispy round fried chive cake, golden and flavorful"
     },
-    "ingredients": {"km": "បាយ សាច់មាន់ ម្រះព្រៅ សណ្តែកគួរ ពងទា", "en": "Rice, chicken, holy basil, long beans, egg"},
-    "keywords": ["chicken", "fried rice", "basil", "បាយឆា", "មាន់"],
-    "image": "./assets/images/menu/basil-chicken-fried-rice.webp",
+    "ingredients": {
+      "km": "ម្សៅអង្ករ ស្លឹកគូឆាយ គ្រឿងទេស",
+      "en": "Rice flour, Chinese chives, seasoning"
+    },
+    "keywords": ["chive cake", "fried", "round", "នំគូឆាយ", "ចៀន", "មូល"],
+    "image": "./assets/images/menu/round-fried-chive-cake.webp",
     "gallery": [],
-    "basePrice": {"currency": "USD", "amount": 3.75},
+    "basePrice": {"currency": "USD", "amount": 0.63},
     "variants": [],
-    "addOns": [
-      {"id": "extra-egg", "name": {"km": "ពងទាបន្ថែម", "en": "Extra egg"}, "price": 0.65, "available": true}
-    ],
-    "flags": {"available": true, "recommended": false, "popular": true, "new": true, "vegetarian": false, "halal": true},
-    "spicyLevel": 2,
-    "allergens": ["egg", "soy"],
+    "addOns": [],
+    "flags": {"available": true, "recommended": false, "popular": true, "new": false, "vegetarian": true, "halal": true},
+    "spicyLevel": 0,
+    "allergens": [],
     "sortOrder": 20,
-    "updatedAt": "2026-07-29"
+    "updatedAt": "2026-08-15"
   },
   {
-    "id": "fish-amok",
-    "sku": "KHM-001",
-    "categoryId": "khmer-classics",
-    "name": {"km": "អាម៉ុកត្រី", "en": "Fish Amok"},
+    "id": "corner-steamed-chive-cake",
+    "sku": "CHIVE-003",
+    "categoryId": "chive-cake",
+    "name": {"km": "នំគូឆាយចំហុយជ្រុង", "en": "Corner Steamed Chive Cake"},
     "description": {
-      "km": "ត្រីចំហុយក្នុងខ្ទិះដូង គ្រឿងអាម៉ុក និងស្លឹកចេក បម្រើជាមួយបាយ",
-      "en": "Steamed fish in coconut curry and kroeung, served in banana leaf with rice"
+      "km": "នំគូឆាយរាងជ្រុងចំហុយ សាច់ទន់ល្មើយ សំបូរជាតិគូឆាយស្រស់",
+      "en": "Soft steamed square chive cake made with fresh chives"
     },
-    "ingredients": {"km": "ត្រី ខ្ទិះដូង គ្រឿងអាម៉ុក ពងទា ស្លឹកចេក", "en": "Fish, coconut milk, kroeung, egg, banana leaf"},
-    "keywords": ["fish", "amok", "coconut", "ត្រី", "អាម៉ុក"],
-    "image": "./assets/images/menu/fish-amok.webp",
+    "ingredients": {
+      "km": "ម្សៅអង្ករ ស្លឹកគូឆាយ គ្រឿងទេស",
+      "en": "Rice flour, Chinese chives, seasoning"
+    },
+    "keywords": ["chive cake", "steamed", "health", "នំគូឆាយ", "ចំហុយ", "ជ្រុង"],
+    "image": "./assets/images/menu/corner-steamed-chive-cake.webp",
     "gallery": [],
-    "basePrice": {"currency": "USD", "amount": 5.25},
+    "basePrice": {"currency": "USD", "amount": 0.63},
+    "variants": [],
+    "addOns": [],
+    "flags": {"available": true, "recommended": false, "popular": false, "new": false, "vegetarian": true, "halal": true},
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 30,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "round-steamed-chive-cake",
+    "sku": "CHIVE-004",
+    "categoryId": "chive-cake",
+    "name": {"km": "នំគូឆាយចំហុយមូល", "en": "Round Steamed Chive Cake"},
+    "description": {
+      "km": "នំគូឆាយរាងមូលចំហុយ សាច់ទន់ឆ្ងាញ់ ស័ក្តិសមសម្រាប់សុខភាព",
+      "en": "Soft steamed round chive cake filled with aromatic chives"
+    },
+    "ingredients": {
+      "km": "ម្សៅអង្ករ ស្លឹកគូឆាយ គ្រឿងទេស",
+      "en": "Rice flour, Chinese chives, seasoning"
+    },
+    "keywords": ["chive cake", "steamed", "round", "នំគូឆាយ", "ចំហុយ", "មូល"],
+    "image": "./assets/images/menu/round-steamed-chive-cake.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 0.63},
+    "variants": [],
+    "addOns": [],
+    "flags": {"available": true, "recommended": false, "popular": false, "new": false, "vegetarian": true, "halal": true},
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 40,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-vegetable",
+    "sku": "LOT-001",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាបន្លែ", "en": "Vegetable Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាក្តៅៗជាមួយសណ្តែកបណ្តុះ ស្លឹកគូឆាយ និងទឹកជ្រលក់ពិសេស",
+      "en": "Stir-fried short rice pin noodles with bean sprouts and Chinese chives"
+    },
+    "ingredients": {
+      "km": "លត សណ្តែកបណ្តុះ ស្លឹកគូឆាយ ទឹកត្រីផ្អែម",
+      "en": "Short rice noodles, bean sprouts, chives, sweet sauce"
+    },
+    "keywords": ["lot cha", "vegetable", "noodles", "លតឆា", "បន្លែ"],
+    "image": "./assets/images/menu/lot-cha-vegetable.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 1.0},
     "variants": [],
     "addOns": [
-      {"id": "extra-rice", "name": {"km": "បាយបន្ថែម", "en": "Extra rice"}, "price": 0.5, "available": true}
+      {"id": "fried-egg", "name": {"km": "ពងទាចៀន", "en": "Fried egg"}, "price": 0.5, "available": true},
+      {"id": "chive-cake", "name": {"km": "នំគូឆាយបន្ថែម", "en": "Extra chive cake"}, "price": 0.63, "available": true}
     ],
-    "flags": {"available": true, "recommended": true, "popular": true, "new": false, "vegetarian": false, "halal": true},
-    "spicyLevel": 1,
-    "allergens": ["fish", "egg"],
-    "sortOrder": 10,
-    "updatedAt": "2026-07-29"
-  },
-  {
-    "id": "phnom-penh-kuy-teav",
-    "sku": "NOODLE-001",
-    "categoryId": "noodles",
-    "name": {"km": "គុយទាវភ្នំពេញ", "en": "Phnom Penh Kuy Teav"},
-    "description": {
-      "km": "គុយទាវទឹកស៊ុបឆ្អឹង ជាមួយសាច់គោ សណ្តែកបណ្តុះ ខ្ទឹមបំពង និងជី",
-      "en": "Rice noodles in clear bone broth with beef, bean sprouts, fried garlic and herbs"
-    },
-    "ingredients": {"km": "គុយទាវ សាច់គោ សណ្តែកបណ្តុះ ខ្ទឹមបំពង ជី", "en": "Rice noodles, beef, bean sprouts, fried garlic, herbs"},
-    "keywords": ["noodle", "soup", "kuy teav", "គុយទាវ", "ស៊ុប"],
-    "image": "./assets/images/menu/phnom-penh-kuy-teav.webp",
-    "gallery": [],
-    "basePrice": {"currency": "USD", "amount": 3.5},
-    "variants": [
-      {"id": "small", "name": {"km": "តូច", "en": "Small"}, "priceDelta": 0, "default": true, "available": true},
-      {"id": "large", "name": {"km": "ធំ", "en": "Large"}, "priceDelta": 1, "default": false, "available": true}
-    ],
-    "addOns": [
-      {"id": "extra-beef", "name": {"km": "សាច់គោបន្ថែម", "en": "Extra beef"}, "price": 1.25, "available": true},
-      {"id": "poached-egg", "name": {"km": "ពងទាស្ងោរ", "en": "Poached egg"}, "price": 0.75, "available": false}
-    ],
-    "flags": {"available": true, "recommended": true, "popular": false, "new": false, "vegetarian": false, "halal": true},
+    "flags": {"available": true, "recommended": false, "popular": true, "new": false, "vegetarian": true, "halal": true},
     "spicyLevel": 0,
     "allergens": ["soy"],
-    "sortOrder": 10,
-    "updatedAt": "2026-07-29"
+    "sortOrder": 50,
+    "updatedAt": "2026-08-15"
   },
   {
-    "id": "green-mango-salad",
-    "sku": "START-001",
-    "categoryId": "starters",
-    "name": {"km": "ញាំស្វាយខ្ចី", "en": "Green Mango Salad"},
+    "id": "lot-cha-egg",
+    "sku": "LOT-002",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាពង", "en": "Egg Stir-Fried Lot Cha"},
     "description": {
-      "km": "ស្វាយខ្ចី ជី សណ្តែកដី ប៉េងប៉ោះ និងទឹកត្រីក្រូចឆ្មាររសជាតិស្រស់",
-      "en": "Green mango, fresh herbs, peanuts, tomato and a bright lime dressing"
+      "km": "លតឆាភ្លើងក្តៅ ជាមួយពងទាចៀន និងបន្លែស្រស់ៗ",
+      "en": "Stir-fried short rice pin noodles with fried egg, bean sprouts and chives"
     },
-    "ingredients": {"km": "ស្វាយខ្ចី ជី សណ្តែកដី ប៉េងប៉ោះ ក្រូចឆ្មារ", "en": "Green mango, herbs, peanuts, tomato, lime"},
-    "keywords": ["salad", "mango", "vegetarian", "ញាំ", "ស្វាយ", "បួស"],
-    "image": "./assets/images/menu/green-mango-salad.webp",
+    "ingredients": {
+      "km": "លត ពងទា សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, egg, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "egg", "noodles", "លតឆា", "ពង", "ពងទា"],
+    "image": "./assets/images/menu/lot-cha-egg.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 1.25},
+    "variants": [],
+    "addOns": [
+      {"id": "fried-egg", "name": {"km": "ពងទាបន្ថែម", "en": "Extra fried egg"}, "price": 0.5, "available": true},
+      {"id": "chive-cake", "name": {"km": "នំគូឆាយបន្ថែម", "en": "Extra chive cake"}, "price": 0.63, "available": true}
+    ],
+    "flags": {"available": true, "recommended": true, "popular": true, "new": false, "vegetarian": true, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["egg", "soy"],
+    "sortOrder": 60,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-vegetable-chive-cake",
+    "sku": "LOT-003",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាបន្លែនំគូឆាយ", "en": "Vegetable & Chive Cake Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាបន្លែឈ្ងុយឆ្ងាញ់ បន្ថែមនំគូឆាយចៀនស្រួយ",
+      "en": "Stir-fried pin noodles with vegetables served with crispy chive cake"
+    },
+    "ingredients": {
+      "km": "លត នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, chive cake, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "chive cake", "vegetable", "លតឆា", "នំគូឆាយ"],
+    "image": "./assets/images/menu/lot-cha-vegetable-chive-cake.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 1.63},
+    "variants": [],
+    "addOns": [
+      {"id": "fried-egg", "name": {"km": "ពងទាចៀន", "en": "Fried egg"}, "price": 0.5, "available": true}
+    ],
+    "flags": {"available": true, "recommended": false, "popular": true, "new": false, "vegetarian": true, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["soy"],
+    "sortOrder": 70,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-vegetable-egg-chive-cake",
+    "sku": "LOT-004",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាបន្លែពងនំគូឆាយ", "en": "Vegetable, Egg & Chive Cake Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាបន្លែ ជាមួយពងទាចៀន និងនំគូឆាយចៀនស្រួយ",
+      "en": "Stir-fried pin noodles with egg, crispy chive cake and vegetables"
+    },
+    "ingredients": {
+      "km": "លត ពងទា នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, egg, chive cake, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "egg", "chive cake", "លតឆា", "ពង", "នំគូឆាយ"],
+    "image": "./assets/images/menu/lot-cha-vegetable-egg-chive-cake.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 1.88},
+    "variants": [],
+    "addOns": [],
+    "flags": {"available": true, "recommended": true, "popular": true, "new": false, "vegetarian": true, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["egg", "soy"],
+    "sortOrder": 80,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-beef",
+    "sku": "LOT-005",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាសាច់គោ", "en": "Beef Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាសាច់គោបន្ទះទន់ផ្អែម ឆាភ្លើងខ្លាំងជាមួយបន្លែស្រស់",
+      "en": "Stir-fried pin noodles with tender beef, bean sprouts and chives"
+    },
+    "ingredients": {
+      "km": "លត សាច់គោ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, beef, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "beef", "លតឆា", "សាច់គោ"],
+    "image": "./assets/images/menu/lot-cha-beef.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 1.63},
+    "variants": [],
+    "addOns": [
+      {"id": "fried-egg", "name": {"km": "ពងទាចៀន", "en": "Fried egg"}, "price": 0.5, "available": true},
+      {"id": "chive-cake", "name": {"km": "នំគូឆាយបន្ថែម", "en": "Extra chive cake"}, "price": 0.63, "available": true}
+    ],
+    "flags": {"available": true, "recommended": true, "popular": true, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["soy"],
+    "sortOrder": 90,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-beef-egg",
+    "sku": "LOT-006",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាសាច់គោពង", "en": "Beef & Egg Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាសាច់គោបន្ទះទន់ ជាមួយពងទាចៀនឈ្ងុយឆ្ងាញ់",
+      "en": "Stir-fried pin noodles with tender beef and a fried egg"
+    },
+    "ingredients": {
+      "km": "លត សាច់គោ ពងទា សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, beef, egg, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "beef", "egg", "លតឆា", "សាច់គោ", "ពង"],
+    "image": "./assets/images/menu/lot-cha-beef-egg.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 1.88},
+    "variants": [],
+    "addOns": [
+      {"id": "chive-cake", "name": {"km": "នំគូឆាយបន្ថែម", "en": "Extra chive cake"}, "price": 0.63, "available": true}
+    ],
+    "flags": {"available": true, "recommended": true, "popular": true, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["egg", "soy"],
+    "sortOrder": 100,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-beef-chive-cake",
+    "sku": "LOT-007",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាសាច់គោនំគូឆាយ", "en": "Beef & Chive Cake Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាសាច់គោទន់ឆ្ងាញ់ បម្រើជាមួយនំគូឆាយចៀនស្រួយ",
+      "en": "Stir-fried pin noodles with beef and crispy chive cake"
+    },
+    "ingredients": {
+      "km": "លត សាច់គោ នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, beef, chive cake, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "beef", "chive cake", "លតឆា", "សាច់គោ", "នំគូឆាយ"],
+    "image": "./assets/images/menu/lot-cha-beef-chive-cake.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 2.25},
+    "variants": [],
+    "addOns": [
+      {"id": "fried-egg", "name": {"km": "ពងទាចៀន", "en": "Fried egg"}, "price": 0.5, "available": true}
+    ],
+    "flags": {"available": true, "recommended": false, "popular": true, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["soy"],
+    "sortOrder": 110,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-beef-egg-chive-cake",
+    "sku": "LOT-008",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាសាច់គោពងនំគូឆាយ", "en": "Beef, Egg & Chive Cake Stir-Fried Lot Cha"},
+    "description": {
+      "km": "ការរួមបញ្ចូលដ៏ពេញនិយម៖ លតឆាសាច់គោ ពងទាចៀន និងនំគូឆាយចៀនស្រួយ",
+      "en": "Popular combination: Stir-fried pin noodles with beef, fried egg and crispy chive cake"
+    },
+    "ingredients": {
+      "km": "លត សាច់គោ ពងទា នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, beef, egg, chive cake, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "beef", "egg", "chive cake", "លតឆា", "សាច់គោ", "ពង", "នំគូឆាយ"],
+    "image": "./assets/images/menu/lot-cha-beef-egg-chive-cake.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 2.50},
+    "variants": [],
+    "addOns": [],
+    "flags": {"available": true, "recommended": true, "popular": true, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["egg", "soy"],
+    "sortOrder": 120,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-fish-ball",
+    "sku": "LOT-009",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាប្រហិតត្រី", "en": "Fish Ball Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាជាមួយប្រហិតត្រីស្វិតស្រួយឆ្ងាញ់ និងបន្លែស្រស់",
+      "en": "Stir-fried pin noodles with chewy savory fish balls and vegetables"
+    },
+    "ingredients": {
+      "km": "លត ប្រហិតត្រី សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, fish balls, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "fish ball", "fish", "លតឆា", "ប្រហិតត្រី"],
+    "image": "./assets/images/menu/lot-cha-fish-ball.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 1.63},
+    "variants": [],
+    "addOns": [
+      {"id": "fried-egg", "name": {"km": "ពងទាចៀន", "en": "Fried egg"}, "price": 0.5, "available": true},
+      {"id": "chive-cake", "name": {"km": "នំគូឆាយបន្ថែម", "en": "Extra chive cake"}, "price": 0.63, "available": true}
+    ],
+    "flags": {"available": true, "recommended": false, "popular": false, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["fish", "soy"],
+    "sortOrder": 130,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-fish-ball-egg",
+    "sku": "LOT-010",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាប្រហិតត្រីពង", "en": "Fish Ball & Egg Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាប្រហិតត្រីឈ្ងុយឆ្ងាញ់ ជាមួយពងទាចៀន",
+      "en": "Stir-fried pin noodles with tasty fish balls and fried egg"
+    },
+    "ingredients": {
+      "km": "លត ប្រហិតត្រី ពងទា សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, fish balls, egg, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "fish ball", "egg", "លតឆា", "ប្រហិតត្រី", "ពង"],
+    "image": "./assets/images/menu/lot-cha-fish-ball-egg.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 1.88},
+    "variants": [],
+    "addOns": [
+      {"id": "chive-cake", "name": {"km": "នំគូឆាយបន្ថែម", "en": "Extra chive cake"}, "price": 0.63, "available": true}
+    ],
+    "flags": {"available": true, "recommended": false, "popular": false, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["fish", "egg", "soy"],
+    "sortOrder": 140,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-fish-ball-chive-cake",
+    "sku": "LOT-011",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាប្រហិតត្រីនំគូឆាយ", "en": "Fish Ball & Chive Cake Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាប្រហិតត្រី បម្រើជាមួយនំគូឆាយចៀនស្រួយ",
+      "en": "Stir-fried pin noodles with fish balls and crispy chive cake"
+    },
+    "ingredients": {
+      "km": "លត ប្រហិតត្រី នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, fish balls, chive cake, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "fish ball", "chive cake", "លតឆា", "ប្រហិតត្រី", "នំគូឆាយ"],
+    "image": "./assets/images/menu/lot-cha-fish-ball-chive-cake.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 2.25},
+    "variants": [],
+    "addOns": [
+      {"id": "fried-egg", "name": {"km": "ពងទាចៀន", "en": "Fried egg"}, "price": 0.5, "available": true}
+    ],
+    "flags": {"available": true, "recommended": false, "popular": false, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["fish", "soy"],
+    "sortOrder": 150,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-pate",
+    "sku": "LOT-012",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាប៉ាតេ", "en": "Pâté Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាប៉ាតេរសជាតិបែបប្រពៃណី ឈ្ងុយឆ្ងាញ់ប្លែកមាត់",
+      "en": "Stir-fried pin noodles with savory pâté"
+    },
+    "ingredients": {
+      "km": "លត ប៉ាតេ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, pâté, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "pate", "លតឆា", "ប៉ាតេ"],
+    "image": "./assets/images/menu/lot-cha-pate.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 1.75},
+    "variants": [],
+    "addOns": [
+      {"id": "fried-egg", "name": {"km": "ពងទាចៀន", "en": "Fried egg"}, "price": 0.5, "available": true},
+      {"id": "chive-cake", "name": {"km": "នំគូឆាយបន្ថែម", "en": "Extra chive cake"}, "price": 0.63, "available": true}
+    ],
+    "flags": {"available": true, "recommended": false, "popular": true, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["soy"],
+    "sortOrder": 160,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-pate-egg",
+    "sku": "LOT-013",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាប៉ាតេពង", "en": "Pâté & Egg Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាប៉ាតេឈ្ងុយឆ្ងាញ់ ជាមួយពងទាចៀនក្តៅៗ",
+      "en": "Stir-fried pin noodles with savory pâté and fried egg"
+    },
+    "ingredients": {
+      "km": "លត ប៉ាតេ ពងទា សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, pâté, egg, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "pate", "egg", "លតឆា", "ប៉ាតេ", "ពង"],
+    "image": "./assets/images/menu/lot-cha-pate-egg.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 2.0},
+    "variants": [],
+    "addOns": [
+      {"id": "chive-cake", "name": {"km": "នំគូឆាយបន្ថែម", "en": "Extra chive cake"}, "price": 0.63, "available": true}
+    ],
+    "flags": {"available": true, "recommended": true, "popular": true, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["egg", "soy"],
+    "sortOrder": 170,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-pate-chive-cake",
+    "sku": "LOT-014",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាប៉ាតេនំគូឆាយ", "en": "Pâté & Chive Cake Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាប៉ាតេ បម្រើជាមួយនំគូឆាយចៀនស្រួយ",
+      "en": "Stir-fried pin noodles with savory pâté and crispy chive cake"
+    },
+    "ingredients": {
+      "km": "លត ប៉ាតេ នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, pâté, chive cake, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "pate", "chive cake", "លតឆា", "ប៉ាតេ", "នំគូឆាយ"],
+    "image": "./assets/images/menu/lot-cha-pate-chive-cake.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 2.38},
+    "variants": [],
+    "addOns": [
+      {"id": "fried-egg", "name": {"km": "ពងទាចៀន", "en": "Fried egg"}, "price": 0.5, "available": true}
+    ],
+    "flags": {"available": true, "recommended": false, "popular": false, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["soy"],
+    "sortOrder": 180,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-pate-egg-chive-cake",
+    "sku": "LOT-015",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាប៉ាតេពងនំគូឆាយ", "en": "Pâté, Egg & Chive Cake Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាប៉ាតេ ពងទាចៀន និងនំគូឆាយចៀនស្រួយ",
+      "en": "Stir-fried pin noodles with pâté, fried egg and crispy chive cake"
+    },
+    "ingredients": {
+      "km": "លត ប៉ាតេ ពងទា នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, pâté, egg, chive cake, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "pate", "egg", "chive cake", "លតឆា", "ប៉ាតេ", "ពង", "នំគូឆាយ"],
+    "image": "./assets/images/menu/lot-cha-pate-egg-chive-cake.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 2.50},
+    "variants": [],
+    "addOns": [],
+    "flags": {"available": true, "recommended": true, "popular": true, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["egg", "soy"],
+    "sortOrder": 190,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-beef-fish-ball-egg",
+    "sku": "LOT-016",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាសាច់គោប្រហិតពង", "en": "Beef, Fish Ball & Egg Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាសាច់គោ ប្រហិតត្រី និងពងទាចៀន ឆ្ងាញ់ជក់ចិត្ត",
+      "en": "Stir-fried pin noodles with beef, fish balls and a fried egg"
+    },
+    "ingredients": {
+      "km": "លត សាច់គោ ប្រហិតត្រី ពងទា សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, beef, fish balls, egg, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "beef", "fish ball", "egg", "លតឆា", "សាច់គោ", "ប្រហិត", "ពង"],
+    "image": "./assets/images/menu/lot-cha-beef-fish-ball-egg.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 2.25},
+    "variants": [],
+    "addOns": [
+      {"id": "chive-cake", "name": {"km": "នំគូឆាយបន្ថែម", "en": "Extra chive cake"}, "price": 0.63, "available": true}
+    ],
+    "flags": {"available": true, "recommended": false, "popular": true, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["fish", "egg", "soy"],
+    "sortOrder": 200,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-beef-fish-ball-egg-chive-cake",
+    "sku": "LOT-017",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាសាច់គោប្រហិតពងនំគូឆាយ", "en": "Beef, Fish Ball, Egg & Chive Cake Stir-Fried Lot Cha"},
+    "description": {
+      "km": "ឈុតពិសេសរួមមាន សាច់គោ ប្រហិតត្រី ពងទាចៀន និងនំគូឆាយ",
+      "en": "Deluxe combo with beef, fish balls, fried egg and crispy chive cake"
+    },
+    "ingredients": {
+      "km": "លត សាច់គោ ប្រហិតត្រី ពងទា នំគូឆាយ សណ្តែកបណ្តុះ",
+      "en": "Short rice noodles, beef, fish balls, egg, chive cake, bean sprouts"
+    },
+    "keywords": ["lot cha", "beef", "fish ball", "egg", "chive cake", "លតឆា", "សាច់គោ", "ប្រហិត", "ពង", "នំគូឆាយ"],
+    "image": "./assets/images/menu/lot-cha-beef-fish-ball-egg-chive-cake.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 2.88},
+    "variants": [],
+    "addOns": [],
+    "flags": {"available": true, "recommended": true, "popular": true, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["fish", "egg", "soy"],
+    "sortOrder": 210,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-beef-pate-egg",
+    "sku": "LOT-018",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាសាច់គោប៉ាតេពង", "en": "Beef, Pâté & Egg Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាសាច់គោ ប៉ាតេ និងពងទាចៀន រសជាតិសម្បូរបែប",
+      "en": "Stir-fried pin noodles with beef, pâté and fried egg"
+    },
+    "ingredients": {
+      "km": "លត សាច់គោ ប៉ាតេ ពងទា សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, beef, pâté, egg, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "beef", "pate", "egg", "លតឆា", "សាច់គោ", "ប៉ាតេ", "ពង"],
+    "image": "./assets/images/menu/lot-cha-beef-pate-egg.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 2.38},
+    "variants": [],
+    "addOns": [
+      {"id": "chive-cake", "name": {"km": "នំគូឆាយបន្ថែម", "en": "Extra chive cake"}, "price": 0.63, "available": true}
+    ],
+    "flags": {"available": true, "recommended": false, "popular": true, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["egg", "soy"],
+    "sortOrder": 220,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-beef-pate-egg-chive-cake",
+    "sku": "LOT-019",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាសាច់គោប៉ាតេពងនំគូឆាយ", "en": "Beef, Pâté, Egg & Chive Cake Stir-Fried Lot Cha"},
+    "description": {
+      "km": "ឈុតធំពិសេស៖ សាច់គោ ប៉ាតេ ពងទាចៀន និងនំគូឆាយចៀនស្រួយ",
+      "en": "Grand combo with beef, savory pâté, fried egg and crispy chive cake"
+    },
+    "ingredients": {
+      "km": "លត សាច់គោ ប៉ាតេ ពងទា នំគូឆាយ សណ្តែកបណ្តុះ",
+      "en": "Short rice noodles, beef, pâté, egg, chive cake, bean sprouts"
+    },
+    "keywords": ["lot cha", "beef", "pate", "egg", "chive cake", "លតឆា", "សាច់គោ", "ប៉ាតេ", "ពង", "នំគូឆាយ"],
+    "image": "./assets/images/menu/lot-cha-beef-pate-egg-chive-cake.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 3.0},
+    "variants": [],
+    "addOns": [],
+    "flags": {"available": true, "recommended": true, "popular": true, "new": false, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["egg", "soy"],
+    "sortOrder": 230,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "lot-cha-special",
+    "sku": "LOT-020",
+    "categoryId": "lot-cha",
+    "name": {"km": "លតឆាពិសេស", "en": "Special Stir-Fried Lot Cha"},
+    "description": {
+      "km": "លតឆាពិសេសប្រចាំហាង គ្រឿងពេញខ្នាត សាច់គោ ប្រហិតត្រី ប៉ាតេ ពងទាចៀន និងនំគូឆាយ",
+      "en": "Signature supreme Lot Cha with beef, fish balls, pâté, fried egg and crispy chive cake"
+    },
+    "ingredients": {
+      "km": "លត សាច់គោ ប្រហិតត្រី ប៉ាតេ ពងទា នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, beef, fish balls, pâté, egg, chive cake, bean sprouts, chives"
+    },
+    "keywords": ["lot cha", "special", "signature", "លតឆា", "ពិសេស", "សាច់គោ", "ប្រហិត", "ប៉ាតេ", "នំគូឆាយ"],
+    "image": "./assets/images/menu/lot-cha-special.webp",
     "gallery": [],
     "basePrice": {"currency": "USD", "amount": 3.25},
     "variants": [],
     "addOns": [],
-    "flags": {"available": true, "recommended": false, "popular": false, "new": true, "vegetarian": true, "halal": true},
-    "spicyLevel": 2,
-    "allergens": ["peanut"],
-    "sortOrder": 10,
-    "updatedAt": "2026-07-29"
+    "flags": {"available": true, "recommended": true, "popular": true, "new": true, "vegetarian": false, "halal": true},
+    "spicyLevel": 0,
+    "allergens": ["fish", "egg", "soy"],
+    "sortOrder": 240,
+    "updatedAt": "2026-08-15"
   },
   {
-    "id": "cambodian-iced-coffee",
+    "id": "ripe-tamarind-juice",
     "sku": "DRINK-001",
     "categoryId": "drinks",
-    "name": {"km": "កាហ្វេទឹកដោះគោទឹកកក", "en": "Cambodian Iced Coffee"},
+    "name": {"km": "ទឹកអំពិលទុំ", "en": "Ripe Tamarind Juice"},
     "description": {
-      "km": "កាហ្វេកម្ពុជាខ្លាំង លាយទឹកដោះគោខាប់ និងទឹកកក",
-      "en": "Bold Cambodian coffee layered with sweet milk over ice"
+      "km": "ទឹកអំពិលទុំរសជាតិជូរអែមត្រជាក់ស្រស់ស្រាយ បំបាត់ការស្រេកទឹក",
+      "en": "Refreshing sweet and sour ripe tamarind juice served over ice"
     },
-    "ingredients": {"km": "កាហ្វេ ទឹកដោះគោខាប់ ទឹកកក", "en": "Coffee, condensed milk, ice"},
-    "keywords": ["coffee", "iced", "milk", "កាហ្វេ", "ទឹកដោះគោ"],
-    "image": "./assets/images/menu/cambodian-iced-coffee.webp",
-    "gallery": [],
-    "basePrice": {"currency": "USD", "amount": 2},
-    "variants": [
-      {"id": "regular", "name": {"km": "ធម្មតា", "en": "Regular"}, "priceDelta": 0, "default": true, "available": true},
-      {"id": "large", "name": {"km": "ធំ", "en": "Large"}, "priceDelta": 0.65, "default": false, "available": true}
-    ],
-    "addOns": [
-      {"id": "oat-milk", "name": {"km": "ទឹកដោះអូត", "en": "Oat milk"}, "price": 0.6, "available": true},
-      {"id": "extra-shot", "name": {"km": "កាហ្វេបន្ថែម", "en": "Extra shot"}, "price": 0.75, "available": true}
-    ],
-    "flags": {"available": true, "recommended": false, "popular": true, "new": false, "vegetarian": true, "halal": true},
-    "spicyLevel": 0,
-    "allergens": ["milk"],
-    "sortOrder": 10,
-    "updatedAt": "2026-07-29"
-  },
-  {
-    "id": "lemongrass-lime-soda",
-    "sku": "DRINK-002",
-    "categoryId": "drinks",
-    "name": {"km": "សូដាគល់ស្លឹកគ្រៃក្រូចឆ្មារ", "en": "Lemongrass Lime Soda"},
-    "description": {
-      "km": "សូដាស្រស់ជាមួយស្លឹកគ្រៃ ក្រូចឆ្មារ និងស្ករត្នោតបន្តិច",
-      "en": "Sparkling soda with lemongrass, fresh lime and a touch of palm sugar"
+    "ingredients": {
+      "km": "អំពិលទុំ ស្ករត្នោត ទឹកកក",
+      "en": "Ripe tamarind, palm sugar, ice"
     },
-    "ingredients": {"km": "សូដា ស្លឹកគ្រៃ ក្រូចឆ្មារ ស្ករត្នោត", "en": "Soda, lemongrass, lime, palm sugar"},
-    "keywords": ["soda", "lime", "lemongrass", "សូដា", "ក្រូចឆ្មារ"],
-    "image": "./assets/images/menu/lemongrass-lime-soda.webp",
+    "keywords": ["drink", "juice", "tamarind", "ទឹកអំពិលទុំ", "ភេសជ្ជៈ", "អំពិល"],
+    "image": "./assets/images/menu/ripe-tamarind-juice.webp",
     "gallery": [],
-    "basePrice": {"currency": "USD", "amount": 2.25},
+    "basePrice": {"currency": "USD", "amount": 1.50},
     "variants": [],
     "addOns": [],
-    "flags": {"available": false, "recommended": false, "popular": false, "new": true, "vegetarian": true, "halal": true},
+    "flags": {"available": true, "recommended": true, "popular": true, "new": true, "vegetarian": true, "halal": true},
     "spicyLevel": 0,
     "allergens": [],
-    "sortOrder": 20,
-    "updatedAt": "2026-07-29"
+    "sortOrder": 250,
+    "updatedAt": "2026-08-15"
   },
   {
-    "id": "banana-sticky-rice",
-    "sku": "DESSERT-001",
-    "categoryId": "desserts",
-    "name": {"km": "បាយដំណើបចេកខ្ទិះដូង", "en": "Banana Coconut Sticky Rice"},
+    "id": "admin-coffee",
+    "sku": "DRINK-002",
+    "categoryId": "drinks",
+    "name": {"km": "អេតមីនកាហ្វេ", "en": "Admin Coffee"},
     "description": {
-      "km": "បាយដំណើបកក់ក្តៅជាមួយចេកអាំង ខ្ទិះដូង និងល្ង",
-      "en": "Warm sticky rice with caramelized banana, coconut cream and sesame"
+      "km": "កាហ្វេទឹកដោះគោរូបមន្តពិសេសប្រចាំហាង ឈ្ងុយដិត ផ្អែមមុត ត្រជាក់ចិត្ត",
+      "en": "Signature house iced coffee with rich condensed milk"
     },
-    "ingredients": {"km": "បាយដំណើប ចេក ខ្ទិះដូង ល្ង", "en": "Sticky rice, banana, coconut cream, sesame"},
-    "keywords": ["dessert", "banana", "sticky rice", "បង្អែម", "ចេក", "បាយដំណើប"],
-    "image": "./assets/images/menu/banana-sticky-rice.webp",
+    "ingredients": {
+      "km": "កាហ្វេ ទឹកដោះគោខាប់ ទឹកកក",
+      "en": "Coffee, condensed milk, ice"
+    },
+    "keywords": ["drink", "coffee", "iced coffee", "អេតមីនកាហ្វេ", "កាហ្វេ", "កាហ្វេទឹកដោះគោ"],
+    "image": "./assets/images/menu/admin-coffee.webp",
     "gallery": [],
-    "basePrice": {"currency": "USD", "amount": 2.75},
+    "basePrice": {"currency": "USD", "amount": 0.88},
     "variants": [],
-    "addOns": [
-      {"id": "coconut-ice-cream", "name": {"km": "ការ៉េមដូង", "en": "Coconut ice cream"}, "price": 1, "available": true}
-    ],
-    "flags": {"available": true, "recommended": true, "popular": false, "new": false, "vegetarian": true, "halal": true},
+    "addOns": [],
+    "flags": {"available": true, "recommended": true, "popular": true, "new": true, "vegetarian": true, "halal": true},
     "spicyLevel": 0,
-    "allergens": ["sesame"],
-    "sortOrder": 10,
-    "updatedAt": "2026-07-29"
+    "allergens": ["milk"],
+    "sortOrder": 260,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "black-coffee",
+    "sku": "DRINK-003",
+    "categoryId": "drinks",
+    "name": {"km": "កាហ្វេខ្មៅ", "en": "Black Coffee"},
+    "description": {
+      "km": "កាហ្វេខ្មៅសុទ្ធ ឈ្ងុយក្រអូបខ្លាំង រសជាតិដិតបែបប្រពៃណី",
+      "en": "Traditional bold iced black coffee"
+    },
+    "ingredients": {
+      "km": "កាហ្វេ ស្ករ ទឹកកក",
+      "en": "Coffee, sugar, ice"
+    },
+    "keywords": ["drink", "black coffee", "coffee", "កាហ្វេខ្មៅ", "កាហ្វេ"],
+    "image": "./assets/images/menu/black-coffee.webp",
+    "gallery": [],
+    "basePrice": {"currency": "USD", "amount": 0.88},
+    "variants": [],
+    "addOns": [],
+    "flags": {"available": true, "recommended": false, "popular": true, "new": false, "vegetarian": true, "halal": true},
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 270,
+    "updatedAt": "2026-08-15"
   }
 ]
