@@ -29,6 +29,25 @@ export function setupInstallPrompt({button, onInstalled, onUnavailable}) {
 
 export async function registerServiceWorker({onUpdateReady, onError}) {
   if (!("serviceWorker" in navigator)) return null;
+
+  // On VS Code Live Server (port 5500/5501), unregister Service Worker to prevent
+  // local single-threaded dev server WebSocket / socket lockups on page refresh.
+  const isLiveServer = window.location.port === "5500"
+    || window.location.port === "5501"
+    || window.location.search.includes("dev=true");
+
+  if (isLiveServer) {
+    try {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      for (const reg of registrations) {
+        await reg.unregister();
+      }
+    } catch {
+      // Ignore unregister errors in dev
+    }
+    return null;
+  }
+
   try {
     const registration = await navigator.serviceWorker.register("./service-worker.js");
     if (registration.waiting) {

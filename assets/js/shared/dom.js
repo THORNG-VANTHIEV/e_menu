@@ -44,10 +44,14 @@ export function safeExternalUrl(rawUrl, protocols = ["https:", "tel:"]) {
 
 export function debounce(callback, delay = 200) {
   let timeoutId;
-  return (...args) => {
+  const debounced = (...args) => {
     window.clearTimeout(timeoutId);
     timeoutId = window.setTimeout(() => callback(...args), delay);
   };
+  debounced.cancel = () => {
+    window.clearTimeout(timeoutId);
+  };
+  return debounced;
 }
 
 export function openDialog(dialog) {

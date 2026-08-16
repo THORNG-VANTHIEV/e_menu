@@ -1,6 +1,6 @@
 {
   "name": "e_menu_local_business",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "private": true,
   "type": "module",
   "description": "Offline-first bilingual Cambodian e-menu for static GitHub Pages hosting.",

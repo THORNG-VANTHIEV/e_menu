@@ -39,9 +39,27 @@ function rowOptions(row, item, localize, t) {
   return labels.join(" · ");
 }
 
-export function renderCart({content, footer, cart, items, business, settings, i18n}) {
+function createCartMediaVisual(item, category, localize) {
+  if (item.image) {
+    return setImageFallback(element("img", {
+      className: "cart-row__image",
+      attrs: {src: item.image, alt: localize(item.name), width: "144", height: "144", loading: "lazy"}
+    }));
+  }
+  const placeholder = element("div", {className: "cart-row__placeholder"});
+  const iconWrap = element("div", {className: "cart-row__placeholder-icon"});
+  iconWrap.append(element("i", {
+    className: `bi ${category?.icon || "bi-egg-fried"}`,
+    attrs: {"aria-hidden": "true"}
+  }));
+  placeholder.append(iconWrap);
+  return placeholder;
+}
+
+export function renderCart({content, footer, cart, items, categories = [], business, settings, i18n}) {
   const {t, localize} = i18n;
   const itemMap = new Map(items.map((item) => [item.id, item]));
+  const categoryMap = new Map((categories || []).map((category) => [category.id, category]));
   content.replaceChildren();
   footer.replaceChildren();
 
@@ -67,11 +85,9 @@ export function renderCart({content, footer, cart, items, business, settings, i1
   cart.rows.forEach((row) => {
     const item = itemMap.get(row.itemId);
     if (!item) return;
+    const category = categoryMap.get(item.categoryId);
     const card = element("article", {className: "cart-row"});
-    card.append(setImageFallback(element("img", {
-      className: "cart-row__image",
-      attrs: {src: item.image, alt: localize(item.name), width: "144", height: "144", loading: "lazy"}
-    })));
+    card.append(createCartMediaVisual(item, category, localize));
     const body = element("div", {className: "cart-row__body"});
     const heading = element("div", {className: "cart-row__heading"});
     heading.append(

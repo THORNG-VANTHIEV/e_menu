@@ -300,9 +300,9 @@ function renderMenu(state) {
   const visible = filtered.slice(0, state.visibleCount);
   const categoryMap = new Map(state.categories.map((category) => [category.id, category]));
   const favoriteSet = new Set(state.favorites);
-  clearNode(dom.menuGrid);
+  const fragment = document.createDocumentFragment();
   visible.forEach((item) => {
-    dom.menuGrid.append(createMenuCard({
+    fragment.append(createMenuCard({
       item,
       category: categoryMap.get(item.categoryId),
       business: state.business,
@@ -311,6 +311,7 @@ function renderMenu(state) {
       isFavorite: favoriteSet.has(item.id)
     }));
   });
+  dom.menuGrid.replaceChildren(fragment);
 
   dom.menuLoading.hidden = true;
   dom.errorState.hidden = true;
@@ -406,6 +407,7 @@ function renderOpenDialogs(state) {
       footer: dom.cartFooter,
       cart: state.cart,
       items: state.menuItems,
+      categories: state.categories,
       business: state.business,
       settings: state.settings,
       i18n
@@ -512,6 +514,7 @@ function openCart() {
     footer: dom.cartFooter,
     cart: state.cart,
     items: state.menuItems,
+    categories: state.categories,
     business: state.business,
     settings: state.settings,
     i18n
@@ -762,11 +765,20 @@ function handleDocumentClick(event) {
 
 function attachEvents() {
   document.addEventListener("click", handleDocumentClick);
+  const debouncedPersistCart = debounce(persistCartFields, 250);
+  document.addEventListener("input", (event) => {
+    if (event.target.matches("#cart-table-input, #cart-note-input")) {
+      debouncedPersistCart();
+    }
+  });
   document.addEventListener("change", (event) => {
     const input = event.target;
     if (input.closest("#settings-dialog")) handleSettingsChange(input);
     if (input.closest("#detail-form")) updateDetailTotal();
-    if (input.matches("#cart-table-input, #cart-note-input")) persistCartFields();
+    if (input.matches("#cart-table-input, #cart-note-input")) {
+      debouncedPersistCart.cancel();
+      persistCartFields();
+    }
   });
 
   const updateSearch = debounce((value) => {
@@ -779,11 +791,17 @@ function attachEvents() {
   dom.searchInput.addEventListener("input", (event) => updateSearch(event.target.value));
   dom.searchInput.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && event.currentTarget.value) {
+      updateSearch.cancel();
       event.currentTarget.value = "";
-      updateSearch("");
+      updateState((state) => ({
+        ...state,
+        filters: {...state.filters, query: ""},
+        visibleCount: PAGE_SIZE
+      }), "search-clear");
     }
   });
   dom.clearSearch.addEventListener("click", () => {
+    updateSearch.cancel();
     dom.searchInput.value = "";
     updateState((state) => ({
       ...state,
