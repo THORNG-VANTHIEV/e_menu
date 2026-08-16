@@ -32,7 +32,7 @@ for (const item of menuItems) {
   if (ids.has(item.id)) errors.push(`Duplicate menu item ID: ${item.id}`);
   ids.add(item.id);
   for (const path of [item.image]) {
-    if (!existsSync(resolve(root, path.replace(/^\.\//, "")))) errors.push(`Missing asset: ${path}`);
+    if (path && !existsSync(resolve(root, path.replace(/^\.\//, "")))) errors.push(`Missing asset: ${path}`);
   }
 }
 

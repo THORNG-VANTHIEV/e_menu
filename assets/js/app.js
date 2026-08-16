@@ -438,10 +438,12 @@ function openItemDetail(itemId, show = true) {
   const state = store.getState();
   const item = state.menuItems.find((entry) => entry.id === itemId);
   if (!item) return;
+  const category = state.categories.find((entry) => entry.id === item.categoryId);
   currentDetailId = itemId;
   if (show) detailQuantity = 1;
   renderItemDetail(dom.detailContent, {
     item,
+    category,
     business: state.business,
     settings: state.settings,
     i18n

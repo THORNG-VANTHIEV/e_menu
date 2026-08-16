@@ -25,5 +25,14 @@
     "image": "./assets/images/categories/drinks.webp",
     "sortOrder": 30,
     "active": true
+  },
+  {
+    "id": "add-ons",
+    "slug": "add-ons",
+    "name": {"km": "បន្ថែម", "en": "Add-ons"},
+    "icon": "bi-plus-circle",
+    "image": "./assets/images/placeholders/menu-placeholder.svg",
+    "sortOrder": 40,
+    "active": true
   }
 ]

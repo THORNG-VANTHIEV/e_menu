@@ -29,6 +29,30 @@ function itemBadges(item, t) {
   return wrapper;
 }
 
+function createMediaVisual(item, category, localize, isDetail = false) {
+  if (item.image) {
+    return setImageFallback(element("img", {
+      attrs: {
+        src: item.image,
+        alt: localize(item.name),
+        width: "960",
+        height: "720",
+        loading: isDetail ? "eager" : "lazy",
+        decoding: "async"
+      }
+    }));
+  }
+  const prefix = isDetail ? "detail-media" : "menu-card";
+  const placeholder = element("div", {className: `${prefix}__placeholder`});
+  const iconWrap = element("div", {className: `${prefix}__placeholder-icon`});
+  iconWrap.append(element("i", {
+    className: `bi ${category?.icon || "bi-egg-fried"}`,
+    attrs: {"aria-hidden": "true"}
+  }));
+  placeholder.append(iconWrap);
+  return placeholder;
+}
+
 export function createMenuCard({item, category, business, settings, i18n, isFavorite}) {
   const {t, localize} = i18n;
   const card = element("article", {
@@ -36,16 +60,7 @@ export function createMenuCard({item, category, business, settings, i18n, isFavo
     dataset: {menuCard: item.id, openItem: item.id}
   });
   const media = element("div", {className: "menu-card__media"});
-  const image = setImageFallback(element("img", {
-    attrs: {
-      src: item.image,
-      alt: localize(item.name),
-      width: "960",
-      height: "720",
-      loading: "lazy",
-      decoding: "async"
-    }
-  }));
+  const visual = createMediaVisual(item, category, localize, false);
   const favorite = element("button", {
     className: `favorite-button${isFavorite ? " is-favorite" : ""}`,
     attrs: {
@@ -56,7 +71,7 @@ export function createMenuCard({item, category, business, settings, i18n, isFavo
     },
     dataset: {favorite: item.id}
   }, icon(isFavorite ? "bi-heart-fill" : "bi-heart"));
-  media.append(image, itemBadges(item, t), favorite);
+  media.append(visual, itemBadges(item, t), favorite);
 
   const body = element("div", {className: "menu-card__body"});
   body.append(element("p", {
@@ -110,16 +125,14 @@ function createOptionRow({type, name, value, label, price, checked, disabled}) {
   return row;
 }
 
-export function renderItemDetail(container, {item, business, settings, i18n}) {
+export function renderItemDetail(container, {item, category, business, settings, i18n}) {
   const {t, localize} = i18n;
   const availableVariants = (item.variants || []).filter((variant) => variant.available);
   const selectedVariant = availableVariants.find((variant) => variant.default) || availableVariants[0] || null;
 
   const media = element("div", {className: "detail-media"});
   media.append(
-    setImageFallback(element("img", {
-      attrs: {src: item.image, alt: localize(item.name), width: "960", height: "720"}
-    })),
+    createMediaVisual(item, category, localize, true),
     element("button", {
       className: "icon-button",
       attrs: {type: "button", "aria-label": "Close", title: "Close"},

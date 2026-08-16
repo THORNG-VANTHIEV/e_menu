@@ -1,4 +1,4 @@
-export const APP_VERSION = "1.0.26";
+export const APP_VERSION = "1.0.29";
 
 export const DATA_PATHS = Object.freeze({
   business: "./data/business.json",
@@ -28,6 +28,6 @@ export const DEFAULT_FILTERS = Object.freeze({
   favoritesOnly: false
 });
 
-export const PAGE_SIZE = 24;
+export const PAGE_SIZE = 70;
 export const SEARCH_DEBOUNCE_MS = 200;
 export const IMAGE_PLACEHOLDER = "./assets/images/placeholders/menu-placeholder.svg";
