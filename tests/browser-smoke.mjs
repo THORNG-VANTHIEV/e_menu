@@ -228,8 +228,8 @@ const initial = await evaluate(`({
   menuNameFontSize: parseFloat(getComputedStyle(document.querySelector(".menu-card h3")).fontSize),
   menuNameInnerOverflow: getComputedStyle(document.querySelector(".menu-card__open")).overflow
 })`);
-assert.equal(initial.cards, 27, "all sample dishes should render");
-assert.equal(initial.clickableCards, 27, "every dish card should expose its item-detail action");
+assert.equal(initial.cards, 37, "all sample dishes should render");
+assert.equal(initial.clickableCards, 37, "every dish card should expose its item-detail action");
 assert.ok(initial.statusBadgeLayout.bottomGap >= 0 && initial.statusBadgeLayout.bottomGap <= 12, "status badges should sit at the image bottom");
 assert.ok(initial.statusBadgeLayout.leftGap >= 0 && initial.statusBadgeLayout.leftGap <= 12, "status badges should stay left-aligned");
 assert.equal(initial.statusBadgeLayout.overlapsFavorite, false, "status badges should not overlap favorite controls");
@@ -460,7 +460,7 @@ assert.equal(
 );
 assert.equal(
   await evaluate(`document.querySelectorAll(".menu-card").length`),
-  27,
+  37,
   "Menu navigation should exit Favorites mode and restore all dishes"
 );
 
@@ -711,7 +711,7 @@ const offline = await evaluate(`({
     && document.fonts.check('600 16px "Hanuman"')
     && document.fonts.check('32px "Khmer OS Bassac"')
 })`);
-assert.equal(offline.cards, 27, "cached dishes should render offline");
+assert.equal(offline.cards, 37, "cached dishes should render offline");
 assert.equal(offline.errorHidden, true, "offline reload should not show a data error");
 assert.ok(offline.overflow <= 0, "offline page should not overflow");
 assert.match(offline.bodyFont, /Hanuman/, "Hanuman should remain active offline");

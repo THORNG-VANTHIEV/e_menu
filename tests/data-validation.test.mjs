@@ -20,7 +20,7 @@ test("sample business, categories, menu and translations satisfy contracts", asy
   const translations = await readJSON("translations.json");
   assert.equal(validateBusiness(business), true);
   assert.equal(categories.length, 3);
-  assert.equal(menu.length, 27);
+  assert.equal(menu.length, 37);
   assert.equal(validateTranslations(translations), true);
 });
 
