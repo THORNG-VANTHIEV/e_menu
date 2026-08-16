@@ -927,7 +927,17 @@ async function bootstrap() {
       if (!fresh) return;
       const freshSig = createDataSignature(fresh);
       if (currentDataSignature && freshSig && freshSig !== currentDataSignature) {
-        showUpdateNotification();
+        currentDataSignature = freshSig;
+        updateState((state) => ({
+          ...state,
+          business: fresh.business,
+          categories: fresh.categories,
+          menuItems: fresh.menuItems,
+          promotions: fresh.promotions,
+          translations: fresh.translations
+        }), "data-live-sync");
+        showToast(i18n.t("updateReady"), "bi-arrow-repeat");
+        announce(i18n.t("updateReady"));
       }
     } catch {
       // Ignore network failures
@@ -947,7 +957,10 @@ async function bootstrap() {
     if (document.visibilityState === "visible") checkForDataUpdates();
   });
   window.addEventListener("online", checkForDataUpdates);
-  window.setInterval(checkForDataUpdates, 45000);
+  window.setInterval(checkForDataUpdates, 30000);
+
+  // Trigger an initial freshness check in background
+  window.setTimeout(checkForDataUpdates, 1500);
 
   await registerServiceWorker({
     onUpdateReady: showUpdateNotification

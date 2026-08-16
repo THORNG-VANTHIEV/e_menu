@@ -13,6 +13,7 @@ function scopedUrl(path) {
 }
 
 self.addEventListener("install", (event) => {
+  self.skipWaiting();
   event.waitUntil((async () => {
     const cache = await caches.open(STATIC_CACHE);
     const results = await Promise.allSettled(PRECACHE_URLS.map(async (path) => {
