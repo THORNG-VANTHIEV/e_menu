@@ -105,5 +105,7 @@ self.PRECACHE_URLS = [
   "./assets/images/categories/drinks.webp",
   "./assets/images/placeholders/menu-placeholder.svg",
   "./assets/images/icons/icon-192.png",
-  "./assets/images/icons/icon-512.png"
+  "./assets/images/icons/icon-512.png",
+  "./assets/images/icons/lotcha_siemreap.png",
+  "./assets/images/icons/lotcha_siemreap_kh.png"
 ];

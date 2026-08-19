@@ -41,6 +41,48 @@
   </script>
 </head>
 <body>
+  <section id="welcome-screen" class="welcome-screen" role="region" aria-label="Welcome screen">
+    <div class="welcome-screen__backdrop" aria-hidden="true">
+      <img class="welcome-screen__bg-image" src="./assets/images/business/cover.webp" alt="" fetchpriority="high">
+      <div class="welcome-screen__scrim"></div>
+    </div>
+
+    <div class="welcome-screen__content">
+      <div class="welcome-screen__card">
+        <div class="welcome-screen__logo-wrap">
+          <img id="welcome-logo" class="welcome-screen__logo" src="./assets/images/icons/lotcha_siemreap_kh.png" alt="លតឆាសៀមរាប ១៩៩១ Logo" width="130" height="130">
+        </div>
+
+        <p class="welcome-screen__eyebrow" data-i18n="welcome">សូមស្វាគមន៍មកកាន់</p>
+        <h1 id="welcome-title" class="welcome-screen__title">លតឆាសៀមរាប ១៩៩១</h1>
+
+        <div class="welcome-screen__mark">
+          <span class="welcome-screen__badge" id="welcome-tagline-badge" data-i18n="taglineMark">មរតកសៀមរាប • តាំងពីឆ្នាំ ១៩៩១</span>
+        </div>
+
+        <div class="welcome-screen__meta">
+          <span id="welcome-status" class="open-status"><span class="open-status__dot"></span><span>បើក</span></span>
+          <span id="welcome-hours"><i class="bi bi-clock" aria-hidden="true"></i> 07:00 – 21:00</span>
+        </div>
+
+        <div class="welcome-screen__actions">
+          <button id="welcome-enter-btn" class="btn btn-warning welcome-screen__btn" type="button" data-show-menu>
+            <span data-i18n="enterMenu">ចូលមើលមីនុយ</span>
+            <i class="bi bi-arrow-right-circle-fill" aria-hidden="true"></i>
+          </button>
+
+          <div class="welcome-screen__lang-toggle" role="group" aria-label="Language selector">
+            <button id="welcome-lang-km" type="button" class="welcome-lang-btn is-active" aria-label="Khmer">ខ្មែរ</button>
+            <span class="welcome-lang-divider">|</span>
+            <button id="welcome-lang-en" type="button" class="welcome-lang-btn" aria-label="English">English</button>
+          </div>
+        </div>
+
+        <p class="welcome-screen__footer-mark" data-i18n="digitalMenuNotice">មីនុយអេឡិចត្រូនិច • ស្កេន & កម្ម៉ង់ដោយផ្ទាល់</p>
+      </div>
+    </div>
+  </section>
+
   <a class="skip-link" href="#main-content" data-i18n="skipToContent">រំលងទៅមាតិកា</a>
 
   <div id="offline-banner" class="status-banner status-banner--offline" role="status" hidden>

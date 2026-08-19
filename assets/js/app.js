@@ -85,7 +85,16 @@ const dom = {
   hero: document.querySelector("#home"),
   heroSlider: document.querySelector("#hero-slider"),
   heroTrack: document.querySelector("#hero-track"),
-  heroPagination: document.querySelector("#hero-pagination")
+  heroPagination: document.querySelector("#hero-pagination"),
+  welcomeScreen: document.querySelector("#welcome-screen"),
+  welcomeLogo: document.querySelector("#welcome-logo"),
+  welcomeTitle: document.querySelector("#welcome-title"),
+  welcomeTaglineBadge: document.querySelector("#welcome-tagline-badge"),
+  welcomeStatus: document.querySelector("#welcome-status"),
+  welcomeHours: document.querySelector("#welcome-hours"),
+  welcomeEnterBtn: document.querySelector("#welcome-enter-btn"),
+  welcomeLangKm: document.querySelector("#welcome-lang-km"),
+  welcomeLangEn: document.querySelector("#welcome-lang-en")
 };
 
 const dayKeys = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
@@ -157,6 +166,18 @@ function syncHeroSlider(business) {
   heroSliderController?.refreshLabels();
 }
 
+function dismissWelcomeScreen() {
+  if (!dom.welcomeScreen) return;
+  dom.welcomeScreen.classList.add("is-hidden");
+  dom.welcomeScreen.setAttribute("aria-hidden", "true");
+}
+
+function showWelcomeScreen() {
+  if (!dom.welcomeScreen) return;
+  dom.welcomeScreen.classList.remove("is-hidden");
+  dom.welcomeScreen.removeAttribute("aria-hidden");
+}
+
 function renderBusiness(state) {
   const {business, settings, network} = state;
   const name = i18n.localize(business.name);
@@ -169,15 +190,34 @@ function renderBusiness(state) {
   document.querySelector("#about-copy").textContent = i18n.localize(business.about);
   document.querySelector("#business-address").textContent = i18n.localize(business.address);
   document.querySelector("#header-logo").src = business.logo;
+  if (dom.welcomeTitle) dom.welcomeTitle.textContent = name;
+  if (dom.welcomeLogo) {
+    dom.welcomeLogo.src = settings.language === "km"
+      ? "./assets/images/icons/lotcha_siemreap_kh.png"
+      : "./assets/images/icons/lotcha_siemreap.png";
+  }
   syncHeroSlider(business);
 
   const {open, record} = getOpenStatus(business);
   const status = document.querySelector("#business-status");
   status.classList.toggle("is-closed", !open);
   status.querySelector("span:last-child").textContent = i18n.t(open ? "open" : "closed");
-  document.querySelector("#today-hours").lastChild.textContent = record?.closed
+  const hoursText = record?.closed
     ? ` ${i18n.t("closedDay")}`
     : ` ${record?.open || "—"} – ${record?.close || "—"}`;
+  document.querySelector("#today-hours").lastChild.textContent = hoursText;
+
+  if (dom.welcomeStatus) {
+    dom.welcomeStatus.classList.toggle("is-closed", !open);
+    dom.welcomeStatus.querySelector("span:last-child").textContent = i18n.t(open ? "open" : "closed");
+  }
+  if (dom.welcomeHours) {
+    dom.welcomeHours.lastChild.textContent = hoursText;
+  }
+  if (dom.welcomeLangKm && dom.welcomeLangEn) {
+    dom.welcomeLangKm.classList.toggle("is-active", settings.language === "km");
+    dom.welcomeLangEn.classList.toggle("is-active", settings.language === "en");
+  }
 
   clearNode(dom.hoursList);
   business.openingHours.forEach((hours) => {
@@ -666,6 +706,7 @@ function handleDocumentClick(event) {
     return;
   }
   if (button.matches("[data-show-menu]")) {
+    dismissWelcomeScreen();
     if (store.getState().filters.favoritesOnly) {
       updateState((state) => ({
         ...state,
@@ -836,6 +877,25 @@ function attachEvents() {
   });
   dom.loadMore.addEventListener("click", () => {
     updateState((state) => ({...state, visibleCount: state.visibleCount + PAGE_SIZE}), "load-more");
+  });
+
+  dom.welcomeEnterBtn?.addEventListener("click", () => {
+    dismissWelcomeScreen();
+    document.querySelector("#menu")?.scrollIntoView({behavior: "smooth"});
+  });
+
+  dom.welcomeLangKm?.addEventListener("click", () => {
+    if (store.getState().settings.language !== "km") {
+      persistSetting("language", "km");
+      updateState((state) => ({...state, settings: {...state.settings, language: "km"}}), "language");
+    }
+  });
+
+  dom.welcomeLangEn?.addEventListener("click", () => {
+    if (store.getState().settings.language !== "en") {
+      persistSetting("language", "en");
+      updateState((state) => ({...state, settings: {...state.settings, language: "en"}}), "language");
+    }
   });
 
   document.querySelector("#language-button").addEventListener("click", () => {

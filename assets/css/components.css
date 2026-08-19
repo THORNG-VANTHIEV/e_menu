@@ -1684,3 +1684,251 @@ html[dir="rtl"] .menu-card__open {
     bottom: 1rem;
   }
 }
+
+/* ==========================================================================
+   Welcome Screen (Landing / QR Scan Splash)
+   ========================================================================== */
+.welcome-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 1.5rem 1rem;
+  background: #190f0a;
+  color: #fff4eb;
+  transition: opacity 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
+              visibility 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform, visibility;
+}
+
+.welcome-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.02) translateY(-16px);
+}
+
+.welcome-screen__backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.welcome-screen__bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: brightness(0.55) saturate(1.15) blur(3px);
+  transform: scale(1.06);
+}
+
+.welcome-screen__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 40%, rgb(36 21 15 / 0.68) 0%, rgb(18 10 7 / 0.94) 100%),
+    linear-gradient(180deg, rgb(22 12 8 / 0.4) 0%, rgb(18 10 7 / 0.9) 100%);
+}
+
+.welcome-screen__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+  margin: auto;
+}
+
+.welcome-screen__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.25rem 1.65rem 1.85rem;
+  background: rgb(36 21 15 / 0.86);
+  border: 1px solid rgb(255 239 225 / 0.18);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 24px 64px rgb(0 0 0 / 0.6), 0 0 0 1px rgb(216 146 94 / 0.22);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  animation: welcomePopIn 500ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+@keyframes welcomePopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.93) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.welcome-screen__logo-wrap {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.welcome-screen__logo {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgb(0 0 0 / 0.5));
+  transition: transform 300ms ease;
+}
+
+.welcome-screen__card:hover .welcome-screen__logo {
+  transform: scale(1.04) rotate(-1deg);
+}
+
+.welcome-screen__eyebrow {
+  margin-bottom: 0.25rem;
+  color: var(--brand-caramel);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.welcome-screen__title {
+  margin-bottom: 0.6rem;
+  font-size: clamp(1.6rem, 5vw, 2.1rem);
+  font-weight: 800;
+  color: #fff9f4;
+  line-height: 1.25;
+  text-shadow: 0 2px 10px rgb(0 0 0 / 0.35);
+}
+
+html[lang="km"] .welcome-screen__title {
+  font-family: var(--font-khmer-display);
+  font-size: clamp(1.75rem, 5.5vw, 2.3rem);
+}
+
+.welcome-screen__mark {
+  margin-bottom: 1.1rem;
+}
+
+.welcome-screen__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--brand-caramel) 24%, rgb(255 255 255 / 0.08));
+  border: 1px solid rgb(216 146 94 / 0.38);
+  color: #ffefe1;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.welcome-screen__meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-bottom: 1.4rem;
+  font-size: 0.84rem;
+  color: #f4e2d5;
+}
+
+.welcome-screen__meta .open-status {
+  padding: 0.25rem 0.65rem;
+  background: rgb(255 255 255 / 0.1);
+  border-radius: var(--radius-pill);
+}
+
+.welcome-screen__actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.1rem;
+}
+
+.welcome-screen__btn {
+  width: 100%;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #e8a16c 0%, #d8925e 100%);
+  color: #24150f;
+  border: 0;
+  box-shadow: 0 10px 24px rgb(216 146 94 / 0.4), 0 2px 4px rgb(0 0 0 / 0.2);
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+  cursor: pointer;
+}
+
+.welcome-screen__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgb(216 146 94 / 0.55);
+  background: linear-gradient(135deg, #f0b07e 0%, #e09d6b 100%);
+  color: #24150f;
+}
+
+.welcome-screen__btn:active {
+  transform: translateY(1px);
+}
+
+.welcome-screen__btn i {
+  font-size: 1.3rem;
+  transition: transform 200ms ease;
+}
+
+.welcome-screen__btn:hover i {
+  transform: translateX(4px);
+}
+
+.welcome-screen__lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  background: rgb(255 255 255 / 0.08);
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: var(--radius-pill);
+}
+
+.welcome-lang-btn {
+  background: transparent;
+  border: 0;
+  color: #d8c2b5;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: color 150ms ease, background 150ms ease;
+}
+
+.welcome-lang-btn.is-active {
+  background: var(--brand-caramel);
+  color: #24150f;
+  font-weight: 800;
+}
+
+.welcome-lang-divider {
+  color: rgb(255 255 255 / 0.25);
+  font-size: 0.8rem;
+}
+
+.welcome-screen__footer-mark {
+  margin: 0;
+  color: #c9b4a7;
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+}
+
