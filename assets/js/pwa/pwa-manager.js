@@ -49,7 +49,12 @@ export async function registerServiceWorker({onUpdateReady, onError}) {
   }
 
   try {
-    const registration = await navigator.serviceWorker.register("./service-worker.js");
+    const registration = await navigator.serviceWorker.register("./service-worker.js", {
+      updateViaCache: "none"
+    });
+    if (navigator.onLine) {
+      registration.update().catch(() => {});
+    }
     if (registration.waiting) {
       waitingWorker = registration.waiting;
       onUpdateReady?.();
