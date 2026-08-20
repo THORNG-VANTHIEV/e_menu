@@ -1,7 +1,7 @@
 /* global PRECACHE_URLS */
 importScripts("./precache-manifest.js");
 
-const VERSION = "v1.0.35";
+const VERSION = "v1.0.38";
 const STATIC_CACHE = `emenu-static-${VERSION}`;
 const DATA_CACHE = `emenu-data-${VERSION}`;
 const IMAGE_CACHE = `emenu-images-${VERSION}`;

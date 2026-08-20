@@ -9,9 +9,10 @@ import {
   debounce,
   element,
   openDialog,
-  safeExternalUrl
+  safeExternalUrl,
+  setImageFallback
 } from "./shared/dom.js";
-import {formatPrice} from "./shared/currency.js";
+import {formatPrice, toCents} from "./shared/currency.js";
 import {filterAndSortMenu, getActiveFilterCount} from "./features/menu/menu-service.js";
 import {createMenuCard, getDetailSelection, renderItemDetail} from "./features/menu/menu-view.js";
 import {
@@ -78,8 +79,8 @@ const dom = {
   installButton: document.querySelector("#install-button"),
   toastRegion: document.querySelector("#toast-region"),
   liveRegion: document.querySelector("#live-region"),
-  promotionSection: document.querySelector("#promotion-section"),
-  promotionList: document.querySelector("#promotion-list"),
+  recommendedSection: document.querySelector("#recommended-section"),
+  recommendedList: document.querySelector("#recommended-list"),
   contactActions: document.querySelector("#contact-actions"),
   hoursList: document.querySelector("#hours-list"),
   hero: document.querySelector("#home"),
@@ -170,10 +171,16 @@ function dismissWelcomeScreen() {
   if (!dom.welcomeScreen) return;
   dom.welcomeScreen.classList.add("is-hidden");
   dom.welcomeScreen.setAttribute("aria-hidden", "true");
+  setTimeout(() => {
+    if (dom.welcomeScreen && dom.welcomeScreen.classList.contains("is-hidden")) {
+      dom.welcomeScreen.hidden = true;
+    }
+  }, 420);
 }
 
 function showWelcomeScreen() {
   if (!dom.welcomeScreen) return;
+  dom.welcomeScreen.hidden = false;
   dom.welcomeScreen.classList.remove("is-hidden");
   dom.welcomeScreen.removeAttribute("aria-hidden");
 }
@@ -287,24 +294,69 @@ function renderBusiness(state) {
   themeButton.setAttribute("title", i18n.t(targetTheme === "light" ? "switchToLight" : "switchToDark"));
 }
 
-function renderPromotions(state) {
-  clearNode(dom.promotionList);
-  state.promotions.forEach((promotion) => {
-    const card = element("article", {className: "promotion-card"});
-    const copy = element("div");
-    copy.append(
-      element("p", {className: "promotion-card__label", text: i18n.localize(promotion.label) || i18n.t("promotion")}),
-      element("h3", {text: i18n.localize(promotion.title)}),
-      element("p", {text: i18n.localize(promotion.description)})
-    );
-    card.append(
-      element("span", {className: "promotion-card__icon"}, element("i", {className: "bi bi-gift", attrs: {"aria-hidden": "true"}})),
-      copy
-    );
-    dom.promotionList.append(card);
+function renderRecommended(state) {
+  if (!dom.recommendedList) return;
+  clearNode(dom.recommendedList);
+  const recommendedItems = state.menuItems.filter(
+    (item) => item.flags?.recommended && item.flags?.available !== false
+  );
+
+  if (recommendedItems.length === 0) {
+    if (dom.recommendedSection) dom.recommendedSection.hidden = true;
+    return;
+  }
+  if (dom.recommendedSection) dom.recommendedSection.hidden = false;
+
+  recommendedItems.forEach((item) => {
+    const card = element("article", {
+      className: "recommended-card",
+      attrs: {
+        role: "button",
+        tabindex: "0",
+        "aria-label": `${i18n.localize(item.name)}, ${formatPrice(toCents(item.basePrice.amount), state.business, state.settings.currency, state.settings.language).primary}`
+      },
+      dataset: {openItem: item.id}
+    });
+
+    const media = element("div", {className: "recommended-card__media"});
+    const img = setImageFallback(element("img", {
+      className: "recommended-card__image",
+      attrs: {
+        src: item.image || "./assets/images/placeholders/menu-placeholder.svg",
+        alt: i18n.localize(item.name),
+        width: "280",
+        height: "210",
+        loading: "lazy",
+        decoding: "async"
+      }
+    }));
+    const badge = element("span", {
+      className: "badge",
+      text: `⭐ ${i18n.t("recommended")}`
+    });
+    media.append(img, badge);
+
+    const body = element("div", {className: "recommended-card__body"});
+    const title = element("h3", {className: "recommended-card__title", text: i18n.localize(item.name)});
+
+    const formatted = formatPrice(toCents(item.basePrice.amount), state.business, state.settings.currency, state.settings.language);
+    const priceText = formatted.secondary ? `${formatted.primary} · ${formatted.secondary}` : formatted.primary;
+    const price = element("p", {className: "recommended-card__price", text: priceText});
+
+    body.append(title, price);
+    card.append(media, body);
+
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openItemDetail(item.id);
+      }
+    });
+
+    dom.recommendedList.append(card);
   });
-  dom.promotionSection.hidden = state.promotions.length === 0;
 }
+
 
 function renderCategories(state) {
   clearNode(dom.categoryChips);
@@ -467,7 +519,7 @@ function renderAll(state) {
   i18n.setLanguage(state.settings.language);
   i18n.applyDocumentTranslations();
   renderBusiness(state);
-  renderPromotions(state);
+  renderRecommended(state);
   renderCategories(state);
   renderMenu(state);
   renderCartBadges(state);
@@ -721,6 +773,7 @@ function handleDocumentClick(event) {
         visibleCount: PAGE_SIZE
       }), "menu-view");
     }
+    document.querySelector("#menu")?.scrollIntoView({behavior: "smooth"});
     return;
   }
   if (button.dataset.openItem) {

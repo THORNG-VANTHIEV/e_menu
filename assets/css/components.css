@@ -1704,11 +1704,16 @@ html[dir="rtl"] .menu-card__open {
   will-change: opacity, transform, visibility;
 }
 
+.welcome-screen[hidden],
 .welcome-screen.is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transform: scale(1.02) translateY(-16px);
+}
+
+.welcome-screen[hidden] {
+  display: none !important;
 }
 
 .welcome-screen__backdrop {
@@ -1931,4 +1936,115 @@ html[lang="km"] .welcome-screen__title {
   font-size: 0.74rem;
   letter-spacing: 0.03em;
 }
+
+/* ==========================================================================
+   Recommended For You Section
+   ========================================================================== */
+.recommended-section {
+  padding-top: 1.75rem;
+  padding-bottom: 1.25rem;
+}
+
+.recommended-carousel {
+  display: flex;
+  gap: 0.95rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.recommended-carousel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.recommended-carousel::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+.recommended-card {
+  flex: 0 0 clamp(170px, 44vw, 230px);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  outline: none;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.recommended-card:hover,
+.recommended-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
+  box-shadow: 0 12px 28px rgb(77 42 29 / 0.16);
+}
+
+.recommended-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-surface-alt);
+}
+
+.recommended-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.recommended-card:hover .recommended-card__media img,
+.recommended-card:focus-visible .recommended-card__media img {
+  transform: scale(1.05);
+}
+
+.recommended-card__media .badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.25);
+  background: var(--brand-caramel);
+  color: #24150f;
+  font-weight: 800;
+  border-radius: var(--radius-pill);
+}
+
+.recommended-card__body {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 0.85rem;
+  flex: 1;
+  justify-content: space-between;
+  gap: 0.35rem;
+}
+
+.recommended-card__title {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.recommended-card__price {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
 

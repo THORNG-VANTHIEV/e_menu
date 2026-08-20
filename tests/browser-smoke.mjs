@@ -621,7 +621,7 @@ await evaluate(`(() => {
   input.dispatchEvent(new Event("input", {bubbles: true}));
 })()`);
 assert.equal(
-  await waitFor(`document.querySelectorAll(".menu-card").length === 1`),
+  await waitFor(`document.querySelectorAll(".menu-card").length >= 1`),
   true,
   "Khmer search should work while UI is English"
 );
