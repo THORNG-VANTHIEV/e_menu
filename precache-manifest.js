@@ -67,6 +67,7 @@ self.PRECACHE_URLS = [
   "./assets/images/menu/addon-all-vegetables.webp",
   "./assets/images/menu/addon-beef-vegetables.webp",
   "./assets/images/menu/addon-fish-ball-vegetables.webp",
+  "./assets/images/menu/addon-fish-pate-vegetables.webp",
   "./assets/images/menu/lot-cha-vegetable.webp",
   "./assets/images/menu/lot-cha-egg.webp",
   "./assets/images/menu/lot-cha-vegetable-chive-cake.webp",
