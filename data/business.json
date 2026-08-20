@@ -22,23 +22,23 @@
   ],
   "heroSlideIntervalMs": 5000,
   "contact": {
-    "phone": "+85512345678",
-    "telegramUrl": "https://t.me/mloukitchen",
-    "messengerUrl": "",
-    "mapUrl": "https://maps.google.com/?q=Wat+Bo+Road+Siem+Reap"
+    "phone": "017599656",
+    "telegramUrl": "https://t.me/Darika_Sun",
+    "facebookUrl": "https://www.facebook.com/share/1Vm4Luk2gF/?mibextid=wwXIfr",
+    "mapUrl": "https://maps.app.goo.gl/GV7ez8HF3FEX5tEg8"
   },
   "address": {
     "km": "ផ្លូវវត្តបូព៌ ក្រុងសៀមរាប ប្រទេសកម្ពុជា",
     "en": "Wat Bo Road, Siem Reap, Cambodia"
   },
   "openingHours": [
-    {"day": "monday", "closed": false, "open": "07:00", "close": "21:00"},
-    {"day": "tuesday", "closed": false, "open": "07:00", "close": "21:00"},
-    {"day": "wednesday", "closed": false, "open": "07:00", "close": "21:00"},
-    {"day": "thursday", "closed": false, "open": "07:00", "close": "21:00"},
-    {"day": "friday", "closed": false, "open": "07:00", "close": "22:00"},
-    {"day": "saturday", "closed": false, "open": "07:00", "close": "22:00"},
-    {"day": "sunday", "closed": false, "open": "07:00", "close": "21:00"}
+    {"day": "monday", "closed": false, "open": "07:30", "close": "21:00"},
+    {"day": "tuesday", "closed": false, "open": "07:30", "close": "21:00"},
+    {"day": "wednesday", "closed": false, "open": "07:30", "close": "21:00"},
+    {"day": "thursday", "closed": false, "open": "07:30", "close": "21:00"},
+    {"day": "friday", "closed": false, "open": "07:30", "close": "21:00"},
+    {"day": "saturday", "closed": false, "open": "07:30", "close": "21:00"},
+    {"day": "sunday", "closed": false, "open": "07:30", "close": "21:00"}
   ],
   "currency": {
     "default": "USD",

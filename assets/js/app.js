@@ -246,6 +246,13 @@ function renderBusiness(state) {
       network: true
     },
     {
+      value: business.contact?.facebookUrl,
+      href: safeExternalUrl(business.contact?.facebookUrl, ["https:"]),
+      label: i18n.t("facebook"),
+      icon: "bi-facebook",
+      network: true
+    },
+    {
       value: business.contact?.mapUrl,
       href: safeExternalUrl(business.contact?.mapUrl, ["https:"]),
       label: i18n.t("map"),
