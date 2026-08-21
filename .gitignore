@@ -7,6 +7,7 @@ Thumbs.db
 
 # Raw source assets (the app uses optimized assets/images/menu/*.webp)
 data_menu/
+hero_background*.JPG
 
 # Logs
 *.log
