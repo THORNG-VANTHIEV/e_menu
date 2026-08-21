@@ -329,9 +329,13 @@ function renderBusiness(state) {
 function renderRecommended(state) {
   if (!dom.recommendedList) return;
   clearNode(dom.recommendedList);
-  const recommendedItems = state.menuItems.filter(
-    (item) => item.flags?.recommended && item.flags?.available !== false
-  );
+  const recommendedItems = state.menuItems
+    .filter((item) => item.flags?.recommended && item.flags?.available !== false)
+    .sort((a, b) => {
+      if (a.id === "lot-cha-beef-fish-ball-egg-chive-cake") return -1;
+      if (b.id === "lot-cha-beef-fish-ball-egg-chive-cake") return 1;
+      return (Number(a.sortOrder) || 0) - (Number(b.sortOrder) || 0);
+    });
 
   if (recommendedItems.length === 0) {
     if (dom.recommendedSection) dom.recommendedSection.hidden = true;
