@@ -3487,8 +3487,8 @@
     "sku": "LOT-017",
     "categoryId": "lot-cha",
     "name": {
-      "km": "លតឆាសាច់គោប្រហិតពងនំគូឆាយ",
-      "en": "Beef, Fish Ball, Egg & Chive Cake Stir-Fried Lot Cha"
+      "km": "លតឆាពិសេស",
+      "en": "Lotcha Special"
     },
     "description": {
       "km": "ឈុតពិសេសរួមមាន សាច់គោ ប្រហិតត្រី ពងទាចៀន និងនំគូឆាយ",
@@ -3500,11 +3500,16 @@
     },
     "keywords": [
       "lot cha",
+      "lotcha",
+      "special",
+      "lotcha special",
       "beef",
       "fish ball",
       "egg",
       "chive cake",
       "លតឆា",
+      "ពិសេស",
+      "លតឆាពិសេស",
       "សាច់គោ",
       "ប្រហិត",
       "ពង",
@@ -4016,185 +4021,6 @@
       "soy"
     ],
     "sortOrder": 230,
-    "updatedAt": "2026-08-15"
-  },
-  {
-    "id": "lot-cha-special",
-    "sku": "LOT-020",
-    "categoryId": "lot-cha",
-    "name": {
-      "km": "លតឆាពិសេស",
-      "en": "Special Stir-Fried Lot Cha"
-    },
-    "description": {
-      "km": "លតឆាពិសេសប្រចាំហាង គ្រឿងពេញខ្នាត សាច់គោ ប្រហិតត្រី ប៉ាតេ ពងទាចៀន និងនំគូឆាយ",
-      "en": "Signature supreme Lot Cha with beef, fish balls, pâté, fried egg and crispy chive cake"
-    },
-    "ingredients": {
-      "km": "លត សាច់គោ ប្រហិតត្រី ប៉ាតេ ពងទា នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
-      "en": "Short rice noodles, beef, fish balls, pâté, egg, chive cake, bean sprouts, chives"
-    },
-    "keywords": [
-      "lot cha",
-      "special",
-      "signature",
-      "លតឆា",
-      "ពិសេស",
-      "សាច់គោ",
-      "ប្រហិត",
-      "ប៉ាតេ",
-      "នំគូឆាយ"
-    ],
-    "image": "./assets/images/menu/lot-cha-special.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 3.25
-    },
-    "variants": [],
-    "addOns": [
-      {
-        "id": "fried-egg",
-        "name": {
-          "km": "ពងទាចៀន",
-          "en": "Fried egg"
-        },
-        "price": 0.5,
-        "available": true
-      },
-      {
-        "id": "chive-cake",
-        "name": {
-          "km": "នំគូឆាយបន្ថែម",
-          "en": "Extra chive cake"
-        },
-        "price": 0.63,
-        "available": true
-      },
-      {
-        "id": "chive-leaves",
-        "name": {
-          "km": "ស្លឹកគូឆាសុទ្ធ",
-          "en": "Leaves of Chive"
-        },
-        "price": 0.25,
-        "available": true
-      },
-      {
-        "id": "bean-sprouts",
-        "name": {
-          "km": "សណ្តែកបណ្តុះ",
-          "en": "Bean sprouts"
-        },
-        "price": 0.25,
-        "available": true
-      },
-      {
-        "id": "mixed-vegetables",
-        "name": {
-          "km": "បន្លែគ្រប់មុខ",
-          "en": "All vegetables"
-        },
-        "price": 0.5,
-        "available": true
-      },
-      {
-        "id": "kale",
-        "name": {
-          "km": "ឃែល",
-          "en": "Kale"
-        },
-        "price": 0.5,
-        "available": true
-      },
-      {
-        "id": "pate-1-slice",
-        "name": {
-          "km": "ប៉ាតេ 1បន្ទះ",
-          "en": "Pâté 1 slice"
-        },
-        "price": 0.5,
-        "available": true
-      },
-      {
-        "id": "beef-vegetables",
-        "name": {
-          "km": "សាច់គោ បន្លែ",
-          "en": "Beef & vegetables"
-        },
-        "price": 1,
-        "available": true
-      },
-      {
-        "id": "fish-ball-vegetables",
-        "name": {
-          "km": "ប្រហិតបន្លែ",
-          "en": "Fish ball & vegetables"
-        },
-        "price": 1,
-        "available": true
-      },
-      {
-        "id": "pate-vegetables",
-        "name": {
-          "km": "ប៉ាតេ បន្លែ",
-          "en": "Pâté & vegetables"
-        },
-        "price": 1.25,
-        "available": true
-      },
-      {
-        "id": "beef-fish-vegetables",
-        "name": {
-          "km": "សាច់គោប្រហិតត្រី បន្លែ",
-          "en": "Beef, fish & vegetables"
-        },
-        "price": 1.63,
-        "available": true
-      },
-      {
-        "id": "beef-pate-vegetables",
-        "name": {
-          "km": "សាច់គោប៉ាតេបន្លែ",
-          "en": "Beef, pâté & vegetables"
-        },
-        "price": 1.75,
-        "available": true
-      },
-      {
-        "id": "fish-pate-vegetables",
-        "name": {
-          "km": "ប្រហិតប៉ាតេបន្លែ",
-          "en": "Fish, pâté & vegetables"
-        },
-        "price": 1.75,
-        "available": true
-      },
-      {
-        "id": "beef-pate-fish-vegetables",
-        "name": {
-          "km": "សាច់គោប៉ាតេប្រហិត្រីបន្លែ",
-          "en": "Beef, pâté, fish & vegetables"
-        },
-        "price": 1.88,
-        "available": true
-      }
-    ],
-    "flags": {
-      "available": true,
-      "recommended": true,
-      "popular": true,
-      "new": true,
-      "vegetarian": false,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [
-      "fish",
-      "egg",
-      "soy"
-    ],
-    "sortOrder": 240,
     "updatedAt": "2026-08-15"
   },
   {

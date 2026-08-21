@@ -460,23 +460,23 @@ assert.equal(
 );
 assert.equal(
   await evaluate(`document.querySelectorAll(".menu-card").length`),
-  57,
+  56,
   "Menu navigation should exit Favorites mode and restore all dishes"
 );
 
-await evaluate(`document.querySelector('[data-menu-card="lot-cha-special"] .menu-card__media img').click()`);
+await evaluate(`document.querySelector('[data-menu-card="lot-cha-beef-egg-chive-cake"] .menu-card__media img').click()`);
 await delay(100);
 assert.equal(await evaluate(`document.querySelector("#detail-dialog").open`), true, "clicking the card image should open item details");
 assert.ok(await evaluate(`document.querySelector("#detail-total").textContent.length`) > 0, "detail total should render");
 await evaluate(`document.querySelector("#detail-dialog [data-close-dialog]").click()`);
 
-await evaluate(`document.querySelector('[data-menu-card="lot-cha-special"] .menu-card__open').focus()`);
+await evaluate(`document.querySelector('[data-menu-card="lot-cha-beef-egg-chive-cake"] .menu-card__open').focus()`);
 await pressKey("Enter", "Enter", 13);
 await delay(100);
 assert.equal(await evaluate(`document.querySelector("#detail-dialog").open`), true, "Enter on an item name should open details");
 await evaluate(`document.querySelector("#detail-dialog [data-close-dialog]").click()`);
 
-await evaluate(`document.querySelector('[data-menu-card="lot-cha-special"] .menu-card__open').focus()`);
+await evaluate(`document.querySelector('[data-menu-card="lot-cha-beef-egg-chive-cake"] .menu-card__open').focus()`);
 await pressKey(" ", "Space", 32);
 await delay(100);
 assert.equal(await evaluate(`document.querySelector("#detail-dialog").open`), true, "Space on an item name should open details");

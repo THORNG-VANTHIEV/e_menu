@@ -258,15 +258,47 @@ function renderBusiness(state) {
       label: i18n.t("facebook"),
       icon: "bi-facebook",
       network: true
-    },
-    {
-      value: business.contact?.mapUrl,
-      href: safeExternalUrl(business.contact?.mapUrl, ["https:"]),
-      label: i18n.t("map"),
-      icon: "bi-geo-alt",
-      network: true
     }
   ];
+
+  if (Array.isArray(business.contact?.locations) && business.contact.locations.length > 0) {
+    business.contact.locations.forEach((loc, index) => {
+      if (loc?.url) {
+        contacts.push({
+          value: loc.url,
+          href: safeExternalUrl(loc.url, ["https:"]),
+          label: loc.name ? i18n.localize(loc.name) : (i18n.t(`location${index + 1}`) || `${i18n.t("location")} ${index + 1}`),
+          icon: loc.icon || "bi-geo-alt",
+          network: true
+        });
+      }
+    });
+  } else {
+    const mapUrl1 = business.contact?.mapUrl || business.contact?.mapUrl1;
+    const mapUrl2 = business.contact?.mapUrl2;
+    const hasMultipleLocations = Boolean(mapUrl1 && mapUrl2);
+
+    if (mapUrl1) {
+      contacts.push({
+        value: mapUrl1,
+        href: safeExternalUrl(mapUrl1, ["https:"]),
+        label: hasMultipleLocations ? i18n.t("location1") : i18n.t("map"),
+        icon: "bi-geo-alt",
+        network: true
+      });
+    }
+
+    if (mapUrl2) {
+      contacts.push({
+        value: mapUrl2,
+        href: safeExternalUrl(mapUrl2, ["https:"]),
+        label: i18n.t("location2"),
+        icon: "bi-geo-alt",
+        network: true
+      });
+    }
+  }
+
   contacts.filter((contact) => contact.value && contact.href).forEach((contact) => {
     const link = element("a", {
       className: `contact-action${contact.network && !network.online ? " is-network-disabled" : ""}`,

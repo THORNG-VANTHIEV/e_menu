@@ -6,8 +6,8 @@
     "en": "LOTCHA SIEMREAP 1991"
   },
   "tagline": {
-    "km": "មរតកសៀមរាប",
-    "en": "MORODOK SIEMREAP"
+    "km": "លតឆាចម្អិនដោយបេះដូង",
+    "en": "Lotcha made with heart"
   },
   "about": {
     "km": "លតឆាសៀមរាប មានភាពល្បីល្បាញផ្នែកលតឆាខ្មែរ ដែលមានរសជាតិឆ្ងាញ់ប្លែក ផ្សំគ្រឿងពីធម្មជាតិ លាយរសជាតិប្រពៃណី។ គ្រប់ចានលតឆា គឺស្រស់ថ្មី រក្សាគុណភាពដើម។",
@@ -25,11 +25,12 @@
     "phone": "017599656",
     "telegramUrl": "https://t.me/Darika_Sun",
     "facebookUrl": "https://www.facebook.com/share/1Vm4Luk2gF/?mibextid=wwXIfr",
-    "mapUrl": "https://maps.app.goo.gl/GV7ez8HF3FEX5tEg8"
+    "mapUrl": "https://maps.app.goo.gl/GV7ez8HF3FEX5tEg8",
+    "mapUrl2": "https://maps.app.goo.gl/61kijARPu4xxq7NW7?g_st=ic"
   },
   "address": {
-    "km": "ផ្លូវវត្តបូព៌ ក្រុងសៀមរាប ប្រទេសកម្ពុជា",
-    "en": "Wat Bo Road, Siem Reap, Cambodia"
+    "km": "សាខាទី១៖ ស្ទឹងថ្មី • សាខាទី២៖ ផ្លូវវត្តបូព៌ ក្រុងសៀមរាប",
+    "en": "Branch 1: Steung Thmei • Branch 2: Wat Bo Road, Siem Reap"
   },
   "openingHours": [
     {"day": "monday", "closed": false, "open": "07:30", "close": "21:00"},
