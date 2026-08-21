@@ -4281,7 +4281,7 @@
     "addOns": [],
     "flags": {
       "available": true,
-      "recommended": true,
+      "recommended": false,
       "popular": true,
       "new": false,
       "vegetarian": true,
@@ -4328,7 +4328,7 @@
     "addOns": [],
     "flags": {
       "available": true,
-      "recommended": true,
+      "recommended": false,
       "popular": true,
       "new": false,
       "vegetarian": true,
@@ -4941,7 +4941,7 @@
     ],
     "flags": {
       "available": true,
-      "recommended": true,
+      "recommended": false,
       "popular": true,
       "new": true,
       "vegetarian": true,
@@ -5116,7 +5116,7 @@
     ],
     "flags": {
       "available": true,
-      "recommended": true,
+      "recommended": false,
       "popular": true,
       "new": true,
       "vegetarian": false,
@@ -5645,7 +5645,7 @@
     ],
     "flags": {
       "available": true,
-      "recommended": true,
+      "recommended": false,
       "popular": true,
       "new": true,
       "vegetarian": false,
@@ -5913,7 +5913,7 @@
     "addOns": [],
     "flags": {
       "available": true,
-      "recommended": true,
+      "recommended": false,
       "popular": true,
       "new": false,
       "vegetarian": false,
@@ -6198,7 +6198,7 @@
     "addOns": [],
     "flags": {
       "available": true,
-      "recommended": true,
+      "recommended": false,
       "popular": true,
       "new": false,
       "vegetarian": false,
@@ -6246,7 +6246,7 @@
     "addOns": [],
     "flags": {
       "available": true,
-      "recommended": true,
+      "recommended": false,
       "popular": true,
       "new": false,
       "vegetarian": true,
@@ -6291,7 +6291,7 @@
     "addOns": [],
     "flags": {
       "available": true,
-      "recommended": true,
+      "recommended": false,
       "popular": true,
       "new": false,
       "vegetarian": true,
