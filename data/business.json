@@ -18,7 +18,8 @@
   "heroSlides": [
     "./assets/images/business/cover.webp",
     "./assets/images/business/cover-2.webp",
-    "./assets/images/business/cover-3.webp"
+    "./assets/images/business/cover-3.webp",
+    "./assets/images/business/cover-4.webp"
   ],
   "heroSlideIntervalMs": 5000,
   "contact": {

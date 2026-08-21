@@ -50,6 +50,7 @@ self.PRECACHE_URLS = [
   "./assets/images/business/cover.webp",
   "./assets/images/business/cover-2.webp",
   "./assets/images/business/cover-3.webp",
+  "./assets/images/business/cover-4.webp",
   "./assets/images/business/og-cover.webp",
   "./assets/images/menu/corner-fried-chive-cake.webp",
   "./assets/images/menu/round-fried-chive-cake.webp",
