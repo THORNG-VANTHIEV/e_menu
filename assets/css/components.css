@@ -1941,15 +1941,15 @@ html[lang="km"] .welcome-screen__title {
    Recommended For You Section
    ========================================================================== */
 .recommended-section {
-  padding-top: 1.75rem;
-  padding-bottom: 1.25rem;
+  padding-top: 1.5rem;
+  padding-bottom: 0.25rem;
 }
 
 .recommended-carousel {
   display: flex;
   gap: 0.95rem;
   overflow-x: auto;
-  padding: 0.5rem 0.25rem 1rem;
+  padding: 0.35rem 0.25rem 0.65rem;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;

@@ -289,7 +289,7 @@ html[lang="km"] #hero-title {
 .menu-toolbar {
   position: relative;
   z-index: 20;
-  padding-top: clamp(3.5rem, 7vw, 6rem);
+  padding-top: clamp(0.75rem, 2vw, 1.75rem);
   background: var(--color-bg);
 }
 
