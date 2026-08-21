@@ -2,7 +2,10 @@
   {
     "id": "lot-cha",
     "slug": "lot-cha",
-    "name": {"km": "លតឆា", "en": "Lot Cha"},
+    "name": {
+      "km": "លតឆា",
+      "en": "Lot Cha"
+    },
     "icon": "bi-fire",
     "image": "./assets/images/categories/lot-cha.webp",
     "sortOrder": 10,
@@ -11,27 +14,36 @@
   {
     "id": "chive-cake",
     "slug": "chive-cake",
-    "name": {"km": "នំគូឆាយ", "en": "Chive Cakes"},
+    "name": {
+      "km": "នំគូឆាយ",
+      "en": "Chive Cakes"
+    },
     "icon": "bi-pie-chart",
     "image": "./assets/images/categories/chive-cake.webp",
     "sortOrder": 20,
     "active": true
   },
   {
-    "id": "drinks",
-    "slug": "drinks",
-    "name": {"km": "ភេសជ្ជៈ", "en": "Drinks"},
-    "icon": "bi-cup-straw",
-    "image": "./assets/images/categories/drinks.webp",
+    "id": "add-ons",
+    "slug": "add-ons",
+    "name": {
+      "km": "បន្ថែម",
+      "en": "Add-ons"
+    },
+    "icon": "bi-plus-circle",
+    "image": "./assets/images/placeholders/menu-placeholder.svg",
     "sortOrder": 30,
     "active": true
   },
   {
-    "id": "add-ons",
-    "slug": "add-ons",
-    "name": {"km": "បន្ថែម", "en": "Add-ons"},
-    "icon": "bi-plus-circle",
-    "image": "./assets/images/placeholders/menu-placeholder.svg",
+    "id": "drinks",
+    "slug": "drinks",
+    "name": {
+      "km": "ភេសជ្ជៈ",
+      "en": "Drinks"
+    },
+    "icon": "bi-cup-straw",
+    "image": "./assets/images/categories/drinks.webp",
     "sortOrder": 40,
     "active": true
   }

@@ -5076,591 +5076,6 @@
     "updatedAt": "2026-08-15"
   },
   {
-    "id": "ripe-tamarind-juice",
-    "sku": "DRINK-001",
-    "categoryId": "drinks",
-    "name": {
-      "km": "ទឹកអំពិលទុំ",
-      "en": "Ripe Tamarind Juice"
-    },
-    "description": {
-      "km": "ទឹកអំពិលទុំរសជាតិជូរអែមត្រជាក់ស្រស់ស្រាយ បំបាត់ការស្រេកទឹក",
-      "en": "Refreshing sweet and sour ripe tamarind juice served over ice"
-    },
-    "ingredients": {
-      "km": "អំពិលទុំ ស្ករត្នោត ទឹកកក",
-      "en": "Ripe tamarind, palm sugar, ice"
-    },
-    "keywords": [
-      "drink",
-      "juice",
-      "tamarind",
-      "ទឹកអំពិលទុំ",
-      "ភេសជ្ជៈ",
-      "អំពិល"
-    ],
-    "image": "./assets/images/menu/ripe-tamarind-juice.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 1.5
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": true,
-      "popular": true,
-      "new": true,
-      "vegetarian": true,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [],
-    "sortOrder": 300,
-    "updatedAt": "2026-08-15"
-  },
-  {
-    "id": "admin-coffee",
-    "sku": "DRINK-002",
-    "categoryId": "drinks",
-    "name": {
-      "km": "អេតមីនកាហ្វេ",
-      "en": "Admin Coffee"
-    },
-    "description": {
-      "km": "កាហ្វេទឹកដោះគោរូបមន្តពិសេសប្រចាំហាង ឈ្ងុយដិត ផ្អែមមុត ត្រជាក់ចិត្ត",
-      "en": "Signature house iced coffee with rich condensed milk"
-    },
-    "ingredients": {
-      "km": "កាហ្វេ ទឹកដោះគោខាប់ ទឹកកក",
-      "en": "Coffee, condensed milk, ice"
-    },
-    "keywords": [
-      "drink",
-      "coffee",
-      "iced coffee",
-      "អេតមីនកាហ្វេ",
-      "កាហ្វេ",
-      "កាហ្វេទឹកដោះគោ"
-    ],
-    "image": "./assets/images/menu/admin-coffee.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 0.88
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": true,
-      "popular": true,
-      "new": true,
-      "vegetarian": true,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [
-      "milk"
-    ],
-    "sortOrder": 310,
-    "updatedAt": "2026-08-15"
-  },
-  {
-    "id": "black-coffee",
-    "sku": "DRINK-003",
-    "categoryId": "drinks",
-    "name": {
-      "km": "កាហ្វេខ្មៅ",
-      "en": "Black Coffee"
-    },
-    "description": {
-      "km": "កាហ្វេខ្មៅសុទ្ធ ឈ្ងុយក្រអូបខ្លាំង រសជាតិដិតបែបប្រពៃណី",
-      "en": "Traditional bold iced black coffee"
-    },
-    "ingredients": {
-      "km": "កាហ្វេ ស្ករ ទឹកកក",
-      "en": "Coffee, sugar, ice"
-    },
-    "keywords": [
-      "drink",
-      "black coffee",
-      "coffee",
-      "កាហ្វេខ្មៅ",
-      "កាហ្វេ"
-    ],
-    "image": "./assets/images/menu/black-coffee.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 0.88
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": false,
-      "popular": true,
-      "new": false,
-      "vegetarian": true,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [],
-    "sortOrder": 320,
-    "updatedAt": "2026-08-15"
-  },
-  {
-    "id": "white-soy-milk",
-    "sku": "DRINK-006",
-    "categoryId": "drinks",
-    "name": {
-      "km": "ទឹកសណ្តែកស",
-      "en": "White Soy Milk"
-    },
-    "description": {
-      "km": "ទឹកសណ្តែកសៀងស្រស់ ឈ្ងុយឆ្ងាញ់ ផ្អែមល្មម បំប៉នសុខភាព",
-      "en": "Fresh organic white soy milk, smooth and nourishing"
-    },
-    "ingredients": {
-      "km": "សណ្តែកសៀង ទឹក ស្ករ",
-      "en": "Soybeans, water, sugar"
-    },
-    "keywords": [
-      "soy milk",
-      "white soy milk",
-      "drink",
-      "ទឹកសណ្តែក",
-      "ទឹកសណ្តែកស"
-    ],
-    "image": "./assets/images/menu/white-soy-milk.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 0.75
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": false,
-      "popular": true,
-      "new": false,
-      "vegetarian": true,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [
-      "soy"
-    ],
-    "sortOrder": 330,
-    "updatedAt": "2026-08-15"
-  },
-  {
-    "id": "green-soy-milk",
-    "sku": "DRINK-007",
-    "categoryId": "drinks",
-    "name": {
-      "km": "ទឹកសណ្តែកខៀវ",
-      "en": "Green Soy Milk"
-    },
-    "description": {
-      "km": "ទឹកសណ្តែកសៀងក្លិនស្លឹកតើយ ឈ្ងុយត្រជាក់ចិត្ត រសជាតិប្លែកឆ្ងាញ់",
-      "en": "Fresh green pandan-infused soy milk served chilled"
-    },
-    "ingredients": {
-      "km": "សណ្តែកសៀង ស្លឹកតើយ ទឹក ស្ករ",
-      "en": "Soybeans, pandan leaf, water, sugar"
-    },
-    "keywords": [
-      "soy milk",
-      "green soy milk",
-      "pandan",
-      "drink",
-      "ទឹកសណ្តែកខៀវ",
-      "ស្លឹកតើយ"
-    ],
-    "image": "./assets/images/menu/green-soy-milk.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 0.75
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": false,
-      "popular": true,
-      "new": false,
-      "vegetarian": true,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [
-      "soy"
-    ],
-    "sortOrder": 340,
-    "updatedAt": "2026-08-15"
-  },
-  {
-    "id": "coca-cola",
-    "sku": "DRINK-008",
-    "categoryId": "drinks",
-    "name": {
-      "km": "កូកាកូឡា",
-      "en": "Coca-Cola"
-    },
-    "description": {
-      "km": "កូកាកូឡាកំប៉ុង ត្រជាក់ស្រស់ស្រាយជាមួយទឹកកក",
-      "en": "Classic chilled Coca-Cola can served with ice"
-    },
-    "ingredients": {
-      "km": "កូកាកូឡា ទឹកកក",
-      "en": "Coca-Cola, ice"
-    },
-    "keywords": [
-      "coke",
-      "coca cola",
-      "soda",
-      "drink",
-      "កូកា",
-      "កូកាកូឡា"
-    ],
-    "image": "./assets/images/menu/coca-cola.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 0.75
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": false,
-      "popular": true,
-      "new": false,
-      "vegetarian": true,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [],
-    "sortOrder": 350,
-    "updatedAt": "2026-08-15"
-  },
-  {
-    "id": "coca-cola-zero",
-    "sku": "DRINK-009",
-    "categoryId": "drinks",
-    "name": {
-      "km": "កូកាកូឡា សេរ៉ូ",
-      "en": "Coca-Cola Zero"
-    },
-    "description": {
-      "km": "កូកាកូឡាគ្មានជាតិស្ករ រសជាតិដដែល ត្រជាក់ស្រស់ស្រាយ",
-      "en": "Zero sugar Coca-Cola can served with ice"
-    },
-    "ingredients": {
-      "km": "កូកាកូឡាសេរ៉ូ ទឹកកក",
-      "en": "Coca-Cola Zero, ice"
-    },
-    "keywords": [
-      "coke zero",
-      "coca cola zero",
-      "diet coke",
-      "soda",
-      "drink",
-      "កូកាសេរ៉ូ"
-    ],
-    "image": "./assets/images/menu/coca-cola-zero.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 0.75
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": false,
-      "popular": true,
-      "new": false,
-      "vegetarian": true,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [],
-    "sortOrder": 360,
-    "updatedAt": "2026-08-15"
-  },
-  {
-    "id": "sprite",
-    "sku": "DRINK-010",
-    "categoryId": "drinks",
-    "name": {
-      "km": "ស្ព្រៃ",
-      "en": "Sprite"
-    },
-    "description": {
-      "km": "ស្ព្រៃកំប៉ុង ក្លិនក្រូចឆ្មារ ត្រជាក់ស្រស់ស្រាយ",
-      "en": "Refreshing lemon-lime flavored Sprite can served with ice"
-    },
-    "ingredients": {
-      "km": "ស្ព្រៃ ទឹកកក",
-      "en": "Sprite, ice"
-    },
-    "keywords": [
-      "sprite",
-      "soda",
-      "lemon lime",
-      "drink",
-      "ស្ព្រៃ"
-    ],
-    "image": "./assets/images/menu/sprite.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 0.75
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": false,
-      "popular": true,
-      "new": false,
-      "vegetarian": true,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [],
-    "sortOrder": 370,
-    "updatedAt": "2026-08-15"
-  },
-  {
-    "id": "fanta",
-    "sku": "DRINK-011",
-    "categoryId": "drinks",
-    "name": {
-      "km": "ហ្វាន់តា",
-      "en": "Fanta Orange"
-    },
-    "description": {
-      "km": "ហ្វាន់តាក្លិនក្រូច ផ្អែមឆ្ងាញ់ ត្រជាក់ស្រស់ស្រាយ",
-      "en": "Crisp and bubbly Fanta orange soda served with ice"
-    },
-    "ingredients": {
-      "km": "ហ្វាន់តា ទឹកកក",
-      "en": "Fanta orange, ice"
-    },
-    "keywords": [
-      "fanta",
-      "orange soda",
-      "soda",
-      "drink",
-      "ហ្វាន់តា"
-    ],
-    "image": "./assets/images/menu/fanta.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 0.75
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": false,
-      "popular": true,
-      "new": false,
-      "vegetarian": true,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [],
-    "sortOrder": 380,
-    "updatedAt": "2026-08-15"
-  },
-  {
-    "id": "samurai-strawberry",
-    "sku": "DRINK-012",
-    "categoryId": "drinks",
-    "name": {
-      "km": "សាំម៉ូរៃ",
-      "en": "Samurai Strawberry"
-    },
-    "description": {
-      "km": "ភេសជ្ជៈប៉ូវកម្លាំងសាំម៉ូរៃ រសជាតិស្ត្រប៊ែរី ផ្អែមឈ្ងុយ បង្កើនថាមពល",
-      "en": "Samurai strawberry flavored energy drink served over ice"
-    },
-    "ingredients": {
-      "km": "សាំម៉ូរៃស្ត្រប៊ែរី ទឹកកក",
-      "en": "Samurai strawberry, ice"
-    },
-    "keywords": [
-      "samurai",
-      "strawberry",
-      "energy drink",
-      "drink",
-      "សាំម៉ូរៃ",
-      "ស្ត្រប៊ែរី"
-    ],
-    "image": "./assets/images/menu/samurai-strawberry.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 0.75
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": false,
-      "popular": true,
-      "new": false,
-      "vegetarian": true,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [],
-    "sortOrder": 390,
-    "updatedAt": "2026-08-15"
-  },
-  {
-    "id": "schweppes-soda-water",
-    "sku": "DRINK-013",
-    "categoryId": "drinks",
-    "name": {
-      "km": "សូដា",
-      "en": "Schweppes Soda Water"
-    },
-    "description": {
-      "km": "ទឹកសូដាស្វេបស៍ ហ្គាសខ្លាំង ត្រជាក់ស្រស់ស្រាយ",
-      "en": "Crisp and bubbly Schweppes soda water served over ice"
-    },
-    "ingredients": {
-      "km": "ទឹកសូដា ទឹកកក",
-      "en": "Soda water, ice"
-    },
-    "keywords": [
-      "soda",
-      "schweppes",
-      "soda water",
-      "drink",
-      "សូដា"
-    ],
-    "image": "./assets/images/menu/schweppes-soda-water.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 0.75
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": false,
-      "popular": true,
-      "new": false,
-      "vegetarian": true,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [],
-    "sortOrder": 400,
-    "updatedAt": "2026-08-15"
-  },
-  {
-    "id": "mineral-water-1500ml",
-    "sku": "DRINK-005",
-    "categoryId": "drinks",
-    "name": {
-      "km": "ទឹកសុទ្ធ 1.5L",
-      "en": "Mineral Water 1.5L"
-    },
-    "description": {
-      "km": "ទឹកបរិសុទ្ធធម្មជាតិដបធំ 1.5L សម្រាប់ញ៉ាំជុំគ្នា",
-      "en": "Large 1.5L bottle of pure natural mineral water"
-    },
-    "ingredients": {
-      "km": "ទឹកបរិសុទ្ធ",
-      "en": "Natural mineral water"
-    },
-    "keywords": [
-      "water",
-      "large water",
-      "mineral water",
-      "drink",
-      "ទឹកសុទ្ធ",
-      "ទឹកធំ"
-    ],
-    "image": "./assets/images/menu/mineral-water-1500ml.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 0.63
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": false,
-      "popular": true,
-      "new": false,
-      "vegetarian": true,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [],
-    "sortOrder": 410,
-    "updatedAt": "2026-08-15"
-  },
-  {
-    "id": "mineral-water-500ml",
-    "sku": "DRINK-004",
-    "categoryId": "drinks",
-    "name": {
-      "km": "ទឹកសុទ្ធ 500ml",
-      "en": "Mineral Water 500ml"
-    },
-    "description": {
-      "km": "ទឹកបរិសុទ្ធធម្មជាតិដបតូច 500ml ត្រជាក់ស្រស់ស្រាយ",
-      "en": "Chilled pure natural mineral water 500ml"
-    },
-    "ingredients": {
-      "km": "ទឹកបរិសុទ្ធ",
-      "en": "Natural mineral water"
-    },
-    "keywords": [
-      "water",
-      "mineral water",
-      "drink",
-      "ទឹកសុទ្ធ",
-      "ទឹក"
-    ],
-    "image": "./assets/images/menu/mineral-water-500ml.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 0.25
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": false,
-      "popular": true,
-      "new": false,
-      "vegetarian": true,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [],
-    "sortOrder": 420,
-    "updatedAt": "2026-08-15"
-  },
-  {
     "id": "addon-beef-pate-fish-vegetables",
     "sku": "ADDON-012",
     "categoryId": "add-ons",
@@ -5706,7 +5121,7 @@
       "fish",
       "soy"
     ],
-    "sortOrder": 500,
+    "sortOrder": 300,
     "updatedAt": "2026-08-16"
   },
   {
@@ -5753,7 +5168,7 @@
     "allergens": [
       "soy"
     ],
-    "sortOrder": 510,
+    "sortOrder": 310,
     "updatedAt": "2026-08-16"
   },
   {
@@ -5801,7 +5216,7 @@
       "fish",
       "soy"
     ],
-    "sortOrder": 520,
+    "sortOrder": 320,
     "updatedAt": "2026-08-16"
   },
   {
@@ -5849,7 +5264,7 @@
       "fish",
       "soy"
     ],
-    "sortOrder": 530,
+    "sortOrder": 330,
     "updatedAt": "2026-08-16"
   },
   {
@@ -5896,7 +5311,7 @@
     "allergens": [
       "soy"
     ],
-    "sortOrder": 540,
+    "sortOrder": 340,
     "updatedAt": "2026-08-16"
   },
   {
@@ -5943,7 +5358,7 @@
     "allergens": [
       "soy"
     ],
-    "sortOrder": 550,
+    "sortOrder": 350,
     "updatedAt": "2026-08-16"
   },
   {
@@ -5990,7 +5405,7 @@
       "fish",
       "soy"
     ],
-    "sortOrder": 560,
+    "sortOrder": 360,
     "updatedAt": "2026-08-16"
   },
   {
@@ -6033,7 +5448,7 @@
     },
     "spicyLevel": 0,
     "allergens": [],
-    "sortOrder": 570,
+    "sortOrder": 370,
     "updatedAt": "2026-08-16"
   },
   {
@@ -6077,7 +5492,7 @@
     },
     "spicyLevel": 0,
     "allergens": [],
-    "sortOrder": 580,
+    "sortOrder": 380,
     "updatedAt": "2026-08-16"
   },
   {
@@ -6121,7 +5536,7 @@
     },
     "spicyLevel": 0,
     "allergens": [],
-    "sortOrder": 590,
+    "sortOrder": 390,
     "updatedAt": "2026-08-16"
   },
   {
@@ -6166,7 +5581,7 @@
     "allergens": [
       "soy"
     ],
-    "sortOrder": 600,
+    "sortOrder": 400,
     "updatedAt": "2026-08-16"
   },
   {
@@ -6213,7 +5628,7 @@
     "allergens": [
       "egg"
     ],
-    "sortOrder": 610,
+    "sortOrder": 410,
     "updatedAt": "2026-08-16"
   },
   {
@@ -6256,7 +5671,7 @@
     },
     "spicyLevel": 0,
     "allergens": [],
-    "sortOrder": 620,
+    "sortOrder": 420,
     "updatedAt": "2026-08-16"
   },
   {
@@ -6299,7 +5714,592 @@
     },
     "spicyLevel": 0,
     "allergens": [],
-    "sortOrder": 630,
+    "sortOrder": 430,
     "updatedAt": "2026-08-16"
+  },
+  {
+    "id": "ripe-tamarind-juice",
+    "sku": "DRINK-001",
+    "categoryId": "drinks",
+    "name": {
+      "km": "ទឹកអំពិលទុំ",
+      "en": "Ripe Tamarind Juice"
+    },
+    "description": {
+      "km": "ទឹកអំពិលទុំរសជាតិជូរអែមត្រជាក់ស្រស់ស្រាយ បំបាត់ការស្រេកទឹក",
+      "en": "Refreshing sweet and sour ripe tamarind juice served over ice"
+    },
+    "ingredients": {
+      "km": "អំពិលទុំ ស្ករត្នោត ទឹកកក",
+      "en": "Ripe tamarind, palm sugar, ice"
+    },
+    "keywords": [
+      "drink",
+      "juice",
+      "tamarind",
+      "ទឹកអំពិលទុំ",
+      "ភេសជ្ជៈ",
+      "អំពិល"
+    ],
+    "image": "./assets/images/menu/ripe-tamarind-juice.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 1.5
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": true,
+      "popular": true,
+      "new": true,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 500,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "admin-coffee",
+    "sku": "DRINK-002",
+    "categoryId": "drinks",
+    "name": {
+      "km": "អេតមីនកាហ្វេ",
+      "en": "Admin Coffee"
+    },
+    "description": {
+      "km": "កាហ្វេទឹកដោះគោរូបមន្តពិសេសប្រចាំហាង ឈ្ងុយដិត ផ្អែមមុត ត្រជាក់ចិត្ត",
+      "en": "Signature house iced coffee with rich condensed milk"
+    },
+    "ingredients": {
+      "km": "កាហ្វេ ទឹកដោះគោខាប់ ទឹកកក",
+      "en": "Coffee, condensed milk, ice"
+    },
+    "keywords": [
+      "drink",
+      "coffee",
+      "iced coffee",
+      "អេតមីនកាហ្វេ",
+      "កាហ្វេ",
+      "កាហ្វេទឹកដោះគោ"
+    ],
+    "image": "./assets/images/menu/admin-coffee.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 0.88
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": true,
+      "popular": true,
+      "new": true,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [
+      "milk"
+    ],
+    "sortOrder": 510,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "black-coffee",
+    "sku": "DRINK-003",
+    "categoryId": "drinks",
+    "name": {
+      "km": "កាហ្វេខ្មៅ",
+      "en": "Black Coffee"
+    },
+    "description": {
+      "km": "កាហ្វេខ្មៅសុទ្ធ ឈ្ងុយក្រអូបខ្លាំង រសជាតិដិតបែបប្រពៃណី",
+      "en": "Traditional bold iced black coffee"
+    },
+    "ingredients": {
+      "km": "កាហ្វេ ស្ករ ទឹកកក",
+      "en": "Coffee, sugar, ice"
+    },
+    "keywords": [
+      "drink",
+      "black coffee",
+      "coffee",
+      "កាហ្វេខ្មៅ",
+      "កាហ្វេ"
+    ],
+    "image": "./assets/images/menu/black-coffee.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 0.88
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": false,
+      "popular": true,
+      "new": false,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 520,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "white-soy-milk",
+    "sku": "DRINK-006",
+    "categoryId": "drinks",
+    "name": {
+      "km": "ទឹកសណ្តែកស",
+      "en": "White Soy Milk"
+    },
+    "description": {
+      "km": "ទឹកសណ្តែកសៀងស្រស់ ឈ្ងុយឆ្ងាញ់ ផ្អែមល្មម បំប៉នសុខភាព",
+      "en": "Fresh organic white soy milk, smooth and nourishing"
+    },
+    "ingredients": {
+      "km": "សណ្តែកសៀង ទឹក ស្ករ",
+      "en": "Soybeans, water, sugar"
+    },
+    "keywords": [
+      "soy milk",
+      "white soy milk",
+      "drink",
+      "ទឹកសណ្តែក",
+      "ទឹកសណ្តែកស"
+    ],
+    "image": "./assets/images/menu/white-soy-milk.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 0.75
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": false,
+      "popular": true,
+      "new": false,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [
+      "soy"
+    ],
+    "sortOrder": 530,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "green-soy-milk",
+    "sku": "DRINK-007",
+    "categoryId": "drinks",
+    "name": {
+      "km": "ទឹកសណ្តែកខៀវ",
+      "en": "Green Soy Milk"
+    },
+    "description": {
+      "km": "ទឹកសណ្តែកសៀងក្លិនស្លឹកតើយ ឈ្ងុយត្រជាក់ចិត្ត រសជាតិប្លែកឆ្ងាញ់",
+      "en": "Fresh green pandan-infused soy milk served chilled"
+    },
+    "ingredients": {
+      "km": "សណ្តែកសៀង ស្លឹកតើយ ទឹក ស្ករ",
+      "en": "Soybeans, pandan leaf, water, sugar"
+    },
+    "keywords": [
+      "soy milk",
+      "green soy milk",
+      "pandan",
+      "drink",
+      "ទឹកសណ្តែកខៀវ",
+      "ស្លឹកតើយ"
+    ],
+    "image": "./assets/images/menu/green-soy-milk.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 0.75
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": false,
+      "popular": true,
+      "new": false,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [
+      "soy"
+    ],
+    "sortOrder": 540,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "coca-cola",
+    "sku": "DRINK-008",
+    "categoryId": "drinks",
+    "name": {
+      "km": "កូកាកូឡា",
+      "en": "Coca-Cola"
+    },
+    "description": {
+      "km": "កូកាកូឡាកំប៉ុង ត្រជាក់ស្រស់ស្រាយជាមួយទឹកកក",
+      "en": "Classic chilled Coca-Cola can served with ice"
+    },
+    "ingredients": {
+      "km": "កូកាកូឡា ទឹកកក",
+      "en": "Coca-Cola, ice"
+    },
+    "keywords": [
+      "coke",
+      "coca cola",
+      "soda",
+      "drink",
+      "កូកា",
+      "កូកាកូឡា"
+    ],
+    "image": "./assets/images/menu/coca-cola.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 0.75
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": false,
+      "popular": true,
+      "new": false,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 550,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "coca-cola-zero",
+    "sku": "DRINK-009",
+    "categoryId": "drinks",
+    "name": {
+      "km": "កូកាកូឡា សេរ៉ូ",
+      "en": "Coca-Cola Zero"
+    },
+    "description": {
+      "km": "កូកាកូឡាគ្មានជាតិស្ករ រសជាតិដដែល ត្រជាក់ស្រស់ស្រាយ",
+      "en": "Zero sugar Coca-Cola can served with ice"
+    },
+    "ingredients": {
+      "km": "កូកាកូឡាសេរ៉ូ ទឹកកក",
+      "en": "Coca-Cola Zero, ice"
+    },
+    "keywords": [
+      "coke zero",
+      "coca cola zero",
+      "diet coke",
+      "soda",
+      "drink",
+      "កូកាសេរ៉ូ"
+    ],
+    "image": "./assets/images/menu/coca-cola-zero.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 0.75
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": false,
+      "popular": true,
+      "new": false,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 560,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "sprite",
+    "sku": "DRINK-010",
+    "categoryId": "drinks",
+    "name": {
+      "km": "ស្ព្រៃ",
+      "en": "Sprite"
+    },
+    "description": {
+      "km": "ស្ព្រៃកំប៉ុង ក្លិនក្រូចឆ្មារ ត្រជាក់ស្រស់ស្រាយ",
+      "en": "Refreshing lemon-lime flavored Sprite can served with ice"
+    },
+    "ingredients": {
+      "km": "ស្ព្រៃ ទឹកកក",
+      "en": "Sprite, ice"
+    },
+    "keywords": [
+      "sprite",
+      "soda",
+      "lemon lime",
+      "drink",
+      "ស្ព្រៃ"
+    ],
+    "image": "./assets/images/menu/sprite.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 0.75
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": false,
+      "popular": true,
+      "new": false,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 570,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "fanta",
+    "sku": "DRINK-011",
+    "categoryId": "drinks",
+    "name": {
+      "km": "ហ្វាន់តា",
+      "en": "Fanta Orange"
+    },
+    "description": {
+      "km": "ហ្វាន់តាក្លិនក្រូច ផ្អែមឆ្ងាញ់ ត្រជាក់ស្រស់ស្រាយ",
+      "en": "Crisp and bubbly Fanta orange soda served with ice"
+    },
+    "ingredients": {
+      "km": "ហ្វាន់តា ទឹកកក",
+      "en": "Fanta orange, ice"
+    },
+    "keywords": [
+      "fanta",
+      "orange soda",
+      "soda",
+      "drink",
+      "ហ្វាន់តា"
+    ],
+    "image": "./assets/images/menu/fanta.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 0.75
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": false,
+      "popular": true,
+      "new": false,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 580,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "samurai-strawberry",
+    "sku": "DRINK-012",
+    "categoryId": "drinks",
+    "name": {
+      "km": "សាំម៉ូរៃ",
+      "en": "Samurai Strawberry"
+    },
+    "description": {
+      "km": "ភេសជ្ជៈប៉ូវកម្លាំងសាំម៉ូរៃ រសជាតិស្ត្រប៊ែរី ផ្អែមឈ្ងុយ បង្កើនថាមពល",
+      "en": "Samurai strawberry flavored energy drink served over ice"
+    },
+    "ingredients": {
+      "km": "សាំម៉ូរៃស្ត្រប៊ែរី ទឹកកក",
+      "en": "Samurai strawberry, ice"
+    },
+    "keywords": [
+      "samurai",
+      "strawberry",
+      "energy drink",
+      "drink",
+      "សាំម៉ូរៃ",
+      "ស្ត្រប៊ែរី"
+    ],
+    "image": "./assets/images/menu/samurai-strawberry.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 0.75
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": false,
+      "popular": true,
+      "new": false,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 590,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "schweppes-soda-water",
+    "sku": "DRINK-013",
+    "categoryId": "drinks",
+    "name": {
+      "km": "សូដា",
+      "en": "Schweppes Soda Water"
+    },
+    "description": {
+      "km": "ទឹកសូដាស្វេបស៍ ហ្គាសខ្លាំង ត្រជាក់ស្រស់ស្រាយ",
+      "en": "Crisp and bubbly Schweppes soda water served over ice"
+    },
+    "ingredients": {
+      "km": "ទឹកសូដា ទឹកកក",
+      "en": "Soda water, ice"
+    },
+    "keywords": [
+      "soda",
+      "schweppes",
+      "soda water",
+      "drink",
+      "សូដា"
+    ],
+    "image": "./assets/images/menu/schweppes-soda-water.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 0.75
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": false,
+      "popular": true,
+      "new": false,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 600,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "mineral-water-1500ml",
+    "sku": "DRINK-005",
+    "categoryId": "drinks",
+    "name": {
+      "km": "ទឹកសុទ្ធ 1.5L",
+      "en": "Mineral Water 1.5L"
+    },
+    "description": {
+      "km": "ទឹកបរិសុទ្ធធម្មជាតិដបធំ 1.5L សម្រាប់ញ៉ាំជុំគ្នា",
+      "en": "Large 1.5L bottle of pure natural mineral water"
+    },
+    "ingredients": {
+      "km": "ទឹកបរិសុទ្ធ",
+      "en": "Natural mineral water"
+    },
+    "keywords": [
+      "water",
+      "large water",
+      "mineral water",
+      "drink",
+      "ទឹកសុទ្ធ",
+      "ទឹកធំ"
+    ],
+    "image": "./assets/images/menu/mineral-water-1500ml.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 0.63
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": false,
+      "popular": true,
+      "new": false,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 610,
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "mineral-water-500ml",
+    "sku": "DRINK-004",
+    "categoryId": "drinks",
+    "name": {
+      "km": "ទឹកសុទ្ធ 500ml",
+      "en": "Mineral Water 500ml"
+    },
+    "description": {
+      "km": "ទឹកបរិសុទ្ធធម្មជាតិដបតូច 500ml ត្រជាក់ស្រស់ស្រាយ",
+      "en": "Chilled pure natural mineral water 500ml"
+    },
+    "ingredients": {
+      "km": "ទឹកបរិសុទ្ធ",
+      "en": "Natural mineral water"
+    },
+    "keywords": [
+      "water",
+      "mineral water",
+      "drink",
+      "ទឹកសុទ្ធ",
+      "ទឹក"
+    ],
+    "image": "./assets/images/menu/mineral-water-500ml.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 0.25
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": false,
+      "popular": true,
+      "new": false,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 620,
+    "updatedAt": "2026-08-15"
   }
 ]
