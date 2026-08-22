@@ -4,9 +4,11 @@ node_modules/
 # OS files
 .DS_Store
 Thumbs.db
+menu_draft.md
 
 # Raw source assets (the app uses optimized assets/images/menu/*.webp)
 data_menu/
+item_menu_draft/
 hero_background*.JPG
 water_dasani*
 

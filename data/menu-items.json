@@ -541,6 +541,182 @@
     "updatedAt": "2026-08-15"
   },
   {
+    "id": "lot-cha-siem-reap",
+    "sku": "LOT-020",
+    "categoryId": "lot-cha",
+    "name": {
+      "km": "លតឆាសៀមរាប",
+      "en": "Lotcha Siemreap"
+    },
+    "description": {
+      "km": "លតឆារសជាតិដើមសៀមរាប ឈ្ងុយឆ្ងាញ់ពិសេស",
+      "en": "Authentic Siem Reap style stir-fried pin noodles"
+    },
+    "ingredients": {
+      "km": "លត សាច់ ពងទា នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, meat, egg, chive cake, bean sprouts, chives"
+    },
+    "keywords": [
+      "lot cha",
+      "siem reap",
+      "siemreap",
+      "lotcha",
+      "លតឆា",
+      "សៀមរាប",
+      "លតឆាសៀមរាប"
+    ],
+    "image": "./assets/images/menu/lot-cha-siem-reap.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 2.625
+    },
+    "variants": [],
+    "addOns": [
+      {
+        "id": "fried-egg",
+        "name": {
+          "km": "ពងទាចៀន",
+          "en": "Fried egg"
+        },
+        "price": 0.25,
+        "available": true
+      },
+      {
+        "id": "chive-cake",
+        "name": {
+          "km": "នំគូឆាយបន្ថែម",
+          "en": "Extra chive cake"
+        },
+        "price": 0.63,
+        "available": true
+      },
+      {
+        "id": "chive-leaves",
+        "name": {
+          "km": "ស្លឹកគូឆាសុទ្ធ",
+          "en": "Leaves of Chive"
+        },
+        "price": 0.25,
+        "available": true
+      },
+      {
+        "id": "bean-sprouts",
+        "name": {
+          "km": "សណ្តែកបណ្តុះ",
+          "en": "Bean sprouts"
+        },
+        "price": 0.25,
+        "available": true
+      },
+      {
+        "id": "mixed-vegetables",
+        "name": {
+          "km": "បន្លែគ្រប់មុខ",
+          "en": "All vegetables"
+        },
+        "price": 0.5,
+        "available": true
+      },
+      {
+        "id": "kale",
+        "name": {
+          "km": "ឃែល",
+          "en": "Kale"
+        },
+        "price": 0.5,
+        "available": true
+      },
+      {
+        "id": "pate-1-slice",
+        "name": {
+          "km": "ប៉ាតេ 1បន្ទះ",
+          "en": "Pâté 1 slice"
+        },
+        "price": 0.5,
+        "available": true
+      },
+      {
+        "id": "beef-vegetables",
+        "name": {
+          "km": "សាច់គោ បន្លែ",
+          "en": "Beef & vegetables"
+        },
+        "price": 1,
+        "available": true
+      },
+      {
+        "id": "fish-ball-vegetables",
+        "name": {
+          "km": "ប្រហិតបន្លែ",
+          "en": "Fish ball & vegetables"
+        },
+        "price": 1,
+        "available": true
+      },
+      {
+        "id": "pate-vegetables",
+        "name": {
+          "km": "ប៉ាតេ បន្លែ",
+          "en": "Pâté & vegetables"
+        },
+        "price": 1.25,
+        "available": true
+      },
+      {
+        "id": "beef-fish-vegetables",
+        "name": {
+          "km": "សាច់គោប្រហិតត្រី បន្លែ",
+          "en": "Beef, fish & vegetables"
+        },
+        "price": 1.375,
+        "available": true
+      },
+      {
+        "id": "beef-pate-vegetables",
+        "name": {
+          "km": "សាច់គោប៉ាតេបន្លែ",
+          "en": "Beef, pâté & vegetables"
+        },
+        "price": 1.75,
+        "available": true
+      },
+      {
+        "id": "fish-pate-vegetables",
+        "name": {
+          "km": "ប្រហិតប៉ាតេបន្លែ",
+          "en": "Fish, pâté & vegetables"
+        },
+        "price": 1.75,
+        "available": true
+      },
+      {
+        "id": "beef-pate-fish-vegetables",
+        "name": {
+          "km": "សាច់គោប៉ាតេប្រហិត្រីបន្លែ",
+          "en": "Beef, pâté, fish & vegetables"
+        },
+        "price": 1.88,
+        "available": true
+      }
+    ],
+    "flags": {
+      "available": true,
+      "recommended": false,
+      "popular": true,
+      "new": true,
+      "vegetarian": false,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [
+      "egg",
+      "soy"
+    ],
+    "sortOrder": 40,
+    "updatedAt": "2026-08-22"
+  },
+  {
     "id": "lot-cha-beef-egg-chive-cake",
     "sku": "LOT-008",
     "categoryId": "lot-cha",
@@ -714,7 +890,7 @@
       "egg",
       "soy"
     ],
-    "sortOrder": 40,
+    "sortOrder": 50,
     "updatedAt": "2026-08-15"
   },
   {
@@ -888,7 +1064,7 @@
     "allergens": [
       "soy"
     ],
-    "sortOrder": 50,
+    "sortOrder": 60,
     "updatedAt": "2026-08-15"
   },
   {
@@ -1065,7 +1241,7 @@
       "egg",
       "soy"
     ],
-    "sortOrder": 60,
+    "sortOrder": 70,
     "updatedAt": "2026-08-15"
   },
   {
@@ -1239,7 +1415,7 @@
     "allergens": [
       "soy"
     ],
-    "sortOrder": 70,
+    "sortOrder": 80,
     "updatedAt": "2026-08-15"
   },
   {
@@ -1414,7 +1590,7 @@
       "fish",
       "soy"
     ],
-    "sortOrder": 80,
+    "sortOrder": 90,
     "updatedAt": "2026-08-15"
   },
   {
@@ -1592,7 +1768,7 @@
       "egg",
       "soy"
     ],
-    "sortOrder": 90,
+    "sortOrder": 100,
     "updatedAt": "2026-08-15"
   },
   {
@@ -1767,7 +1943,7 @@
       "egg",
       "soy"
     ],
-    "sortOrder": 100,
+    "sortOrder": 110,
     "updatedAt": "2026-08-15"
   },
   {
@@ -1942,7 +2118,7 @@
       "egg",
       "soy"
     ],
-    "sortOrder": 110,
+    "sortOrder": 120,
     "updatedAt": "2026-08-15"
   },
   {
@@ -2117,7 +2293,7 @@
       "egg",
       "soy"
     ],
-    "sortOrder": 120,
+    "sortOrder": 130,
     "updatedAt": "2026-08-15"
   },
   {
@@ -2293,7 +2469,7 @@
       "egg",
       "soy"
     ],
-    "sortOrder": 130,
+    "sortOrder": 140,
     "updatedAt": "2026-08-15"
   },
   {
@@ -2465,7 +2641,7 @@
     "allergens": [
       "soy"
     ],
-    "sortOrder": 140,
+    "sortOrder": 150,
     "updatedAt": "2026-08-15"
   },
   {
@@ -2638,7 +2814,7 @@
     "allergens": [
       "soy"
     ],
-    "sortOrder": 150,
+    "sortOrder": 160,
     "updatedAt": "2026-08-15"
   },
   {
@@ -2810,7 +2986,7 @@
     "allergens": [
       "soy"
     ],
-    "sortOrder": 160,
+    "sortOrder": 170,
     "updatedAt": "2026-08-15"
   },
   {
@@ -2984,7 +3160,7 @@
       "fish",
       "soy"
     ],
-    "sortOrder": 170,
+    "sortOrder": 180,
     "updatedAt": "2026-08-15"
   },
   {
@@ -3159,7 +3335,7 @@
       "egg",
       "soy"
     ],
-    "sortOrder": 180,
+    "sortOrder": 190,
     "updatedAt": "2026-08-15"
   },
   {
@@ -3332,7 +3508,7 @@
     "allergens": [
       "soy"
     ],
-    "sortOrder": 190,
+    "sortOrder": 200,
     "updatedAt": "2026-08-15"
   },
   {

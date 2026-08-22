@@ -89,6 +89,7 @@ self.PRECACHE_URLS = [
   "./assets/images/menu/lot-cha-beef-pate-egg.webp",
   "./assets/images/menu/lot-cha-beef-pate-egg-chive-cake.webp",
   "./assets/images/menu/lot-cha-special.webp",
+  "./assets/images/menu/lot-cha-siem-reap.webp",
   "./assets/images/menu/ripe-tamarind-juice.webp",
   "./assets/images/menu/admin-coffee.webp",
   "./assets/images/menu/black-coffee.webp",

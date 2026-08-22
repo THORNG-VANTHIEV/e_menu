@@ -460,7 +460,7 @@ assert.equal(
 );
 assert.equal(
   await evaluate(`document.querySelectorAll(".menu-card").length`),
-  55,
+  56,
   "Menu navigation should exit Favorites mode and restore all dishes"
 );
 
