@@ -5268,53 +5268,6 @@
     "updatedAt": "2026-08-16"
   },
   {
-    "id": "addon-pate-vegetables",
-    "sku": "ADDON-008",
-    "categoryId": "add-ons",
-    "name": {
-      "km": "ប៉ាតេ បន្លែ",
-      "en": "Pâté & Vegetables"
-    },
-    "description": {
-      "km": "ប៉ាតេឈ្ងុយឆ្ងាញ់ ឆាជាមួយបន្លែស្រស់",
-      "en": "Savory pâté served with fresh vegetables"
-    },
-    "ingredients": {
-      "km": "ប៉ាតេ បន្លែ",
-      "en": "Pâté, vegetables"
-    },
-    "keywords": [
-      "addon",
-      "pate",
-      "vegetables",
-      "ប៉ាតេ",
-      "បន្លែ",
-      "បន្ថែម"
-    ],
-    "image": "./assets/images/menu/addon-pate-1-slice.webp",
-    "gallery": [],
-    "basePrice": {
-      "currency": "USD",
-      "amount": 1.25
-    },
-    "variants": [],
-    "addOns": [],
-    "flags": {
-      "available": true,
-      "recommended": false,
-      "popular": true,
-      "new": false,
-      "vegetarian": false,
-      "halal": true
-    },
-    "spicyLevel": 0,
-    "allergens": [
-      "soy"
-    ],
-    "sortOrder": 340,
-    "updatedAt": "2026-08-16"
-  },
-  {
     "id": "addon-beef-vegetables",
     "sku": "ADDON-006",
     "categoryId": "add-ons",
