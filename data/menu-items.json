@@ -702,7 +702,7 @@
     ],
     "flags": {
       "available": true,
-      "recommended": false,
+      "recommended": true,
       "popular": true,
       "new": true,
       "vegetarian": false,
