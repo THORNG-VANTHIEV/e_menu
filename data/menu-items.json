@@ -364,36 +364,36 @@
     "updatedAt": "2026-08-15"
   },
   {
-    "id": "lot-cha-beef-egg-chive-cake",
-    "sku": "LOT-008",
+    "id": "lot-cha-pate-egg-chive-cake",
+    "sku": "LOT-015",
     "categoryId": "lot-cha",
     "name": {
-      "km": "លតឆាសាច់គោពងនំគូឆាយ",
-      "en": "Beef, Egg & Chive Cake Stir-Fried Lot Cha"
+      "km": "លតឆាប៉ាតេពងនំគូឆាយ",
+      "en": "Pâté, Egg & Chive Cake Stir-Fried Lot Cha"
     },
     "description": {
-      "km": "ការរួមបញ្ចូលដ៏ពេញនិយម៖ លតឆាសាច់គោ ពងទាចៀន និងនំគូឆាយចៀនស្រួយ",
-      "en": "Popular combination: Stir-fried pin noodles with beef, fried egg and crispy chive cake"
+      "km": "លតឆាប៉ាតេ ពងទាចៀន និងនំគូឆាយចៀនស្រួយ",
+      "en": "Stir-fried pin noodles with pâté, fried egg and crispy chive cake"
     },
     "ingredients": {
-      "km": "លត សាច់គោ ពងទា នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
-      "en": "Short rice noodles, beef, egg, chive cake, bean sprouts, chives"
+      "km": "លត ប៉ាតេ ពងទា នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, pâté, egg, chive cake, bean sprouts, chives"
     },
     "keywords": [
       "lot cha",
-      "beef",
+      "pate",
       "egg",
       "chive cake",
       "លតឆា",
-      "សាច់គោ",
+      "ប៉ាតេ",
       "ពង",
       "នំគូឆាយ"
     ],
-    "image": "./assets/images/menu/lot-cha-beef-egg-chive-cake.webp",
+    "image": "./assets/images/menu/lot-cha-pate-egg-chive-cake.webp",
     "gallery": [],
     "basePrice": {
       "currency": "USD",
-      "amount": 2.5
+      "amount": 2.625
     },
     "variants": [],
     "addOns": [
@@ -541,32 +541,32 @@
     "updatedAt": "2026-08-15"
   },
   {
-    "id": "lot-cha-pate-egg-chive-cake",
-    "sku": "LOT-015",
+    "id": "lot-cha-beef-egg-chive-cake",
+    "sku": "LOT-008",
     "categoryId": "lot-cha",
     "name": {
-      "km": "លតឆាប៉ាតេពងនំគូឆាយ",
-      "en": "Pâté, Egg & Chive Cake Stir-Fried Lot Cha"
+      "km": "លតឆាសាច់គោពងនំគូឆាយ",
+      "en": "Beef, Egg & Chive Cake Stir-Fried Lot Cha"
     },
     "description": {
-      "km": "លតឆាប៉ាតេ ពងទាចៀន និងនំគូឆាយចៀនស្រួយ",
-      "en": "Stir-fried pin noodles with pâté, fried egg and crispy chive cake"
+      "km": "ការរួមបញ្ចូលដ៏ពេញនិយម៖ លតឆាសាច់គោ ពងទាចៀន និងនំគូឆាយចៀនស្រួយ",
+      "en": "Popular combination: Stir-fried pin noodles with beef, fried egg and crispy chive cake"
     },
     "ingredients": {
-      "km": "លត ប៉ាតេ ពងទា នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
-      "en": "Short rice noodles, pâté, egg, chive cake, bean sprouts, chives"
+      "km": "លត សាច់គោ ពងទា នំគូឆាយ សណ្តែកបណ្តុះ ស្លឹកគូឆាយ",
+      "en": "Short rice noodles, beef, egg, chive cake, bean sprouts, chives"
     },
     "keywords": [
       "lot cha",
-      "pate",
+      "beef",
       "egg",
       "chive cake",
       "លតឆា",
-      "ប៉ាតេ",
+      "សាច់គោ",
       "ពង",
       "នំគូឆាយ"
     ],
-    "image": "./assets/images/menu/lot-cha-pate-egg-chive-cake.webp",
+    "image": "./assets/images/menu/lot-cha-beef-egg-chive-cake.webp",
     "gallery": [],
     "basePrice": {
       "currency": "USD",
