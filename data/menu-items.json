@@ -6388,6 +6388,52 @@
     "updatedAt": "2026-08-15"
   },
   {
+    "id": "iced-tea",
+    "sku": "DRINK-014",
+    "categoryId": "drinks",
+    "name": {
+      "km": "តែទឹកកក",
+      "en": "Ice Tea"
+    },
+    "description": {
+      "km": "តែទឹកកកត្រជាក់ស្រស់ស្រាយ រសជាតិឈ្ងុយឆ្ងាញ់",
+      "en": "Refreshing chilled iced tea"
+    },
+    "ingredients": {
+      "km": "តែ ទឹកកក",
+      "en": "Brewed tea, ice"
+    },
+    "keywords": [
+      "tea",
+      "ice tea",
+      "iced tea",
+      "drink",
+      "តែ",
+      "តែទឹកកក",
+      "ភេសជ្ជៈ"
+    ],
+    "image": "./assets/images/menu/ice-tea.webp",
+    "gallery": [],
+    "basePrice": {
+      "currency": "USD",
+      "amount": 0.375
+    },
+    "variants": [],
+    "addOns": [],
+    "flags": {
+      "available": true,
+      "recommended": false,
+      "popular": true,
+      "new": true,
+      "vegetarian": true,
+      "halal": true
+    },
+    "spicyLevel": 0,
+    "allergens": [],
+    "sortOrder": 620,
+    "updatedAt": "2026-08-22"
+  },
+  {
     "id": "mineral-water-500ml",
     "sku": "DRINK-004",
     "categoryId": "drinks",
@@ -6428,7 +6474,7 @@
     },
     "spicyLevel": 0,
     "allergens": [],
-    "sortOrder": 620,
+    "sortOrder": 630,
     "updatedAt": "2026-08-15"
   }
 ]

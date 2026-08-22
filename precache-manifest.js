@@ -93,6 +93,7 @@ self.PRECACHE_URLS = [
   "./assets/images/menu/ripe-tamarind-juice.webp",
   "./assets/images/menu/admin-coffee.webp",
   "./assets/images/menu/black-coffee.webp",
+  "./assets/images/menu/ice-tea.webp",
   "./assets/images/menu/mineral-water-500ml.webp",
   "./assets/images/menu/mineral-water-1500ml.webp",
   "./assets/images/menu/white-soy-milk.webp",

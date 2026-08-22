@@ -22,7 +22,7 @@ test("sample business, categories, menu and translations satisfy contracts", asy
   assert.equal(typeof business.contact?.mapUrl, "string");
   assert.equal(typeof business.contact?.mapUrl2, "string");
   assert.equal(categories.length, 4);
-  assert.equal(menu.length, 56);
+  assert.equal(menu.length, 57);
   assert.equal(validateTranslations(translations), true);
   assert.equal(typeof translations.km.location1, "string");
   assert.equal(typeof translations.km.location2, "string");
